@@ -14,7 +14,7 @@ permissions:
 # Make prefixes for this repo
 env:
   FILTER_ARGS: --filter-prefix=Daihatsu- --filter-prefix=Toyota- --filter-prefix=Lexus-
-  SIGNAL_PREFIX: LEXUS
+  SIGNAL_PREFIX: DAIHATSU
 
 concurrency:
   group: "data-update"
