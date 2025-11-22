@@ -909,7 +909,7 @@
   ]},
 { "hdr": "7C0", "rax": "7C8", "dbg": true, "cmd": {"21": "21"}, "freq": 1,
   "signals": [
-    {"id": "DAIHATSU_VSS_7C0", "path": "Movement", "fmt": { "len": 8, "max": 255, "unit": "kilometersPerHour" }, "name": "Vehicle speed, 7C0"}
+    {"id": "DAIHATSU_VSS_7C0", "path": "Movement", "fmt": { "len": 8, "max": 255, "unit": "kilometersPerHour" }, "name": "Vehicle speed, 7C0", "suggestedMetric": "speed"}
   ]},
 { "hdr": "7C0", "rax": "7C8", "dbg": true, "cmd": {"21": "23"}, "freq": 1,
   "signals": [
@@ -944,11 +944,11 @@
   ]},
 { "hdr": "7C4", "rax": "7CC", "dbg": true, "cmd": {"21": "21"}, "freq": 1,
   "signals": [
-    {"id": "DAIHATSU_CABIN_T", "path": "Engine", "fmt": { "len": 8, "max": 57.25, "min": -6.5, "mul": 63.75, "div": 255, "add": -6.5, "unit": "celsius" }, "name": "Cabin temperature"}
+    {"id": "DAIHATSU_CABIN_T", "path": "Climate", "fmt": { "len": 8, "max": 57.25, "min": -6.5, "mul": 63.75, "div": 255, "add": -6.5, "unit": "celsius" }, "name": "Cabin temperature"}
   ]},
 { "hdr": "7C4", "rax": "7CC", "dbg": true, "cmd": {"21": "22"}, "freq": 1,
   "signals": [
-    {"id": "DAIHATSU_AAT_V2", "path": "Engine", "fmt": { "len": 8, "max": 65.95, "min": -23.3, "mul": 89.25, "div": 255, "add": -23.3, "unit": "celsius" }, "name": "Ambient air temperature"}
+    {"id": "DAIHATSU_AAT", "path": "Climate", "fmt": { "len": 8, "max": 65.95, "min": -23.3, "mul": 89.25, "div": 255, "add": -23.3, "unit": "celsius" }, "name": "Ambient air temperature"}
   ]},
 { "hdr": "7C4", "rax": "7CC", "dbg": true, "cmd": {"21": "26"}, "freq": 1,
   "signals": [
@@ -1070,7 +1070,7 @@
   ]},
 { "hdr": "7D2", "rax": "7DA", "dbg": true, "cmd": {"22": "1F46"}, "freq": 1,
   "signals": [
-    {"id": "DAIHATSU_AAT", "path": "Engine", "fmt": { "len": 8, "max": 215, "min": -40, "add": -40, "nullmin": -40, "unit": "celsius" }, "name": "Ambient temperature"}
+    {"id": "DAIHATSU_AAT_V2", "path": "Engine", "fmt": { "len": 8, "max": 215, "min": -40, "add": -40, "nullmin": -40, "unit": "celsius" }, "name": "Ambient temperature"}
   ]},
 { "hdr": "7D2", "rax": "7DA", "dbg": true, "cmd": {"22": "1F49"}, "freq": 1,
   "signals": [
@@ -1085,52 +1085,24 @@
     {"id": "DAIHATSU_HVBAT_V", "path": "Battery", "fmt": {"bix": 16, "len": 16, "max": 1023,                   "mul": 156.25, "div": 10000,               "unit": "volts" }, "name": "HV battery voltage"},
     {"id": "DAIHATSU_HVBAT_C", "path": "Battery", "fmt": {"bix": 32, "len": 16, "max": 3276.7, "min": -3276.8,                "div": 10,    "sign": true, "unit": "amps"  }, "name": "HV battery current"}
   ]},
-{ "hdr": "7E0", "dbg": true, "cmd": {"21": "24"}, "freq": 1,
-  "signals": [
-    {"id": "DAIHATSU_COMMUNICATION_WITH_HV",     "path": "Climate", "fmt": {"bix": 2, "len": 1, "max": 1, "unit": "offon"  }, "name": "Communication with HV"},
-    {"id": "DAIHATSU_COMMUNICATION_WITH_BRAKE",  "path": "Climate", "fmt": {"bix": 4, "len": 1, "max": 1, "unit": "offon"  }, "name": "Communication with brake"},
-    {"id": "DAIHATSU_COMM_WITH_AIR_CONDITIONER", "path": "Climate", "fmt": {"bix": 5, "len": 1, "max": 1, "unit": "offon"  }, "name": "Communication with air conditioner"},
-    {"id": "DAIHATSU_COMM_WITH_VALVEMATIC_COMM", "path": "Climate", "fmt": {"bix": 6, "len": 1, "max": 1, "unit": "scalar" }, "name": "Communication with valvematic"}
-  ]},
-{ "hdr": "7E0", "dbg": true, "cmd": {"21": "25"}, "freq": 1,
-  "signals": [
-    {"id": "DAIHATSU_POWER_STEERING_SIGNAL",                   "path": "Control", "fmt": {"bix": 4,  "len": 1, "max": 1, "unit": "scalar" }, "name": "Power steering"},
-    {"id": "DAIHATSU_STOP_LIGHT_SWITCH",                       "path": "Control", "fmt": {"bix": 5,  "len": 1, "max": 1, "unit": "scalar" }, "name": "Stop light"},
-    {"id": "DAIHATSU_CRUISE_CONTROL_LIVE_BRAKE_CANCEL_SWITCH", "path": "Control", "fmt": {"bix": 6,  "len": 1, "max": 1, "unit": "scalar" }, "name": "Cruise control live brake cancel"},
-    {"id": "DAIHATSU_STARTER_SIGNAL",                          "path": "Control", "fmt": {"bix": 11, "len": 1, "max": 1, "unit": "scalar" }, "name": "Starter signal"},
-    {"id": "DAIHATSU_STARTER_CONTROL",                         "path": "Control", "fmt": {"bix": 12, "len": 1, "max": 1, "unit": "scalar" }, "name": "Starter control"},
-    {"id": "DAIHATSU_ELECTRICAL_LOAD_SIGNAL_1",                "path": "Control", "fmt": {"bix": 16, "len": 1, "max": 1, "unit": "scalar" }, "name": "Electrical load signal 1"},
-    {"id": "DAIHATSU_ELECTRICAL_LOAD_SIGNAL_2",                "path": "Control", "fmt": {"bix": 17, "len": 1, "max": 1, "unit": "scalar" }, "name": "Electrical load signal 2"},
-    {"id": "DAIHATSU_SHIFT_SW_STATUS_P_RANGE",                 "path": "Control", "fmt": {"bix": 24, "len": 1, "max": 1, "unit": "scalar" }, "name": "Shift SW status (P range)"},
-    {"id": "DAIHATSU_SHIFT_SW_STATUS_R_RANGE",                 "path": "Control", "fmt": {"bix": 25, "len": 1, "max": 1, "unit": "scalar" }, "name": "Shift SW status (R range)"},
-    {"id": "DAIHATSU_SHIFT_SW_STATUS_N_RANGE",                 "path": "Control", "fmt": {"bix": 26, "len": 1, "max": 1, "unit": "scalar" }, "name": "Shift SW status (N range)"},
-    {"id": "DAIHATSU_SHIFT_SW_STATUS_D_RANGE",                 "path": "Control", "fmt": {"bix": 27, "len": 1, "max": 1, "unit": "scalar" }, "name": "Shift SW status (D range)"},
-    {"id": "DAIHATSU_SPORTS_MODE_SELECTION_SW",                "path": "Control", "fmt": {"bix": 32, "len": 1, "max": 1, "unit": "scalar" }, "name": "Sports mode selection"},
-    {"id": "DAIHATSU_SPORTS_SHIFT_UP_SW",                      "path": "Control", "fmt": {"bix": 33, "len": 1, "max": 1, "unit": "scalar" }, "name": "Sports shift up"},
-    {"id": "DAIHATSU_SPORTS_SHIFT_DOWN_SW",                    "path": "Control", "fmt": {"bix": 34, "len": 1, "max": 1, "unit": "scalar" }, "name": "Sports shift down"},
-    {"id": "DAIHATSU_PATTERN_SWITCH__PWR_M_",                  "path": "Control", "fmt": {"bix": 42, "len": 1, "max": 1, "unit": "scalar" }, "name": "Pattern switch"},
-    {"id": "DAIHATSU_NEUTRAL_POSITION_SW_SIGNAL",              "path": "Control", "fmt": {"bix": 53, "len": 1, "max": 1, "unit": "scalar" }, "name": "Neutral position"},
-    {"id": "DAIHATSU_TC_TERMINAL",                             "path": "Control", "fmt": {"bix": 61, "len": 1, "max": 1, "unit": "scalar" }, "name": "TC"},
-    {"id": "DAIHATSU_A_C_COMPRESSOR",                          "path": "Control", "fmt": {"bix": 64, "len": 1, "max": 1, "unit": "offon"  }, "name": "A/C compressor"}
-  ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"21": "01"}, "freq": 1,
   "signals": [
     {"id": "DAIHATSU_CALCULATED_LOAD_7E0",      "path": "Engine",   "fmt": {            "len": 8,  "max": 100,                "mul": 100, "div": 255,               "unit": "percent"           }, "name": "Calculated load_7e0"},
     {"id": "DAIHATSU_VEHICLE_LOAD",             "path": "Engine",   "fmt": {"bix": 8,   "len": 16, "max": 100,                "mul": 100, "div": 65535,             "unit": "percent"           }, "name": "Vehicle load"},
-    {"id": "DAIHATSU_MAF",                      "path": "Engine",   "fmt": {"bix": 24,  "len": 16, "max": 655.35,                                                   "unit": "gramsPerSecond"    }, "name": "MAF"},
+    {"id": "DAIHATSU_MAF",                      "path": "Engine",   "fmt": {"bix": 24,  "len": 16, "max": 655.35,                                                   "unit": "gramsPerSecond"    }, "name": "Mass air flow",                "suggestedMetric": "massAirFlow"},
     {"id": "DAIHATSU_MAP",                      "path": "Engine",   "fmt": {"bix": 40,  "len": 8,  "max": 255,                                                      "unit": "kilopascal"        }, "name": "MAP"},
     {"id": "DAIHATSU_INTAKE_AIR",               "path": "Engine",   "fmt": {"bix": 48,  "len": 8,  "max": 215,    "min": -40,                           "add": -40, "unit": "celsius"           }, "name": "Intake air"},
     {"id": "DAIHATSU_AMBIENT_T_V2",             "path": "Engine",   "fmt": {"bix": 56,  "len": 8,  "max": 215,    "min": -40,                           "add": -40, "unit": "celsius"           }, "name": "Ambient temperature"},
     {"id": "DAIHATSU_ATMOSPHERE_PRESSURE",      "path": "Engine",   "fmt": {"bix": 64,  "len": 8,  "max": 255,                                                      "unit": "kilopascal"        }, "name": "Atmosphere pressure"},
     {"id": "DAIHATSU_COOLANT_TEMP",             "path": "Engine",   "fmt": {"bix": 72,  "len": 8,  "max": 215,    "min": -40,                                       "unit": "celsius"           }, "name": "Coolant temp"},
     {"id": "DAIHATSU_ENGINE_SPEED",             "path": "Movement", "fmt": {"bix": 80,  "len": 16, "max": 16383,                                                    "unit": "rpm"               }, "name": "Engine speed"},
-    {"id": "DAIHATSU_VEHICLE_SPEED",            "path": "Movement", "fmt": {"bix": 96,  "len": 8,  "max": 255,                                                      "unit": "kilometersPerHour" }, "name": "Vehicle speed"},
+    {"id": "DAIHATSU_VEHICLE_SPEED",            "path": "Movement", "fmt": {"bix": 96,  "len": 8,  "max": 255,                                                      "unit": "kilometersPerHour" }, "name": "Vehicle speed",                "suggestedMetric": "speed"},
     {"id": "DAIHATSU_ENGINE_RUN_TIME",          "path": "Engine",   "fmt": {"bix": 104, "len": 16, "max": 65535,                                                    "unit": "seconds"           }, "name": "Engine run time"},
     {"id": "DAIHATSU_THROTTLE_SENSOR_POSITION", "path": "Engine",   "fmt": {"bix": 120, "len": 8,  "max": 100,                "mul": 100, "div": 255,               "unit": "percent"           }, "name": "Throttle sensor position"},
-    {"id": "DAIHATSU_THROTTLE_SENSOR_VOLT",     "path": "Battery",  "fmt": {"bix": 128, "len": 8,  "max": 100,                "mul": 100, "div": 255,               "unit": "percent"           }, "name": "Throttle sensor volt %"},
-    {"id": "DAIHATSU_THROTTL_SENSOR__2_VOLT",   "path": "Battery",  "fmt": {"bix": 136, "len": 8,  "max": 100,                "mul": 100, "div": 255,               "unit": "percent"           }, "name": "Throttl sensor #2 volt %"},
-    {"id": "DAIHATSU_ACCEL_SENS__NO_1_VOLT",    "path": "Battery",  "fmt": {"bix": 144, "len": 8,  "max": 100,                "mul": 100, "div": 255,               "unit": "percent"           }, "name": "Accel sens. no.1 volt %"},
-    {"id": "DAIHATSU_ACCEL_SENS__NO_2_VOLT",    "path": "Battery",  "fmt": {"bix": 152, "len": 8,  "max": 100,                "mul": 100, "div": 255,               "unit": "percent"           }, "name": "Accel sens. no.2 volt %"},
+    {"id": "DAIHATSU_THROTTLE_SENSOR_VOLT",     "path": "Engine",   "fmt": {"bix": 128, "len": 8,  "max": 100,                "mul": 100, "div": 255,               "unit": "percent"           }, "name": "Throttle sensor volt %, 1"},
+    {"id": "DAIHATSU_THROTTL_SENSOR_2_VOLT",    "path": "Engine",   "fmt": {"bix": 136, "len": 8,  "max": 100,                "mul": 100, "div": 255,               "unit": "percent"           }, "name": "Throttle sensor volt %, 2"},
+    {"id": "DAIHATSU_ACCEL_SENS_NO_1_VOLT",     "path": "Engine",   "fmt": {"bix": 144, "len": 8,  "max": 100,                "mul": 100, "div": 255,               "unit": "percent"           }, "name": "Accelerator sensor volt %, 1"},
+    {"id": "DAIHATSU_ACCEL_SENS_NO_2_VOLT",     "path": "Engine",   "fmt": {"bix": 152, "len": 8,  "max": 100,                "mul": 100, "div": 255,               "unit": "percent"           }, "name": "Accelerator sensor volt %, 2"},
     {"id": "DAIHATSU_THROTTLE_MOTOR_DUTY",      "path": "Engine",   "fmt": {"bix": 160, "len": 8,  "max": 100,                "mul": 100, "div": 255,               "unit": "percent"           }, "name": "Throttle motor DUTY"},
     {"id": "DAIHATSU_WARMUP_CYCLE_CLEARED_DTC", "path": "Engine",   "fmt": {"bix": 176, "len": 8,  "max": 255,                                                      "unit": "scalar"            }, "name": "Warmup cycle cleared DTC"},
     {"id": "DAIHATSU_TIME_AFTER_DTC_CLEARED",   "path": "Engine",   "fmt": {"bix": 192, "len": 16, "max": 65535,                                                    "unit": "minutes"           }, "name": "Time after DTC cleared"},
@@ -1158,29 +1130,29 @@
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"21": "06"}, "freq": 1,
   "signals": [
-    {"id": "DAIHATSU_MIL",                             "path": "DTCs", "fmt": {           "len": 1,  "max": 1,     "unit": "offon"      }, "name": "MIL"},
-    {"id": "DAIHATSU_NUMBER_OF_EMISSION_DTC",          "path": "DTCs", "fmt": {"bix": 1,  "len": 7,  "max": 127,   "unit": "scalar"     }, "name": "Number of emission DTC"},
-    {"id": "DAIHATSU_COMPLETE_PARTS_MONITOR_AVAIL",    "path": "DTCs", "fmt": {"bix": 13, "len": 1,  "max": 1,     "unit": "offon"      }, "name": "Complete parts monitor_avail"},
-    {"id": "DAIHATSU_FUEL_SYSTEM_MONITOR_AVAIL",       "path": "DTCs", "fmt": {"bix": 14, "len": 1,  "max": 1,     "unit": "offon"      }, "name": "Fuel system monitor_avail"},
-    {"id": "DAIHATSU_MISFIRE_MONITOR_AVAIL",           "path": "DTCs", "fmt": {"bix": 15, "len": 1,  "max": 1,     "unit": "offon"      }, "name": "Misfire monitor_avail"},
-    {"id": "DAIHATSU_EGR_VVT_MONITOR_AVAIL",           "path": "DTCs", "fmt": {"bix": 16, "len": 1,  "max": 1,     "unit": "offon"      }, "name": "EGR/VVT monitor_avail"},
-    {"id": "DAIHATSU_O2S_A_FS__HEATER_MONITOR_AVAIL",  "path": "DTCs", "fmt": {"bix": 17, "len": 1,  "max": 1,     "unit": "offon"      }, "name": "O2S(A/FS) heater monitor_avail"},
-    {"id": "DAIHATSU_O2S_A_FS__MONITOR_AVAIL",         "path": "DTCs", "fmt": {"bix": 18, "len": 1,  "max": 1,     "unit": "offon"      }, "name": "O2S(A/FS) monitor_avail"},
-    {"id": "DAIHATSU_A_C_MONITOR_AVAIL",               "path": "DTCs", "fmt": {"bix": 19, "len": 1,  "max": 1,     "unit": "offon"      }, "name": "A/C monitor_avail"},
-    {"id": "DAIHATSU_2ND_AIR_MONITOR_AVAIL",           "path": "DTCs", "fmt": {"bix": 20, "len": 1,  "max": 1,     "unit": "offon"      }, "name": "2nd air monitor_avail"},
-    {"id": "DAIHATSU_EVAP_MONITOR_AVAIL",              "path": "DTCs", "fmt": {"bix": 21, "len": 1,  "max": 1,     "unit": "offon"      }, "name": "EVAP monitor_avail"},
-    {"id": "DAIHATSU_HEATED_CATALYST_MONITOR_AVAIL",   "path": "DTCs", "fmt": {"bix": 22, "len": 1,  "max": 1,     "unit": "offon"      }, "name": "Heated catalyst monitor_avail"},
-    {"id": "DAIHATSU_CATALYST_MONITOR_AVAIL",          "path": "DTCs", "fmt": {"bix": 23, "len": 1,  "max": 1,     "unit": "offon"      }, "name": "Catalyst monitor_avail"},
-    {"id": "DAIHATSU_EGR_VVT_MONITOR_INCMPL",          "path": "DTCs", "fmt": {"bix": 24, "len": 1,  "max": 1,     "unit": "offon"      }, "name": "EGR/VVT monitor_incmpl"},
-    {"id": "DAIHATSU_O2S_A_FS__HEATER_MONITOR_INCMPL", "path": "DTCs", "fmt": {"bix": 25, "len": 1,  "max": 1,     "unit": "offon"      }, "name": "O2S(A/FS) heater monitor_incmpl"},
-    {"id": "DAIHATSU_O2S_A_FS__MONITOR_INCMPL",        "path": "DTCs", "fmt": {"bix": 26, "len": 1,  "max": 1,     "unit": "offon"      }, "name": "O2S(A/FS) monitor_incmpl"},
-    {"id": "DAIHATSU_A_C_MONITOR_INCMPL",              "path": "DTCs", "fmt": {"bix": 27, "len": 1,  "max": 1,     "unit": "offon"      }, "name": "A/C monitor_incmpl"},
-    {"id": "DAIHATSU_2ND_AIR_MONITOR_INCMPL",          "path": "DTCs", "fmt": {"bix": 28, "len": 1,  "max": 1,     "unit": "offon"      }, "name": "2nd air monitor_incmpl"},
-    {"id": "DAIHATSU_EVAP_MONITOR_ICMPL",              "path": "DTCs", "fmt": {"bix": 29, "len": 1,  "max": 1,     "unit": "offon"      }, "name": "EVAP monitor_icmpl"},
-    {"id": "DAIHATSU_HEATED_CATALYST_MONITOR_INCMPL",  "path": "DTCs", "fmt": {"bix": 30, "len": 1,  "max": 1,     "unit": "offon"      }, "name": "Heated catalyst monitor_incmpl"},
-    {"id": "DAIHATSU_CATALYST_MONITOR_INCMPL",         "path": "DTCs", "fmt": {"bix": 31, "len": 1,  "max": 1,     "unit": "offon"      }, "name": "Catalyst monitor_incmpl"},
-    {"id": "DAIHATSU_MILON_RUN_DISTANCE",              "path": "DTCs", "fmt": {"bix": 48, "len": 16, "max": 65535, "unit": "kilometers" }, "name": "MIL ON run distance"},
-    {"id": "DAIHATSU_RUNNING_TIME_FROM_MIL_ON",        "path": "DTCs", "fmt": {"bix": 64, "len": 16, "max": 65535, "unit": "minutes"    }, "name": "Running time from MIL ON"}
+    {"id": "DAIHATSU_MIL",                            "path": "DTCs", "fmt": {           "len": 1,  "max": 1,     "unit": "offon"      }, "name": "MIL"},
+    {"id": "DAIHATSU_NUMBER_OF_EMISSION_DTC",         "path": "DTCs", "fmt": {"bix": 1,  "len": 7,  "max": 127,   "unit": "scalar"     }, "name": "Number of emission DTC"},
+    {"id": "DAIHATSU_COMPLETE_PARTS_MONITOR_AVAIL",   "path": "DTCs", "fmt": {"bix": 13, "len": 1,  "max": 1,     "unit": "offon"      }, "name": "Complete parts monitor_avail"},
+    {"id": "DAIHATSU_FUEL_SYSTEM_MONITOR_AVAIL",      "path": "DTCs", "fmt": {"bix": 14, "len": 1,  "max": 1,     "unit": "offon"      }, "name": "Fuel system monitor_avail"},
+    {"id": "DAIHATSU_MISFIRE_MONITOR_AVAIL",          "path": "DTCs", "fmt": {"bix": 15, "len": 1,  "max": 1,     "unit": "offon"      }, "name": "Misfire monitor_avail"},
+    {"id": "DAIHATSU_EGR_VVT_MONITOR_AVAIL",          "path": "DTCs", "fmt": {"bix": 16, "len": 1,  "max": 1,     "unit": "offon"      }, "name": "EGR/VVT monitor_avail"},
+    {"id": "DAIHATSU_O2S_A_FS_HEATER_MONITOR_AVAIL",  "path": "DTCs", "fmt": {"bix": 17, "len": 1,  "max": 1,     "unit": "offon"      }, "name": "O2S(A/FS) heater monitor_avail"},
+    {"id": "DAIHATSU_O2S_A_FS_MONITOR_AVAIL",         "path": "DTCs", "fmt": {"bix": 18, "len": 1,  "max": 1,     "unit": "offon"      }, "name": "O2S(A/FS) monitor_avail"},
+    {"id": "DAIHATSU_A_C_MONITOR_AVAIL",              "path": "DTCs", "fmt": {"bix": 19, "len": 1,  "max": 1,     "unit": "offon"      }, "name": "A/C monitor_avail"},
+    {"id": "DAIHATSU_2ND_AIR_MONITOR_AVAIL",          "path": "DTCs", "fmt": {"bix": 20, "len": 1,  "max": 1,     "unit": "offon"      }, "name": "2nd air monitor_avail"},
+    {"id": "DAIHATSU_EVAP_MONITOR_AVAIL",             "path": "DTCs", "fmt": {"bix": 21, "len": 1,  "max": 1,     "unit": "offon"      }, "name": "EVAP monitor_avail"},
+    {"id": "DAIHATSU_HEATED_CATALYST_MONITOR_AVAIL",  "path": "DTCs", "fmt": {"bix": 22, "len": 1,  "max": 1,     "unit": "offon"      }, "name": "Heated catalyst monitor_avail"},
+    {"id": "DAIHATSU_CATALYST_MONITOR_AVAIL",         "path": "DTCs", "fmt": {"bix": 23, "len": 1,  "max": 1,     "unit": "offon"      }, "name": "Catalyst monitor_avail"},
+    {"id": "DAIHATSU_EGR_VVT_MONITOR_INCMPL",         "path": "DTCs", "fmt": {"bix": 24, "len": 1,  "max": 1,     "unit": "offon"      }, "name": "EGR/VVT monitor_incmpl"},
+    {"id": "DAIHATSU_O2S_A_FS_HEATER_MONITOR_INCMPL", "path": "DTCs", "fmt": {"bix": 25, "len": 1,  "max": 1,     "unit": "offon"      }, "name": "O2S(A/FS) heater monitor_incmpl"},
+    {"id": "DAIHATSU_O2S_A_FS_MONITOR_INCMPL",        "path": "DTCs", "fmt": {"bix": 26, "len": 1,  "max": 1,     "unit": "offon"      }, "name": "O2S(A/FS) monitor_incmpl"},
+    {"id": "DAIHATSU_A_C_MONITOR_INCMPL",             "path": "DTCs", "fmt": {"bix": 27, "len": 1,  "max": 1,     "unit": "offon"      }, "name": "A/C monitor_incmpl"},
+    {"id": "DAIHATSU_2ND_AIR_MONITOR_INCMPL",         "path": "DTCs", "fmt": {"bix": 28, "len": 1,  "max": 1,     "unit": "offon"      }, "name": "2nd air monitor_incmpl"},
+    {"id": "DAIHATSU_EVAP_MONITOR_ICMPL",             "path": "DTCs", "fmt": {"bix": 29, "len": 1,  "max": 1,     "unit": "offon"      }, "name": "EVAP monitor_icmpl"},
+    {"id": "DAIHATSU_HEATED_CATALYST_MONITOR_INCMPL", "path": "DTCs", "fmt": {"bix": 30, "len": 1,  "max": 1,     "unit": "offon"      }, "name": "Heated catalyst monitor_incmpl"},
+    {"id": "DAIHATSU_CATALYST_MONITOR_INCMPL",        "path": "DTCs", "fmt": {"bix": 31, "len": 1,  "max": 1,     "unit": "offon"      }, "name": "Catalyst monitor_incmpl"},
+    {"id": "DAIHATSU_MILON_RUN_DISTANCE",             "path": "DTCs", "fmt": {"bix": 48, "len": 16, "max": 65535, "unit": "kilometers" }, "name": "MIL ON run distance"},
+    {"id": "DAIHATSU_RUNNING_TIME_FROM_MIL_ON",       "path": "DTCs", "fmt": {"bix": 64, "len": 16, "max": 65535, "unit": "minutes"    }, "name": "Running time from MIL ON"}
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"21": "21"}, "freq": 1,
   "signals": [
@@ -1198,13 +1170,41 @@
     {"id": "DAIHATSU_CC_LIVE_SET_COAST_SWITCH_ON", "path": "Cruise control", "fmt": {"bix": 36, "len": 1, "max": 1,                                                        "unit": "offon"             }, "name": "Coast switch"},
     {"id": "DAIHATSU_CC_CANCEL_SWITCH_ON",         "path": "Cruise control", "fmt": {"bix": 37, "len": 1, "max": 1,                                                        "unit": "offon"             }, "name": "Cancel switch"}
   ]},
+{ "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"21": "24"}, "freq": 1,
+  "signals": [
+    {"id": "DAIHATSU_COMMUNICATION_WITH_HV",     "path": "Climate", "fmt": {"bix": 2, "len": 1, "max": 1, "unit": "offon"  }, "name": "Communication with HV"},
+    {"id": "DAIHATSU_COMMUNICATION_WITH_BRAKE",  "path": "Climate", "fmt": {"bix": 4, "len": 1, "max": 1, "unit": "offon"  }, "name": "Communication with brake"},
+    {"id": "DAIHATSU_COMM_WITH_AIR_CONDITIONER", "path": "Climate", "fmt": {"bix": 5, "len": 1, "max": 1, "unit": "offon"  }, "name": "Communication with air conditioner"},
+    {"id": "DAIHATSU_COMM_WITH_VALVEMATIC_COMM", "path": "Climate", "fmt": {"bix": 6, "len": 1, "max": 1, "unit": "scalar" }, "name": "Communication with valvematic"}
+  ]},
+{ "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"21": "25"}, "freq": 1,
+  "signals": [
+    {"id": "DAIHATSU_POWER_STEERING_SIGNAL",                   "path": "Control", "fmt": {"bix": 4,  "len": 1, "max": 1, "unit": "scalar" }, "name": "Power steering"},
+    {"id": "DAIHATSU_STOP_LIGHT_SWITCH",                       "path": "Control", "fmt": {"bix": 5,  "len": 1, "max": 1, "unit": "scalar" }, "name": "Stop light"},
+    {"id": "DAIHATSU_CRUISE_CONTROL_LIVE_BRAKE_CANCEL_SWITCH", "path": "Control", "fmt": {"bix": 6,  "len": 1, "max": 1, "unit": "scalar" }, "name": "Cruise control live brake cancel"},
+    {"id": "DAIHATSU_STARTER_SIGNAL",                          "path": "Control", "fmt": {"bix": 11, "len": 1, "max": 1, "unit": "scalar" }, "name": "Starter signal"},
+    {"id": "DAIHATSU_STARTER_CONTROL",                         "path": "Control", "fmt": {"bix": 12, "len": 1, "max": 1, "unit": "scalar" }, "name": "Starter control"},
+    {"id": "DAIHATSU_ELECTRICAL_LOAD_SIGNAL_1",                "path": "Control", "fmt": {"bix": 16, "len": 1, "max": 1, "unit": "scalar" }, "name": "Electrical load signal 1"},
+    {"id": "DAIHATSU_ELECTRICAL_LOAD_SIGNAL_2",                "path": "Control", "fmt": {"bix": 17, "len": 1, "max": 1, "unit": "scalar" }, "name": "Electrical load signal 2"},
+    {"id": "DAIHATSU_SHIFT_SW_STATUS_P_RANGE",                 "path": "Control", "fmt": {"bix": 24, "len": 1, "max": 1, "unit": "scalar" }, "name": "Shift SW status (P range)"},
+    {"id": "DAIHATSU_SHIFT_SW_STATUS_R_RANGE",                 "path": "Control", "fmt": {"bix": 25, "len": 1, "max": 1, "unit": "scalar" }, "name": "Shift SW status (R range)"},
+    {"id": "DAIHATSU_SHIFT_SW_STATUS_N_RANGE",                 "path": "Control", "fmt": {"bix": 26, "len": 1, "max": 1, "unit": "scalar" }, "name": "Shift SW status (N range)"},
+    {"id": "DAIHATSU_SHIFT_SW_STATUS_D_RANGE",                 "path": "Control", "fmt": {"bix": 27, "len": 1, "max": 1, "unit": "scalar" }, "name": "Shift SW status (D range)"},
+    {"id": "DAIHATSU_SPORTS_MODE_SELECTION_SW",                "path": "Control", "fmt": {"bix": 32, "len": 1, "max": 1, "unit": "scalar" }, "name": "Sports mode selection"},
+    {"id": "DAIHATSU_SPORTS_SHIFT_UP_SW",                      "path": "Control", "fmt": {"bix": 33, "len": 1, "max": 1, "unit": "scalar" }, "name": "Sports shift up"},
+    {"id": "DAIHATSU_SPORTS_SHIFT_DOWN_SW",                    "path": "Control", "fmt": {"bix": 34, "len": 1, "max": 1, "unit": "scalar" }, "name": "Sports shift down"},
+    {"id": "DAIHATSU_PATTERN_SWITCH_PWR_M_",                   "path": "Control", "fmt": {"bix": 42, "len": 1, "max": 1, "unit": "scalar" }, "name": "Pattern switch"},
+    {"id": "DAIHATSU_NEUTRAL_POSITION_SW_SIGNAL",              "path": "Control", "fmt": {"bix": 53, "len": 1, "max": 1, "unit": "scalar" }, "name": "Neutral position"},
+    {"id": "DAIHATSU_TC_TERMINAL",                             "path": "Control", "fmt": {"bix": 61, "len": 1, "max": 1, "unit": "scalar" }, "name": "TC"},
+    {"id": "DAIHATSU_A_C_COMPRESSOR",                          "path": "Control", "fmt": {"bix": 64, "len": 1, "max": 1, "unit": "offon"  }, "name": "A/C compressor"}
+  ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"21": "28"}, "freq": 5,
   "signals": [
     {"id": "DAIHATSU_ODO", "path": "Trips", "fmt": { "len": 24, "max": 16777215, "unit": "kilometers" }, "name": "Odometer", "suggestedMetric": "odometer"}
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"21": "45"}, "freq": 1,
   "signals": [
-    {"id": "DAIHATSU_MISFIRE_RPM_V2",            "path": "Movement",        "fmt": {"bix": 8,  "len": 8,  "max": 6375,               "mul": 25,                          "unit": "rpm"     }, "name": "Misfire RPM"},
+    {"id": "DAIHATSU_MISFIRE_RPM_V2",            "path": "Engine",          "fmt": {"bix": 8,  "len": 8,  "max": 6375,               "mul": 25,                          "unit": "rpm"     }, "name": "Misfire RPM"},
     {"id": "DAIHATSU_MISFIRE_LOAD_V2",           "path": "Engine.Misfires", "fmt": {"bix": 16, "len": 8,  "max": 3.98,               "mul": 4,  "div": 256,              "unit": "scalar"  }, "name": "Misfire load"},
     {"id": "DAIHATSU_CYL1_MISFIRE_CNT",          "path": "Engine.Misfires", "fmt": {"bix": 24, "len": 8,  "max": 255,                                                    "unit": "scalar"  }, "name": "Cylinder #1 misfire count"},
     {"id": "DAIHATSU_CYL2_MISFIRE_CNT",          "path": "Engine.Misfires", "fmt": {"bix": 32, "len": 8,  "max": 255,                                                    "unit": "scalar"  }, "name": "Cylinder #2 misfire count"},
