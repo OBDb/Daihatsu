@@ -255,7 +255,8 @@
   ]},
 { "hdr": "700", "rax": "708", "dbg": true, "cmd": {"22": "0103"}, "freq": 30,
   "signals": [
-    {"id": "DAIHATSU_ENG_ODO", "path": "Trips", "fmt": { "len": 32, "max": 4294967295, "unit": "kilometers" }, "name": "Odometer", "suggestedMetric": "odometer"}
+    {"id": "DAIHATSU_ENG_ODO",    "path": "Trips", "fmt": {          "len": 32, "max": 4294967295, "unit": "kilometers" }, "name": "Odometer", "suggestedMetric": "odometer"},
+    {"id": "DAIHATSU_HR_ENG_ODO", "path": "Trips", "fmt": {"bix": 8, "len": 24, "max": 16777215,   "unit": "kilometers" }, "name": "Odometer", "suggestedMetric": "odometer"}
   ]},
 { "hdr": "700", "rax": "708", "dbg": true, "cmd": {"22": "1002"}, "freq": 5,
   "signals": [
@@ -301,8 +302,8 @@
   ]},
 { "hdr": "700", "rax": "708", "dbg": true, "cmd": {"22": "1059"}, "freq": 0.25,
   "signals": [
-    {"id": "DAIHATSU_ACCEL_PEDAL",        "path": "Control", "fmt": { "len": 8, "max": 100, "div": 1.42, "add": -41,     "unit": "percent" }, "name": "Accelerator pedal"},
-    {"id": "DAIHATSU_HYBRID_ACCEL_PEDAL", "path": "Control", "fmt": { "len": 8, "max": 100, "div": 1.42, "add": -28.873, "unit": "percent" }, "name": "Accelerator pedal"}
+    {"id": "DAIHATSU_ACCEL_PEDAL",    "path": "Control", "fmt": { "len": 8, "max": 100, "div": 1.42, "add": -41,     "unit": "percent" }, "name": "Accelerator pedal"},
+    {"id": "DAIHATSU_HR_ACCEL_PEDAL", "path": "Control", "fmt": { "len": 8, "max": 100, "div": 1.42, "add": -28.873, "unit": "percent" }, "name": "Accelerator pedal"}
   ]},
 { "hdr": "700", "rax": "708", "dbg": true, "cmd": {"22": "105C"}, "freq": 1,
   "signals": [
@@ -336,13 +337,14 @@
   ]},
 { "hdr": "700", "rax": "708", "dbg": true, "cmd": {"22": "1074"}, "freq": 1,
   "signals": [
-    {"id": "DAIHATSU_EOP",        "path": "Engine", "fmt": { "len": 16, "max": 65535,                          "unit": "kilopascal" }, "name": "Engine oil pressure"},
-    {"id": "DAIHATSU_HYBRID_EOP", "path": "Engine", "fmt": { "len": 16, "max": 5119.92, "mul": 10, "div": 128, "unit": "kilopascal" }, "name": "Engine oil pressure"},
-    {"id": "DAIHATSU_EOP_2",      "path": "Engine", "fmt": { "len": 16, "max": 1000,    "mul": 10, "div": 128, "unit": "kilopascal" }, "name": "Engine oil pressure"}
+    {"id": "DAIHATSU_EOP",    "path": "Engine", "fmt": { "len": 16, "max": 65535,                          "unit": "kilopascal" }, "name": "Engine oil pressure"},
+    {"id": "DAIHATSU_HR_EOP", "path": "Engine", "fmt": { "len": 16, "max": 5119.92, "mul": 10, "div": 128, "unit": "kilopascal" }, "name": "Engine oil pressure"},
+    {"id": "DAIHATSU_EOP_2",  "path": "Engine", "fmt": { "len": 16, "max": 1000,    "mul": 10, "div": 128, "unit": "kilopascal" }, "name": "Engine oil pressure"}
   ]},
 { "hdr": "700", "rax": "708", "dbg": true, "cmd": {"22": "1075"}, "freq": 1,
   "signals": [
-    {"id": "DAIHATSU_IWP_SPEED", "path": "Movement", "fmt": { "len": 16, "max": 300, "min": -40, "mul": 238212, "div": 10000, "add": -256000, "unit": "celsius" }, "name": "Intercooler water pump speed"}
+    {"id": "DAIHATSU_IWP_SPEED",    "path": "Movement", "fmt": { "len": 16, "max": 300,   "min": -40, "mul": 238212, "div": 10000, "add": -256000, "unit": "celsius" }, "name": "Intercooler water pump speed"},
+    {"id": "DAIHATSU_HR_IWP_SPEED", "path": "Movement", "fmt": { "len": 16, "max": 65535,                                                          "unit": "scalar"  }, "name": "Intercooler water pump speed, raw count"}
   ]},
 { "hdr": "700", "rax": "708", "dbg": true, "cmd": {"22": "1078"}, "freq": 1,
   "signals": [
@@ -381,9 +383,9 @@
   ]},
 { "hdr": "700", "rax": "708", "dbg": true, "cmd": {"22": "108A"}, "freq": 1,
   "signals": [
-    {"id": "DAIHATSU_VVT_IE_DUTY_RATIO_BANK_1",         "path": "Engine", "fmt": {           "len": 16, "max": 199, "min": -200, "mul": 399.9, "div": 65535, "add": -200, "unit": "percent" }, "name": "Variable valve timing duty ratio, bank 1"},
-    {"id": "DAIHATSU_VVT_IE_DUTY_RATIO_1",              "path": "ECU",    "fmt": {           "len": 15, "max": 100,              "mul": 399.9, "div": 65535, "add": -200, "unit": "percent" }, "name": "VVT-ie duty ratio bank 1"},
-    {"id": "DAIHATSU_VVT_IE_MOTOR_DIRECTION_FORWARD_1", "path": "ECU",    "fmt": {"bix": 15, "len": 1,  "max": 1,                                                         "unit": "offon"   }, "name": "VVT-ie motor direction: forward bank 1"}
+    {"id": "DAIHATSU_VVT_IE_DUTY_RATIO_1",              "path": "ECU",    "fmt": {           "len": 15, "max": -0.0531, "min": -200, "mul": 399.9, "div": 65535, "add": -200, "unit": "percent" }, "name": "VVT-ie duty ratio bank 1"},
+    {"id": "DAIHATSU_VVT_IE_DUTY_RATIO_BANK_1",         "path": "Engine", "fmt": {           "len": 16, "max": 199,     "min": -200, "mul": 399.9, "div": 65535, "add": -200, "unit": "percent" }, "name": "Variable valve timing duty ratio, bank 1"},
+    {"id": "DAIHATSU_VVT_IE_MOTOR_DIRECTION_FORWARD_1", "path": "ECU",    "fmt": {"bix": 15, "len": 1,  "max": 1,                                                             "unit": "offon"   }, "name": "VVT-ie motor direction: forward bank 1"}
   ]},
 { "hdr": "700", "rax": "708", "dbg": true, "cmd": {"22": "108D"}, "freq": 3600,
   "signals": [
@@ -626,7 +628,7 @@
   "signals": [
     {"id": "DAIHATSU_HFP_TARGET",        "path": "Fuel", "fmt": {"bix": 8,  "len": 16, "max": 655350, "mul": 10,             "unit": "kilopascal" }, "name": "High fuel pressure, target"},
     {"id": "DAIHATSU_HFP_ACTUAL",        "path": "Fuel", "fmt": {"bix": 24, "len": 16, "max": 655.35,            "div": 100, "unit": "kilopascal" }, "name": "High fuel pressure, actual"},
-    {"id": "DAIHATSU_HYBRID_HFP_ACTUAL", "path": "Fuel", "fmt": {"bix": 24, "len": 16, "max": 655350, "mul": 10,             "unit": "kilopascal" }, "name": "High fuel pressure, actual"},
+    {"id": "DAIHATSU_HR_HFP_ACTUAL",     "path": "Fuel", "fmt": {"bix": 24, "len": 16, "max": 655350, "mul": 10,             "unit": "kilopascal" }, "name": "High fuel pressure, actual"},
     {"id": "DAIHATSU_LOW_FUEL_PRESSURE", "path": "Fuel", "fmt": {"bix": 64, "len": 16, "max": 655350, "mul": 10,             "unit": "kilopascal" }, "name": "Low fuel pressure"}
   ]},
 { "hdr": "700", "rax": "708", "dbg": true, "cmd": {"22": "1F77"}, "freq": 5,
@@ -847,131 +849,156 @@
   ]},
 { "hdr": "747", "rax": "74F", "fcm1": true, "dbg": true, "cmd": {"22": "0103"}, "freq": 10,
   "signals": [
-    {"id": "DAIHATSU_HYBRID_ODO_V6", "path": "Trips", "fmt": {"bix": 8, "len": 24, "max": 16777215, "unit": "kilometers" }, "name": "Odometer", "suggestedMetric": "odometer"}
+    {"id": "DAIHATSU_HR_ODO_V6", "path": "Trips", "fmt": {"bix": 8, "len": 24, "max": 16777215, "unit": "kilometers" }, "name": "Odometer", "suggestedMetric": "odometer"}
+  ]},
+{ "hdr": "747", "rax": "74F", "dbg": true, "cmd": {"22": "106E"}, "freq": 1,
+  "signals": [
+    {"id": "DAIHATSU_AC_POWER_CONS_747", "path": "Engine", "fmt": { "len": 8, "max": -12500, "min": -12500, "div": 2000, "add": -12500, "unit": "kilowatts" }, "name": "Air conditioning power consumption"}
+  ]},
+{ "hdr": "747", "rax": "74F", "dbg": true, "cmd": {"22": "1802"}, "freq": 1,
+  "signals": [
+    {"id": "DAIHATSU_HYBRID_BAT_1_FAN_747", "path": "Battery", "fmt": {"bix": 16, "len": 8, "max": 127, "div": 2, "unit": "percent" }, "name": "Hybrid battery 1 fan"}
+  ]},
+{ "hdr": "747", "rax": "74F", "dbg": true, "cmd": {"22": "180B"}, "freq": 5,
+  "signals": [
+    {"id": "DAIHATSU_HYBRID_BAT_IAT_1", "path": "Battery", "fmt": {           "len": 16, "max": 400, "min": -58, "mul": 458, "div": 65535, "add": -58, "unit": "fahrenheit" }, "name": "Hybrid battery intake air temperature 1"},
+    {"id": "DAIHATSU_HYBRID_BAT_IAT_2", "path": "Battery", "fmt": {"bix": 16, "len": 16, "max": 400, "min": -58, "mul": 458, "div": 65535, "add": -58, "unit": "fahrenheit" }, "name": "Hybrid battery intake air temperature 2"}
   ]},
 { "hdr": "747", "rax": "74F", "dbg": true, "cmd": {"22": "1814"}, "freq": 5,
   "signals": [
-    {"id": "DAIHATSU_HYBRID_BAT_T_01", "path": "Battery", "fmt": {            "len": 16, "max": 205, "min": -50, "mul": 19531, "div": 5000000, "add": -50, "unit": "celsius" }, "name": "Battery temperature 01"},
-    {"id": "DAIHATSU_HYBRID_BAT_T_02", "path": "Battery", "fmt": {"bix": 16,  "len": 16, "max": 205, "min": -50, "mul": 19531, "div": 5000000, "add": -50, "unit": "celsius" }, "name": "Battery temperature 02"},
-    {"id": "DAIHATSU_HYBRID_BAT_T_03", "path": "Battery", "fmt": {"bix": 32,  "len": 16, "max": 205, "min": -50, "mul": 19531, "div": 5000000, "add": -50, "unit": "celsius" }, "name": "Battery temperature 03"},
-    {"id": "DAIHATSU_HYBRID_BAT_T_04", "path": "Battery", "fmt": {"bix": 48,  "len": 16, "max": 205, "min": -50, "mul": 19531, "div": 5000000, "add": -50, "unit": "celsius" }, "name": "Battery temperature 04"},
-    {"id": "DAIHATSU_HYBRID_BAT_T_05", "path": "Battery", "fmt": {"bix": 64,  "len": 16, "max": 205, "min": -50, "mul": 19531, "div": 5000000, "add": -50, "unit": "celsius" }, "name": "Battery temperature 05"},
-    {"id": "DAIHATSU_HYBRID_BAT_T_06", "path": "Battery", "fmt": {"bix": 80,  "len": 16, "max": 205, "min": -50, "mul": 19531, "div": 5000000, "add": -50, "unit": "celsius" }, "name": "Battery temperature 06"},
-    {"id": "DAIHATSU_HYBRID_BAT_T_07", "path": "Battery", "fmt": {"bix": 96,  "len": 16, "max": 205, "min": -50, "mul": 19531, "div": 5000000, "add": -50, "unit": "celsius" }, "name": "Battery temperature 07"},
-    {"id": "DAIHATSU_HYBRID_BAT_T_08", "path": "Battery", "fmt": {"bix": 112, "len": 16, "max": 205, "min": -50, "mul": 19531, "div": 5000000, "add": -50, "unit": "celsius" }, "name": "Battery temperature 08"},
-    {"id": "DAIHATSU_HYBRID_BAT_T_09", "path": "Battery", "fmt": {"bix": 128, "len": 16, "max": 205, "min": -50, "mul": 19531, "div": 5000000, "add": -50, "unit": "celsius" }, "name": "Battery temperature 09"},
-    {"id": "DAIHATSU_HYBRID_BAT_T_10", "path": "Battery", "fmt": {"bix": 144, "len": 16, "max": 205, "min": -50, "mul": 19531, "div": 5000000, "add": -50, "unit": "celsius" }, "name": "Battery temperature 10"},
-    {"id": "DAIHATSU_HYBRID_BAT_T_11", "path": "Battery", "fmt": {"bix": 160, "len": 16, "max": 205, "min": -50, "mul": 19531, "div": 5000000, "add": -50, "unit": "celsius" }, "name": "Battery temperature 11"},
-    {"id": "DAIHATSU_HYBRID_BAT_T_12", "path": "Battery", "fmt": {"bix": 176, "len": 16, "max": 205, "min": -50, "mul": 19531, "div": 5000000, "add": -50, "unit": "celsius" }, "name": "Battery temperature 12"},
-    {"id": "DAIHATSU_HYBRID_BAT_T_13", "path": "Battery", "fmt": {"bix": 192, "len": 16, "max": 205, "min": -50, "mul": 19531, "div": 5000000, "add": -50, "unit": "celsius" }, "name": "Battery temperature 13"},
-    {"id": "DAIHATSU_HYBRID_BAT_T_14", "path": "Battery", "fmt": {"bix": 208, "len": 16, "max": 205, "min": -50, "mul": 19531, "div": 5000000, "add": -50, "unit": "celsius" }, "name": "Battery temperature 14"},
-    {"id": "DAIHATSU_HYBRID_BAT_T_15", "path": "Battery", "fmt": {"bix": 224, "len": 16, "max": 205, "min": -50, "mul": 19531, "div": 5000000, "add": -50, "unit": "celsius" }, "name": "Battery temperature 15"},
-    {"id": "DAIHATSU_HYBRID_BAT_T_16", "path": "Battery", "fmt": {"bix": 240, "len": 16, "max": 205, "min": -50, "mul": 19531, "div": 5000000, "add": -50, "unit": "celsius" }, "name": "Battery temperature 16"}
+    {"id": "DAIHATSU_HR_BAT_T_01", "path": "Battery", "fmt": {            "len": 16, "max": 205, "min": -50, "mul": 19531, "div": 5000000, "add": -50, "unit": "celsius" }, "name": "Battery temperature 01"},
+    {"id": "DAIHATSU_HR_BAT_T_02", "path": "Battery", "fmt": {"bix": 16,  "len": 16, "max": 205, "min": -50, "mul": 19531, "div": 5000000, "add": -50, "unit": "celsius" }, "name": "Battery temperature 02"},
+    {"id": "DAIHATSU_HR_BAT_T_03", "path": "Battery", "fmt": {"bix": 32,  "len": 16, "max": 205, "min": -50, "mul": 19531, "div": 5000000, "add": -50, "unit": "celsius" }, "name": "Battery temperature 03"},
+    {"id": "DAIHATSU_HR_BAT_T_04", "path": "Battery", "fmt": {"bix": 48,  "len": 16, "max": 205, "min": -50, "mul": 19531, "div": 5000000, "add": -50, "unit": "celsius" }, "name": "Battery temperature 04"},
+    {"id": "DAIHATSU_HR_BAT_T_05", "path": "Battery", "fmt": {"bix": 64,  "len": 16, "max": 205, "min": -50, "mul": 19531, "div": 5000000, "add": -50, "unit": "celsius" }, "name": "Battery temperature 05"},
+    {"id": "DAIHATSU_HR_BAT_T_06", "path": "Battery", "fmt": {"bix": 80,  "len": 16, "max": 205, "min": -50, "mul": 19531, "div": 5000000, "add": -50, "unit": "celsius" }, "name": "Battery temperature 06"},
+    {"id": "DAIHATSU_HR_BAT_T_07", "path": "Battery", "fmt": {"bix": 96,  "len": 16, "max": 205, "min": -50, "mul": 19531, "div": 5000000, "add": -50, "unit": "celsius" }, "name": "Battery temperature 07"},
+    {"id": "DAIHATSU_HR_BAT_T_08", "path": "Battery", "fmt": {"bix": 112, "len": 16, "max": 205, "min": -50, "mul": 19531, "div": 5000000, "add": -50, "unit": "celsius" }, "name": "Battery temperature 08"},
+    {"id": "DAIHATSU_HR_BAT_T_09", "path": "Battery", "fmt": {"bix": 128, "len": 16, "max": 205, "min": -50, "mul": 19531, "div": 5000000, "add": -50, "unit": "celsius" }, "name": "Battery temperature 09"},
+    {"id": "DAIHATSU_HR_BAT_T_10", "path": "Battery", "fmt": {"bix": 144, "len": 16, "max": 205, "min": -50, "mul": 19531, "div": 5000000, "add": -50, "unit": "celsius" }, "name": "Battery temperature 10"},
+    {"id": "DAIHATSU_HR_BAT_T_11", "path": "Battery", "fmt": {"bix": 160, "len": 16, "max": 205, "min": -50, "mul": 19531, "div": 5000000, "add": -50, "unit": "celsius" }, "name": "Battery temperature 11"},
+    {"id": "DAIHATSU_HR_BAT_T_12", "path": "Battery", "fmt": {"bix": 176, "len": 16, "max": 205, "min": -50, "mul": 19531, "div": 5000000, "add": -50, "unit": "celsius" }, "name": "Battery temperature 12"},
+    {"id": "DAIHATSU_HR_BAT_T_13", "path": "Battery", "fmt": {"bix": 192, "len": 16, "max": 205, "min": -50, "mul": 19531, "div": 5000000, "add": -50, "unit": "celsius" }, "name": "Battery temperature 13"},
+    {"id": "DAIHATSU_HR_BAT_T_14", "path": "Battery", "fmt": {"bix": 208, "len": 16, "max": 205, "min": -50, "mul": 19531, "div": 5000000, "add": -50, "unit": "celsius" }, "name": "Battery temperature 14"},
+    {"id": "DAIHATSU_HR_BAT_T_15", "path": "Battery", "fmt": {"bix": 224, "len": 16, "max": 205, "min": -50, "mul": 19531, "div": 5000000, "add": -50, "unit": "celsius" }, "name": "Battery temperature 15"},
+    {"id": "DAIHATSU_HR_BAT_T_16", "path": "Battery", "fmt": {"bix": 240, "len": 16, "max": 205, "min": -50, "mul": 19531, "div": 5000000, "add": -50, "unit": "celsius" }, "name": "Battery temperature 16"}
+  ]},
+{ "hdr": "747", "rax": "74F", "dbg": true, "cmd": {"22": "1819"}, "freq": 1,
+  "signals": [
+    {"id": "DAIHATSU_HYBRID_BAT_BLOCK_1_V", "path": "Battery", "fmt": {           "len": 16, "max": 4.99, "mul": 5, "div": 65536, "unit": "fahrenheit" }, "name": "Hybrid battery block 1 average voltage"},
+    {"id": "DAIHATSU_HYBRID_BAT_BLOCK_2_V", "path": "Battery", "fmt": {"bix": 16, "len": 16, "max": 4.99, "mul": 5, "div": 65536, "unit": "fahrenheit" }, "name": "Hybrid battery block 2 average voltage"},
+    {"id": "DAIHATSU_HYBRID_BAT_BLOCK_3_V", "path": "Battery", "fmt": {"bix": 32, "len": 16, "max": 4.99, "mul": 5, "div": 65536, "unit": "fahrenheit" }, "name": "Hybrid battery block 3 average voltage"},
+    {"id": "DAIHATSU_HYBRID_BAT_BLOCK_4_V", "path": "Battery", "fmt": {"bix": 48, "len": 16, "max": 4.99, "mul": 5, "div": 65536, "unit": "fahrenheit" }, "name": "Hybrid battery block 4 average voltage"},
+    {"id": "DAIHATSU_HYBRID_BAT_BLOCK_5_V", "path": "Battery", "fmt": {"bix": 64, "len": 16, "max": 4.99, "mul": 5, "div": 65536, "unit": "fahrenheit" }, "name": "Hybrid battery block 5 average voltage"}
   ]},
 { "hdr": "747", "rax": "74F", "dbg": true, "cmd": {"22": "1824"}, "freq": 5,
   "signals": [
-    {"id": "DAIHATSU_HYBRID_BAT_HEATER_T", "path": "Battery", "fmt": { "len": 8, "max": 205, "min": -50, "add": -50, "unit": "celsius" }, "name": "Battery heater temperature"}
+    {"id": "DAIHATSU_HR_BAT_HEATER_T", "path": "Battery", "fmt": { "len": 8, "max": 205, "min": -50, "add": -50, "unit": "celsius" }, "name": "Battery heater temperature"}
+  ]},
+{ "hdr": "747", "rax": "74F", "dbg": true, "cmd": {"22": "1825"}, "freq": 5,
+  "signals": [
+    {"id": "DAIHATSU_HYBRID_BAT_HEATER_T_2", "path": "Battery", "fmt": { "len": 8, "max": 401, "min": -58, "mul": 9, "div": 5, "add": -58, "unit": "fahrenheit" }, "name": "Hybrid battery heater temperature 2"}
   ]},
 { "hdr": "747", "rax": "74F", "fcm1": true, "dbg": true, "cmd": {"22": "182E"}, "freq": 1,
   "signals": [
-    {"id": "DAIHATSU_HYBRID_HVBAT_C01_V", "path": "Battery.Cells",      "fmt": {             "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #01 voltage"},
-    {"id": "DAIHATSU_HVBAT_CMU01_VOLT",   "path": "Battery.Modules.01", "fmt": {             "len": 16, "max": 5,           "div": 13107, "unit": "volts" }, "name": "HV battery module 01 voltage"},
-    {"id": "DAIHATSU_HYBRID_HVBAT_C02_V", "path": "Battery.Cells",      "fmt": {"bix": 16,   "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #02 voltage"},
-    {"id": "DAIHATSU_HVBAT_CMU02_VOLT",   "path": "Battery.Modules.02", "fmt": {"bix": 16,   "len": 16, "max": 5,           "div": 13107, "unit": "volts" }, "name": "HV battery module 02 voltage"},
-    {"id": "DAIHATSU_HYBRID_HVBAT_C03_V", "path": "Battery.Cells",      "fmt": {"bix": 32,   "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #03 voltage"},
-    {"id": "DAIHATSU_HYBRID_HVBAT_C04_V", "path": "Battery.Cells",      "fmt": {"bix": 48,   "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #04 voltage"},
-    {"id": "DAIHATSU_HYBRID_HVBAT_C05_V", "path": "Battery.Cells",      "fmt": {"bix": 64,   "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #05 voltage"},
-    {"id": "DAIHATSU_HYBRID_HVBAT_C06_V", "path": "Battery.Cells",      "fmt": {"bix": 80,   "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #06 voltage"},
-    {"id": "DAIHATSU_HYBRID_HVBAT_C07_V", "path": "Battery.Cells",      "fmt": {"bix": 96,   "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #07 voltage"},
-    {"id": "DAIHATSU_HYBRID_HVBAT_C08_V", "path": "Battery.Cells",      "fmt": {"bix": 112,  "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #08 voltage"},
-    {"id": "DAIHATSU_HYBRID_HVBAT_C09_V", "path": "Battery.Cells",      "fmt": {"bix": 128,  "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #09 voltage"},
-    {"id": "DAIHATSU_HYBRID_HVBAT_C10_V", "path": "Battery.Cells",      "fmt": {"bix": 144,  "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #10 voltage"},
-    {"id": "DAIHATSU_HYBRID_HVBAT_C11_V", "path": "Battery.Cells",      "fmt": {"bix": 160,  "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #11 voltage"},
-    {"id": "DAIHATSU_HYBRID_HVBAT_C12_V", "path": "Battery.Cells",      "fmt": {"bix": 176,  "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #12 voltage"},
-    {"id": "DAIHATSU_HYBRID_HVBAT_C13_V", "path": "Battery.Cells",      "fmt": {"bix": 192,  "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #13 voltage"},
-    {"id": "DAIHATSU_HYBRID_HVBAT_C14_V", "path": "Battery.Cells",      "fmt": {"bix": 208,  "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #14 voltage"},
-    {"id": "DAIHATSU_HYBRID_HVBAT_C15_V", "path": "Battery.Cells",      "fmt": {"bix": 224,  "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #15 voltage"},
-    {"id": "DAIHATSU_HYBRID_HVBAT_C16_V", "path": "Battery.Cells",      "fmt": {"bix": 240,  "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #16 voltage"},
-    {"id": "DAIHATSU_HYBRID_HVBAT_C17_V", "path": "Battery.Cells",      "fmt": {"bix": 256,  "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #17 voltage"},
-    {"id": "DAIHATSU_HYBRID_HVBAT_C18_V", "path": "Battery.Cells",      "fmt": {"bix": 272,  "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #18 voltage"},
-    {"id": "DAIHATSU_HYBRID_HVBAT_C19_V", "path": "Battery.Cells",      "fmt": {"bix": 288,  "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #19 voltage"},
-    {"id": "DAIHATSU_HYBRID_HVBAT_C20_V", "path": "Battery.Cells",      "fmt": {"bix": 304,  "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #20 voltage"},
-    {"id": "DAIHATSU_HYBRID_HVBAT_C21_V", "path": "Battery.Cells",      "fmt": {"bix": 320,  "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #21 voltage"},
-    {"id": "DAIHATSU_HYBRID_HVBAT_C22_V", "path": "Battery.Cells",      "fmt": {"bix": 336,  "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #22 voltage"},
-    {"id": "DAIHATSU_HYBRID_HVBAT_C23_V", "path": "Battery.Cells",      "fmt": {"bix": 352,  "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #23 voltage"},
-    {"id": "DAIHATSU_HYBRID_HVBAT_C24_V", "path": "Battery.Cells",      "fmt": {"bix": 368,  "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #24 voltage"},
-    {"id": "DAIHATSU_HYBRID_HVBAT_C25_V", "path": "Battery.Cells",      "fmt": {"bix": 384,  "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #25 voltage"},
-    {"id": "DAIHATSU_HYBRID_HVBAT_C26_V", "path": "Battery.Cells",      "fmt": {"bix": 400,  "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #26 voltage"},
-    {"id": "DAIHATSU_HYBRID_HVBAT_C27_V", "path": "Battery.Cells",      "fmt": {"bix": 416,  "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #27 voltage"},
-    {"id": "DAIHATSU_HYBRID_HVBAT_C28_V", "path": "Battery.Cells",      "fmt": {"bix": 432,  "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #28 voltage"},
-    {"id": "DAIHATSU_HYBRID_HVBAT_C29_V", "path": "Battery.Cells",      "fmt": {"bix": 448,  "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #29 voltage"},
-    {"id": "DAIHATSU_HYBRID_HVBAT_C30_V", "path": "Battery.Cells",      "fmt": {"bix": 464,  "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #30 voltage"},
-    {"id": "DAIHATSU_HYBRID_HVBAT_C31_V", "path": "Battery.Cells",      "fmt": {"bix": 480,  "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #31 voltage"},
-    {"id": "DAIHATSU_HYBRID_HVBAT_C32_V", "path": "Battery.Cells",      "fmt": {"bix": 496,  "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #32 voltage"},
-    {"id": "DAIHATSU_HYBRID_HVBAT_C33_V", "path": "Battery.Cells",      "fmt": {"bix": 512,  "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #33 voltage"},
-    {"id": "DAIHATSU_HYBRID_HVBAT_C34_V", "path": "Battery.Cells",      "fmt": {"bix": 528,  "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #34 voltage"},
-    {"id": "DAIHATSU_HYBRID_HVBAT_C35_V", "path": "Battery.Cells",      "fmt": {"bix": 544,  "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #35 voltage"},
-    {"id": "DAIHATSU_HYBRID_HVBAT_C36_V", "path": "Battery.Cells",      "fmt": {"bix": 560,  "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #36 voltage"},
-    {"id": "DAIHATSU_HYBRID_HVBAT_C37_V", "path": "Battery.Cells",      "fmt": {"bix": 576,  "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #37 voltage"},
-    {"id": "DAIHATSU_HYBRID_HVBAT_C38_V", "path": "Battery.Cells",      "fmt": {"bix": 592,  "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #38 voltage"},
-    {"id": "DAIHATSU_HYBRID_HVBAT_C39_V", "path": "Battery.Cells",      "fmt": {"bix": 608,  "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #39 voltage"},
-    {"id": "DAIHATSU_HYBRID_HVBAT_C40_V", "path": "Battery.Cells",      "fmt": {"bix": 624,  "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #40 voltage"},
-    {"id": "DAIHATSU_HYBRID_HVBAT_C41_V", "path": "Battery.Cells",      "fmt": {"bix": 640,  "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #41 voltage"},
-    {"id": "DAIHATSU_HYBRID_HVBAT_C42_V", "path": "Battery.Cells",      "fmt": {"bix": 656,  "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #42 voltage"},
-    {"id": "DAIHATSU_HYBRID_HVBAT_C43_V", "path": "Battery.Cells",      "fmt": {"bix": 672,  "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #43 voltage"},
-    {"id": "DAIHATSU_HYBRID_HVBAT_C44_V", "path": "Battery.Cells",      "fmt": {"bix": 688,  "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #44 voltage"},
-    {"id": "DAIHATSU_HYBRID_HVBAT_C45_V", "path": "Battery.Cells",      "fmt": {"bix": 704,  "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #45 voltage"},
-    {"id": "DAIHATSU_HYBRID_HVBAT_C46_V", "path": "Battery.Cells",      "fmt": {"bix": 720,  "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #46 voltage"},
-    {"id": "DAIHATSU_HYBRID_HVBAT_C47_V", "path": "Battery.Cells",      "fmt": {"bix": 736,  "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #47 voltage"},
-    {"id": "DAIHATSU_HYBRID_HVBAT_C48_V", "path": "Battery.Cells",      "fmt": {"bix": 752,  "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #48 voltage"},
-    {"id": "DAIHATSU_HYBRID_HVBAT_C49_V", "path": "Battery.Cells",      "fmt": {"bix": 768,  "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #49 voltage"},
-    {"id": "DAIHATSU_HYBRID_HVBAT_C50_V", "path": "Battery.Cells",      "fmt": {"bix": 784,  "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #50 voltage"},
-    {"id": "DAIHATSU_HYBRID_HVBAT_C51_V", "path": "Battery.Cells",      "fmt": {"bix": 800,  "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #51 voltage"},
-    {"id": "DAIHATSU_HYBRID_HVBAT_C52_V", "path": "Battery.Cells",      "fmt": {"bix": 816,  "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #52 voltage"},
-    {"id": "DAIHATSU_HYBRID_HVBAT_C53_V", "path": "Battery.Cells",      "fmt": {"bix": 832,  "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #53 voltage"},
-    {"id": "DAIHATSU_HYBRID_HVBAT_C54_V", "path": "Battery.Cells",      "fmt": {"bix": 848,  "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #54 voltage"},
-    {"id": "DAIHATSU_HYBRID_HVBAT_C55_V", "path": "Battery.Cells",      "fmt": {"bix": 864,  "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #55 voltage"},
-    {"id": "DAIHATSU_HYBRID_HVBAT_C56_V", "path": "Battery.Cells",      "fmt": {"bix": 880,  "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #56 voltage"},
-    {"id": "DAIHATSU_HYBRID_HVBAT_C57_V", "path": "Battery.Cells",      "fmt": {"bix": 896,  "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #57 voltage"},
-    {"id": "DAIHATSU_HYBRID_HVBAT_C58_V", "path": "Battery.Cells",      "fmt": {"bix": 912,  "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #58 voltage"},
-    {"id": "DAIHATSU_HYBRID_HVBAT_C59_V", "path": "Battery.Cells",      "fmt": {"bix": 928,  "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #59 voltage"},
-    {"id": "DAIHATSU_HYBRID_HVBAT_C60_V", "path": "Battery.Cells",      "fmt": {"bix": 944,  "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #60 voltage"},
-    {"id": "DAIHATSU_HYBRID_HVBAT_C61_V", "path": "Battery.Cells",      "fmt": {"bix": 960,  "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #61 voltage"},
-    {"id": "DAIHATSU_HYBRID_HVBAT_C62_V", "path": "Battery.Cells",      "fmt": {"bix": 976,  "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #62 voltage"},
-    {"id": "DAIHATSU_HYBRID_HVBAT_C63_V", "path": "Battery.Cells",      "fmt": {"bix": 992,  "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #63 voltage"},
-    {"id": "DAIHATSU_HYBRID_HVBAT_C64_V", "path": "Battery.Cells",      "fmt": {"bix": 1008, "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #64 voltage"},
-    {"id": "DAIHATSU_HYBRID_HVBAT_C65_V", "path": "Battery.Cells",      "fmt": {"bix": 1024, "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #65 voltage"},
-    {"id": "DAIHATSU_HYBRID_HVBAT_C66_V", "path": "Battery.Cells",      "fmt": {"bix": 1040, "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #66 voltage"},
-    {"id": "DAIHATSU_HYBRID_HVBAT_C67_V", "path": "Battery.Cells",      "fmt": {"bix": 1056, "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #67 voltage"},
-    {"id": "DAIHATSU_HYBRID_HVBAT_C68_V", "path": "Battery.Cells",      "fmt": {"bix": 1072, "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #68 voltage"},
-    {"id": "DAIHATSU_HYBRID_HVBAT_C69_V", "path": "Battery.Cells",      "fmt": {"bix": 1088, "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #69 voltage"},
-    {"id": "DAIHATSU_HYBRID_HVBAT_C70_V", "path": "Battery.Cells",      "fmt": {"bix": 1104, "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #70 voltage"},
-    {"id": "DAIHATSU_HYBRID_HVBAT_C71_V", "path": "Battery.Cells",      "fmt": {"bix": 1120, "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #71 voltage"},
-    {"id": "DAIHATSU_HYBRID_HVBAT_C72_V", "path": "Battery.Cells",      "fmt": {"bix": 1136, "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #72 voltage"},
-    {"id": "DAIHATSU_HYBRID_HVBAT_C73_V", "path": "Battery.Cells",      "fmt": {"bix": 1152, "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #73 voltage"},
-    {"id": "DAIHATSU_HYBRID_HVBAT_C74_V", "path": "Battery.Cells",      "fmt": {"bix": 1168, "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #74 voltage"},
-    {"id": "DAIHATSU_HYBRID_HVBAT_C75_V", "path": "Battery.Cells",      "fmt": {"bix": 1184, "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #75 voltage"},
-    {"id": "DAIHATSU_HYBRID_HVBAT_C76_V", "path": "Battery.Cells",      "fmt": {"bix": 1200, "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #76 voltage"},
-    {"id": "DAIHATSU_HYBRID_HVBAT_C77_V", "path": "Battery.Cells",      "fmt": {"bix": 1216, "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #77 voltage"},
-    {"id": "DAIHATSU_HYBRID_HVBAT_C78_V", "path": "Battery.Cells",      "fmt": {"bix": 1232, "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #78 voltage"},
-    {"id": "DAIHATSU_HYBRID_HVBAT_C79_V", "path": "Battery.Cells",      "fmt": {"bix": 1248, "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #79 voltage"},
-    {"id": "DAIHATSU_HYBRID_HVBAT_C80_V", "path": "Battery.Cells",      "fmt": {"bix": 1264, "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #80 voltage"},
-    {"id": "DAIHATSU_HYBRID_HVBAT_C81_V", "path": "Battery.Cells",      "fmt": {"bix": 1280, "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #81 voltage"},
-    {"id": "DAIHATSU_HYBRID_HVBAT_C82_V", "path": "Battery.Cells",      "fmt": {"bix": 1296, "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #82 voltage"},
-    {"id": "DAIHATSU_HYBRID_HVBAT_C83_V", "path": "Battery.Cells",      "fmt": {"bix": 1312, "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #83 voltage"},
-    {"id": "DAIHATSU_HYBRID_HVBAT_C84_V", "path": "Battery.Cells",      "fmt": {"bix": 1328, "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #84 voltage"},
-    {"id": "DAIHATSU_HYBRID_HVBAT_C85_V", "path": "Battery.Cells",      "fmt": {"bix": 1344, "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #85 voltage"},
-    {"id": "DAIHATSU_HYBRID_HVBAT_C86_V", "path": "Battery.Cells",      "fmt": {"bix": 1360, "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #86 voltage"},
-    {"id": "DAIHATSU_HYBRID_HVBAT_C87_V", "path": "Battery.Cells",      "fmt": {"bix": 1376, "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #87 voltage"},
-    {"id": "DAIHATSU_HYBRID_HVBAT_C88_V", "path": "Battery.Cells",      "fmt": {"bix": 1392, "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #88 voltage"},
-    {"id": "DAIHATSU_HYBRID_HVBAT_C89_V", "path": "Battery.Cells",      "fmt": {"bix": 1408, "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #89 voltage"},
-    {"id": "DAIHATSU_HYBRID_HVBAT_C90_V", "path": "Battery.Cells",      "fmt": {"bix": 1424, "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #90 voltage"},
-    {"id": "DAIHATSU_HYBRID_HVBAT_C91_V", "path": "Battery.Cells",      "fmt": {"bix": 1440, "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #91 voltage"},
-    {"id": "DAIHATSU_HYBRID_HVBAT_C92_V", "path": "Battery.Cells",      "fmt": {"bix": 1456, "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #92 voltage"},
-    {"id": "DAIHATSU_HYBRID_HVBAT_C93_V", "path": "Battery.Cells",      "fmt": {"bix": 1472, "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #93 voltage"},
-    {"id": "DAIHATSU_HYBRID_HVBAT_C94_V", "path": "Battery.Cells",      "fmt": {"bix": 1488, "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #94 voltage"},
-    {"id": "DAIHATSU_HYBRID_HVBAT_C95_V", "path": "Battery.Cells",      "fmt": {"bix": 1504, "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #95 voltage"},
-    {"id": "DAIHATSU_HYBRID_HVBAT_C96_V", "path": "Battery.Cells",      "fmt": {"bix": 1520, "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #96 voltage"}
+    {"id": "DAIHATSU_HR_HVBAT_C01_V",   "path": "Battery.Cells",      "fmt": {             "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #01 voltage"},
+    {"id": "DAIHATSU_HVBAT_CMU01_VOLT", "path": "Battery.Modules.01", "fmt": {             "len": 16, "max": 5,           "div": 13107, "unit": "volts" }, "name": "HV battery module 01 voltage"},
+    {"id": "DAIHATSU_HR_HVBAT_C02_V",   "path": "Battery.Cells",      "fmt": {"bix": 16,   "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #02 voltage"},
+    {"id": "DAIHATSU_HVBAT_CMU02_VOLT", "path": "Battery.Modules.02", "fmt": {"bix": 16,   "len": 16, "max": 5,           "div": 13107, "unit": "volts" }, "name": "HV battery module 02 voltage"},
+    {"id": "DAIHATSU_HR_HVBAT_C03_V",   "path": "Battery.Cells",      "fmt": {"bix": 32,   "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #03 voltage"},
+    {"id": "DAIHATSU_HR_HVBAT_C04_V",   "path": "Battery.Cells",      "fmt": {"bix": 48,   "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #04 voltage"},
+    {"id": "DAIHATSU_HR_HVBAT_C05_V",   "path": "Battery.Cells",      "fmt": {"bix": 64,   "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #05 voltage"},
+    {"id": "DAIHATSU_HR_HVBAT_C06_V",   "path": "Battery.Cells",      "fmt": {"bix": 80,   "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #06 voltage"},
+    {"id": "DAIHATSU_HR_HVBAT_C07_V",   "path": "Battery.Cells",      "fmt": {"bix": 96,   "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #07 voltage"},
+    {"id": "DAIHATSU_HR_HVBAT_C08_V",   "path": "Battery.Cells",      "fmt": {"bix": 112,  "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #08 voltage"},
+    {"id": "DAIHATSU_HR_HVBAT_C09_V",   "path": "Battery.Cells",      "fmt": {"bix": 128,  "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #09 voltage"},
+    {"id": "DAIHATSU_HR_HVBAT_C10_V",   "path": "Battery.Cells",      "fmt": {"bix": 144,  "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #10 voltage"},
+    {"id": "DAIHATSU_HR_HVBAT_C11_V",   "path": "Battery.Cells",      "fmt": {"bix": 160,  "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #11 voltage"},
+    {"id": "DAIHATSU_HR_HVBAT_C12_V",   "path": "Battery.Cells",      "fmt": {"bix": 176,  "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #12 voltage"},
+    {"id": "DAIHATSU_HR_HVBAT_C13_V",   "path": "Battery.Cells",      "fmt": {"bix": 192,  "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #13 voltage"},
+    {"id": "DAIHATSU_HR_HVBAT_C14_V",   "path": "Battery.Cells",      "fmt": {"bix": 208,  "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #14 voltage"},
+    {"id": "DAIHATSU_HR_HVBAT_C15_V",   "path": "Battery.Cells",      "fmt": {"bix": 224,  "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #15 voltage"},
+    {"id": "DAIHATSU_HR_HVBAT_C16_V",   "path": "Battery.Cells",      "fmt": {"bix": 240,  "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #16 voltage"},
+    {"id": "DAIHATSU_HR_HVBAT_C17_V",   "path": "Battery.Cells",      "fmt": {"bix": 256,  "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #17 voltage"},
+    {"id": "DAIHATSU_HR_HVBAT_C18_V",   "path": "Battery.Cells",      "fmt": {"bix": 272,  "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #18 voltage"},
+    {"id": "DAIHATSU_HR_HVBAT_C19_V",   "path": "Battery.Cells",      "fmt": {"bix": 288,  "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #19 voltage"},
+    {"id": "DAIHATSU_HR_HVBAT_C20_V",   "path": "Battery.Cells",      "fmt": {"bix": 304,  "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #20 voltage"},
+    {"id": "DAIHATSU_HR_HVBAT_C21_V",   "path": "Battery.Cells",      "fmt": {"bix": 320,  "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #21 voltage"},
+    {"id": "DAIHATSU_HR_HVBAT_C22_V",   "path": "Battery.Cells",      "fmt": {"bix": 336,  "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #22 voltage"},
+    {"id": "DAIHATSU_HR_HVBAT_C23_V",   "path": "Battery.Cells",      "fmt": {"bix": 352,  "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #23 voltage"},
+    {"id": "DAIHATSU_HR_HVBAT_C24_V",   "path": "Battery.Cells",      "fmt": {"bix": 368,  "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #24 voltage"},
+    {"id": "DAIHATSU_HR_HVBAT_C25_V",   "path": "Battery.Cells",      "fmt": {"bix": 384,  "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #25 voltage"},
+    {"id": "DAIHATSU_HR_HVBAT_C26_V",   "path": "Battery.Cells",      "fmt": {"bix": 400,  "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #26 voltage"},
+    {"id": "DAIHATSU_HR_HVBAT_C27_V",   "path": "Battery.Cells",      "fmt": {"bix": 416,  "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #27 voltage"},
+    {"id": "DAIHATSU_HR_HVBAT_C28_V",   "path": "Battery.Cells",      "fmt": {"bix": 432,  "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #28 voltage"},
+    {"id": "DAIHATSU_HR_HVBAT_C29_V",   "path": "Battery.Cells",      "fmt": {"bix": 448,  "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #29 voltage"},
+    {"id": "DAIHATSU_HR_HVBAT_C30_V",   "path": "Battery.Cells",      "fmt": {"bix": 464,  "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #30 voltage"},
+    {"id": "DAIHATSU_HR_HVBAT_C31_V",   "path": "Battery.Cells",      "fmt": {"bix": 480,  "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #31 voltage"},
+    {"id": "DAIHATSU_HR_HVBAT_C32_V",   "path": "Battery.Cells",      "fmt": {"bix": 496,  "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #32 voltage"},
+    {"id": "DAIHATSU_HR_HVBAT_C33_V",   "path": "Battery.Cells",      "fmt": {"bix": 512,  "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #33 voltage"},
+    {"id": "DAIHATSU_HR_HVBAT_C34_V",   "path": "Battery.Cells",      "fmt": {"bix": 528,  "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #34 voltage"},
+    {"id": "DAIHATSU_HR_HVBAT_C35_V",   "path": "Battery.Cells",      "fmt": {"bix": 544,  "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #35 voltage"},
+    {"id": "DAIHATSU_HR_HVBAT_C36_V",   "path": "Battery.Cells",      "fmt": {"bix": 560,  "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #36 voltage"},
+    {"id": "DAIHATSU_HR_HVBAT_C37_V",   "path": "Battery.Cells",      "fmt": {"bix": 576,  "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #37 voltage"},
+    {"id": "DAIHATSU_HR_HVBAT_C38_V",   "path": "Battery.Cells",      "fmt": {"bix": 592,  "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #38 voltage"},
+    {"id": "DAIHATSU_HR_HVBAT_C39_V",   "path": "Battery.Cells",      "fmt": {"bix": 608,  "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #39 voltage"},
+    {"id": "DAIHATSU_HR_HVBAT_C40_V",   "path": "Battery.Cells",      "fmt": {"bix": 624,  "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #40 voltage"},
+    {"id": "DAIHATSU_HR_HVBAT_C41_V",   "path": "Battery.Cells",      "fmt": {"bix": 640,  "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #41 voltage"},
+    {"id": "DAIHATSU_HR_HVBAT_C42_V",   "path": "Battery.Cells",      "fmt": {"bix": 656,  "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #42 voltage"},
+    {"id": "DAIHATSU_HR_HVBAT_C43_V",   "path": "Battery.Cells",      "fmt": {"bix": 672,  "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #43 voltage"},
+    {"id": "DAIHATSU_HR_HVBAT_C44_V",   "path": "Battery.Cells",      "fmt": {"bix": 688,  "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #44 voltage"},
+    {"id": "DAIHATSU_HR_HVBAT_C45_V",   "path": "Battery.Cells",      "fmt": {"bix": 704,  "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #45 voltage"},
+    {"id": "DAIHATSU_HR_HVBAT_C46_V",   "path": "Battery.Cells",      "fmt": {"bix": 720,  "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #46 voltage"},
+    {"id": "DAIHATSU_HR_HVBAT_C47_V",   "path": "Battery.Cells",      "fmt": {"bix": 736,  "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #47 voltage"},
+    {"id": "DAIHATSU_HR_HVBAT_C48_V",   "path": "Battery.Cells",      "fmt": {"bix": 752,  "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #48 voltage"},
+    {"id": "DAIHATSU_HR_HVBAT_C49_V",   "path": "Battery.Cells",      "fmt": {"bix": 768,  "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #49 voltage"},
+    {"id": "DAIHATSU_HR_HVBAT_C50_V",   "path": "Battery.Cells",      "fmt": {"bix": 784,  "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #50 voltage"},
+    {"id": "DAIHATSU_HR_HVBAT_C51_V",   "path": "Battery.Cells",      "fmt": {"bix": 800,  "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #51 voltage"},
+    {"id": "DAIHATSU_HR_HVBAT_C52_V",   "path": "Battery.Cells",      "fmt": {"bix": 816,  "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #52 voltage"},
+    {"id": "DAIHATSU_HR_HVBAT_C53_V",   "path": "Battery.Cells",      "fmt": {"bix": 832,  "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #53 voltage"},
+    {"id": "DAIHATSU_HR_HVBAT_C54_V",   "path": "Battery.Cells",      "fmt": {"bix": 848,  "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #54 voltage"},
+    {"id": "DAIHATSU_HR_HVBAT_C55_V",   "path": "Battery.Cells",      "fmt": {"bix": 864,  "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #55 voltage"},
+    {"id": "DAIHATSU_HR_HVBAT_C56_V",   "path": "Battery.Cells",      "fmt": {"bix": 880,  "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #56 voltage"},
+    {"id": "DAIHATSU_HR_HVBAT_C57_V",   "path": "Battery.Cells",      "fmt": {"bix": 896,  "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #57 voltage"},
+    {"id": "DAIHATSU_HR_HVBAT_C58_V",   "path": "Battery.Cells",      "fmt": {"bix": 912,  "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #58 voltage"},
+    {"id": "DAIHATSU_HR_HVBAT_C59_V",   "path": "Battery.Cells",      "fmt": {"bix": 928,  "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #59 voltage"},
+    {"id": "DAIHATSU_HR_HVBAT_C60_V",   "path": "Battery.Cells",      "fmt": {"bix": 944,  "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #60 voltage"},
+    {"id": "DAIHATSU_HR_HVBAT_C61_V",   "path": "Battery.Cells",      "fmt": {"bix": 960,  "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #61 voltage"},
+    {"id": "DAIHATSU_HR_HVBAT_C62_V",   "path": "Battery.Cells",      "fmt": {"bix": 976,  "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #62 voltage"},
+    {"id": "DAIHATSU_HR_HVBAT_C63_V",   "path": "Battery.Cells",      "fmt": {"bix": 992,  "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #63 voltage"},
+    {"id": "DAIHATSU_HR_HVBAT_C64_V",   "path": "Battery.Cells",      "fmt": {"bix": 1008, "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #64 voltage"},
+    {"id": "DAIHATSU_HR_HVBAT_C65_V",   "path": "Battery.Cells",      "fmt": {"bix": 1024, "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #65 voltage"},
+    {"id": "DAIHATSU_HR_HVBAT_C66_V",   "path": "Battery.Cells",      "fmt": {"bix": 1040, "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #66 voltage"},
+    {"id": "DAIHATSU_HR_HVBAT_C67_V",   "path": "Battery.Cells",      "fmt": {"bix": 1056, "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #67 voltage"},
+    {"id": "DAIHATSU_HR_HVBAT_C68_V",   "path": "Battery.Cells",      "fmt": {"bix": 1072, "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #68 voltage"},
+    {"id": "DAIHATSU_HR_HVBAT_C69_V",   "path": "Battery.Cells",      "fmt": {"bix": 1088, "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #69 voltage"},
+    {"id": "DAIHATSU_HR_HVBAT_C70_V",   "path": "Battery.Cells",      "fmt": {"bix": 1104, "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #70 voltage"},
+    {"id": "DAIHATSU_HR_HVBAT_C71_V",   "path": "Battery.Cells",      "fmt": {"bix": 1120, "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #71 voltage"},
+    {"id": "DAIHATSU_HR_HVBAT_C72_V",   "path": "Battery.Cells",      "fmt": {"bix": 1136, "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #72 voltage"},
+    {"id": "DAIHATSU_HR_HVBAT_C73_V",   "path": "Battery.Cells",      "fmt": {"bix": 1152, "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #73 voltage"},
+    {"id": "DAIHATSU_HR_HVBAT_C74_V",   "path": "Battery.Cells",      "fmt": {"bix": 1168, "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #74 voltage"},
+    {"id": "DAIHATSU_HR_HVBAT_C75_V",   "path": "Battery.Cells",      "fmt": {"bix": 1184, "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #75 voltage"},
+    {"id": "DAIHATSU_HR_HVBAT_C76_V",   "path": "Battery.Cells",      "fmt": {"bix": 1200, "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #76 voltage"},
+    {"id": "DAIHATSU_HR_HVBAT_C77_V",   "path": "Battery.Cells",      "fmt": {"bix": 1216, "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #77 voltage"},
+    {"id": "DAIHATSU_HR_HVBAT_C78_V",   "path": "Battery.Cells",      "fmt": {"bix": 1232, "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #78 voltage"},
+    {"id": "DAIHATSU_HR_HVBAT_C79_V",   "path": "Battery.Cells",      "fmt": {"bix": 1248, "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #79 voltage"},
+    {"id": "DAIHATSU_HR_HVBAT_C80_V",   "path": "Battery.Cells",      "fmt": {"bix": 1264, "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #80 voltage"},
+    {"id": "DAIHATSU_HR_HVBAT_C81_V",   "path": "Battery.Cells",      "fmt": {"bix": 1280, "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #81 voltage"},
+    {"id": "DAIHATSU_HR_HVBAT_C82_V",   "path": "Battery.Cells",      "fmt": {"bix": 1296, "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #82 voltage"},
+    {"id": "DAIHATSU_HR_HVBAT_C83_V",   "path": "Battery.Cells",      "fmt": {"bix": 1312, "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #83 voltage"},
+    {"id": "DAIHATSU_HR_HVBAT_C84_V",   "path": "Battery.Cells",      "fmt": {"bix": 1328, "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #84 voltage"},
+    {"id": "DAIHATSU_HR_HVBAT_C85_V",   "path": "Battery.Cells",      "fmt": {"bix": 1344, "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #85 voltage"},
+    {"id": "DAIHATSU_HR_HVBAT_C86_V",   "path": "Battery.Cells",      "fmt": {"bix": 1360, "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #86 voltage"},
+    {"id": "DAIHATSU_HR_HVBAT_C87_V",   "path": "Battery.Cells",      "fmt": {"bix": 1376, "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #87 voltage"},
+    {"id": "DAIHATSU_HR_HVBAT_C88_V",   "path": "Battery.Cells",      "fmt": {"bix": 1392, "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #88 voltage"},
+    {"id": "DAIHATSU_HR_HVBAT_C89_V",   "path": "Battery.Cells",      "fmt": {"bix": 1408, "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #89 voltage"},
+    {"id": "DAIHATSU_HR_HVBAT_C90_V",   "path": "Battery.Cells",      "fmt": {"bix": 1424, "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #90 voltage"},
+    {"id": "DAIHATSU_HR_HVBAT_C91_V",   "path": "Battery.Cells",      "fmt": {"bix": 1440, "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #91 voltage"},
+    {"id": "DAIHATSU_HR_HVBAT_C92_V",   "path": "Battery.Cells",      "fmt": {"bix": 1456, "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #92 voltage"},
+    {"id": "DAIHATSU_HR_HVBAT_C93_V",   "path": "Battery.Cells",      "fmt": {"bix": 1472, "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #93 voltage"},
+    {"id": "DAIHATSU_HR_HVBAT_C94_V",   "path": "Battery.Cells",      "fmt": {"bix": 1488, "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #94 voltage"},
+    {"id": "DAIHATSU_HR_HVBAT_C95_V",   "path": "Battery.Cells",      "fmt": {"bix": 1504, "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #95 voltage"},
+    {"id": "DAIHATSU_HR_HVBAT_C96_V",   "path": "Battery.Cells",      "fmt": {"bix": 1520, "len": 16, "max": 5, "mul": 5, "div": 65535, "unit": "volts" }, "name": "HV battery cell #96 voltage"}
   ]},
 { "hdr": "747", "rax": "74F", "fcm1": true, "dbg": true, "cmd": {"22": "1D3E"}, "freq": 60,
   "signals": [
@@ -984,9 +1011,18 @@
     {"id": "DAIHATSU_CAP_7", "path": "Battery", "fmt": {"bix": 96,  "len": 16, "max": 655.35, "div": 100, "unit": "ampereHours" }, "name": "Full charge capacity 7"},
     {"id": "DAIHATSU_CAP_8", "path": "Battery", "fmt": {"bix": 112, "len": 16, "max": 655.35, "div": 100, "unit": "ampereHours" }, "name": "Full charge capacity 8"}
   ]},
-{ "hdr": "747", "rax": "74F", "fcm1": true, "dbg": true, "cmd": {"22": "1F5B"}, "freq": 10,
+{ "hdr": "747", "rax": "74F", "dbg": true, "cmd": {"22": "1F5B"}, "freq": 1,
   "signals": [
-    {"id": "DAIHATSU_SOC_747", "path": "Battery", "fmt": { "len": 8, "max": 100, "div": 2.55, "unit": "percent" }, "name": "State of charge, battery ECU"}
+    {"id": "DAIHATSU_HYBRID_BAT_SOC", "path": "Battery", "fmt": { "len": 8, "max": 100, "mul": 20, "div": 51,   "unit": "percent" }, "name": "Hybrid battery SOC"},
+    {"id": "DAIHATSU_SOC_747",        "path": "Battery", "fmt": { "len": 8, "max": 100,            "div": 2.55, "unit": "percent" }, "name": "State of charge, battery ECU"}
+  ]},
+{ "hdr": "747", "rax": "74F", "dbg": true, "cmd": {"22": "1F9A"}, "freq": 1,
+  "signals": [
+    {"id": "DAIHATSU_HYBRID_BAT_CURRENT", "path": "Battery", "fmt": {"bix": 32, "len": 16, "max": 6553, "div": 10, "unit": "amps" }, "name": "Hybrid battery current"}
+  ]},
+{ "hdr": "747", "rax": "74F", "dbg": true, "cmd": {"22": "F19A"}, "freq": 5,
+  "signals": [
+    {"id": "DAIHATSU_HYBRID_BAT_V_747", "path": "Battery", "fmt": {"bix": 16, "len": 8, "max": 1020, "mul": 4, "unit": "volts" }, "name": "Hybrid battery voltage"}
   ]},
 { "hdr": "750", "eax": "2A", "fcm1": true, "dbg": true, "cmd": {"21": "30"}, "freq": 5,
   "signals": [
@@ -1011,38 +1047,48 @@
   ]},
 { "hdr": "750", "rax": "758", "eax": "2A", "fcm1": true, "dbg": true, "cmd": {"21": "16"}, "freq": 1,
   "signals": [
-    {"id": "DAIHATSU_TT_FL",       "path": "Tires", "fmt": {           "len": 8, "max": 215, "min": -40, "add": -40, "nullmin": -40, "unit": "celsius" }, "name": "Front left tire temperature",  "suggestedMetric": "frontLeftTireTemperature"},
-    {"id": "DAIHATSU_TT_FL_V1",    "path": "Tires", "fmt": {           "len": 8, "max": 150, "min": -20, "add": -40,                 "unit": "celsius" }, "name": "Front left tire temperature"},
-    {"id": "DAIHATSU_TT_1",        "path": "Tires", "fmt": {           "len": 8, "max": 150, "min": -40, "add": -40,                 "unit": "celsius" }, "name": "Front left tire temperature",  "suggestedMetric": "frontLeftTireTemperature"},
-    {"id": "DAIHATSU_TT_FL_V2",    "path": "Tires", "fmt": {           "len": 8, "max": 150, "min": -20, "add": -40,                 "unit": "celsius" }, "name": "Front left tire temperature",  "suggestedMetric": "frontLeftTireTemperature"},
-    {"id": "DAIHATSU_TT_FR",       "path": "Tires", "fmt": {"bix": 8,  "len": 8, "max": 215, "min": -40, "add": -40, "nullmin": -40, "unit": "celsius" }, "name": "Front right tire temperature", "suggestedMetric": "frontRightTireTemperature"},
-    {"id": "DAIHATSU_TT_FR_V1",    "path": "Tires", "fmt": {"bix": 8,  "len": 8, "max": 150, "min": -20, "add": -40,                 "unit": "celsius" }, "name": "Front right tire temperature"},
-    {"id": "DAIHATSU_TT_2",        "path": "Tires", "fmt": {"bix": 8,  "len": 8, "max": 150, "min": -40, "add": -40,                 "unit": "celsius" }, "name": "Front right tire temperature", "suggestedMetric": "frontRightTireTemperature"},
-    {"id": "DAIHATSU_TT_FR_V2",    "path": "Tires", "fmt": {"bix": 8,  "len": 8, "max": 150, "min": -20, "add": -40,                 "unit": "celsius" }, "name": "Front right tire temperature", "suggestedMetric": "frontRightTireTemperature"},
-    {"id": "DAIHATSU_TT_RL",       "path": "Tires", "fmt": {"bix": 16, "len": 8, "max": 215, "min": -40, "add": -40, "nullmin": -40, "unit": "celsius" }, "name": "Rear left tire temperature",   "suggestedMetric": "rearLeftTireTemperature"},
-    {"id": "DAIHATSU_TT_RL_V1",    "path": "Tires", "fmt": {"bix": 16, "len": 8, "max": 150, "min": -20, "add": -40,                 "unit": "celsius" }, "name": "Rear left tire temperature"},
-    {"id": "DAIHATSU_TT_3",        "path": "Tires", "fmt": {"bix": 16, "len": 8, "max": 150, "min": -40, "add": -40,                 "unit": "celsius" }, "name": "Rear left tire temperature",   "suggestedMetric": "rearLeftTireTemperature"},
-    {"id": "DAIHATSU_TT_RL_V2",    "path": "Tires", "fmt": {"bix": 16, "len": 8, "max": 150, "min": -20, "add": -40,                 "unit": "celsius" }, "name": "Rear left tire temperature",   "suggestedMetric": "rearLeftTireTemperature"},
-    {"id": "DAIHATSU_TT_RR",       "path": "Tires", "fmt": {"bix": 24, "len": 8, "max": 215, "min": -40, "add": -40, "nullmin": -40, "unit": "celsius" }, "name": "Rear right tire temperature",  "suggestedMetric": "rearRightTireTemperature"},
-    {"id": "DAIHATSU_TT_RR_V1",    "path": "Tires", "fmt": {"bix": 24, "len": 8, "max": 150, "min": -20, "add": -40,                 "unit": "celsius" }, "name": "Rear right tire temperature"},
-    {"id": "DAIHATSU_TT_4",        "path": "Tires", "fmt": {"bix": 24, "len": 8, "max": 150, "min": -40, "add": -40,                 "unit": "celsius" }, "name": "Rear right tire temperature",  "suggestedMetric": "rearRightTireTemperature"},
-    {"id": "DAIHATSU_TT_RR_V2",    "path": "Tires", "fmt": {"bix": 24, "len": 8, "max": 150, "min": -20, "add": -40,                 "unit": "celsius" }, "name": "Rear right tire temperature",  "suggestedMetric": "rearRightTireTemperature"},
-    {"id": "DAIHATSU_TT_SPARE",    "path": "Tires", "fmt": {"bix": 32, "len": 8, "max": 215, "min": -40, "add": -40, "nullmin": -40, "unit": "celsius" }, "name": "Spare tire temperature"},
-    {"id": "DAIHATSU_TT_SPARE_V1", "path": "Tires", "fmt": {"bix": 32, "len": 8, "max": 150, "min": -20, "add": -40,                 "unit": "celsius" }, "name": "Spare tire temperature"},
-    {"id": "DAIHATSU_TT_5",        "path": "Tires", "fmt": {"bix": 32, "len": 8, "max": 150, "min": -40, "add": -40,                 "unit": "celsius" }, "name": "Spare tire temperature"}
+    {"id": "DAIHATSU_TT_FL",       "path": "Tires", "fmt": {           "len": 8, "max": 215, "min": -40, "add": -40, "nullmin": -40,                 "unit": "celsius" }, "name": "Front left tire temperature",  "suggestedMetric": "frontLeftTireTemperature"},
+    {"id": "DAIHATSU_HR_TT_FL",    "path": "Tires", "fmt": {           "len": 8, "max": 215, "min": -40, "add": -40, "nullmin": -40, "nullmax": 215, "unit": "celsius" }, "name": "Front left tire temperature",  "suggestedMetric": "frontLeftTireTemperature"},
+    {"id": "DAIHATSU_TT_FL_V1",    "path": "Tires", "fmt": {           "len": 8, "max": 150, "min": -20, "add": -40,                                 "unit": "celsius" }, "name": "Front left tire temperature"},
+    {"id": "DAIHATSU_TT_1",        "path": "Tires", "fmt": {           "len": 8, "max": 150, "min": -40, "add": -40,                                 "unit": "celsius" }, "name": "Front left tire temperature",  "suggestedMetric": "frontLeftTireTemperature"},
+    {"id": "DAIHATSU_TT_FL_V2",    "path": "Tires", "fmt": {           "len": 8, "max": 150, "min": -20, "add": -40,                                 "unit": "celsius" }, "name": "Front left tire temperature",  "suggestedMetric": "frontLeftTireTemperature"},
+    {"id": "DAIHATSU_TT_FR",       "path": "Tires", "fmt": {"bix": 8,  "len": 8, "max": 215, "min": -40, "add": -40, "nullmin": -40,                 "unit": "celsius" }, "name": "Front right tire temperature", "suggestedMetric": "frontRightTireTemperature"},
+    {"id": "DAIHATSU_HR_TT_FR",    "path": "Tires", "fmt": {"bix": 8,  "len": 8, "max": 215, "min": -40, "add": -40, "nullmin": -40, "nullmax": 215, "unit": "celsius" }, "name": "Front right tire temperature", "suggestedMetric": "frontRightTireTemperature"},
+    {"id": "DAIHATSU_TT_FR_V1",    "path": "Tires", "fmt": {"bix": 8,  "len": 8, "max": 150, "min": -20, "add": -40,                                 "unit": "celsius" }, "name": "Front right tire temperature"},
+    {"id": "DAIHATSU_TT_2",        "path": "Tires", "fmt": {"bix": 8,  "len": 8, "max": 150, "min": -40, "add": -40,                                 "unit": "celsius" }, "name": "Front right tire temperature", "suggestedMetric": "frontRightTireTemperature"},
+    {"id": "DAIHATSU_TT_FR_V2",    "path": "Tires", "fmt": {"bix": 8,  "len": 8, "max": 150, "min": -20, "add": -40,                                 "unit": "celsius" }, "name": "Front right tire temperature", "suggestedMetric": "frontRightTireTemperature"},
+    {"id": "DAIHATSU_TT_RL",       "path": "Tires", "fmt": {"bix": 16, "len": 8, "max": 215, "min": -40, "add": -40, "nullmin": -40,                 "unit": "celsius" }, "name": "Rear left tire temperature",   "suggestedMetric": "rearLeftTireTemperature"},
+    {"id": "DAIHATSU_HR_TT_RL",    "path": "Tires", "fmt": {"bix": 16, "len": 8, "max": 215, "min": -40, "add": -40, "nullmin": -40, "nullmax": 215, "unit": "celsius" }, "name": "Rear left tire temperature",   "suggestedMetric": "rearLeftTireTemperature"},
+    {"id": "DAIHATSU_TT_RL_V1",    "path": "Tires", "fmt": {"bix": 16, "len": 8, "max": 150, "min": -20, "add": -40,                                 "unit": "celsius" }, "name": "Rear left tire temperature"},
+    {"id": "DAIHATSU_TT_3",        "path": "Tires", "fmt": {"bix": 16, "len": 8, "max": 150, "min": -40, "add": -40,                                 "unit": "celsius" }, "name": "Rear left tire temperature",   "suggestedMetric": "rearLeftTireTemperature"},
+    {"id": "DAIHATSU_TT_RL_V2",    "path": "Tires", "fmt": {"bix": 16, "len": 8, "max": 150, "min": -20, "add": -40,                                 "unit": "celsius" }, "name": "Rear left tire temperature",   "suggestedMetric": "rearLeftTireTemperature"},
+    {"id": "DAIHATSU_TT_RR",       "path": "Tires", "fmt": {"bix": 24, "len": 8, "max": 215, "min": -40, "add": -40, "nullmin": -40,                 "unit": "celsius" }, "name": "Rear right tire temperature",  "suggestedMetric": "rearRightTireTemperature"},
+    {"id": "DAIHATSU_HR_TT_RR",    "path": "Tires", "fmt": {"bix": 24, "len": 8, "max": 215, "min": -40, "add": -40, "nullmin": -40, "nullmax": 215, "unit": "celsius" }, "name": "Rear right tire temperature",  "suggestedMetric": "rearRightTireTemperature"},
+    {"id": "DAIHATSU_TT_RR_V1",    "path": "Tires", "fmt": {"bix": 24, "len": 8, "max": 150, "min": -20, "add": -40,                                 "unit": "celsius" }, "name": "Rear right tire temperature"},
+    {"id": "DAIHATSU_TT_4",        "path": "Tires", "fmt": {"bix": 24, "len": 8, "max": 150, "min": -40, "add": -40,                                 "unit": "celsius" }, "name": "Rear right tire temperature",  "suggestedMetric": "rearRightTireTemperature"},
+    {"id": "DAIHATSU_TT_RR_V2",    "path": "Tires", "fmt": {"bix": 24, "len": 8, "max": 150, "min": -20, "add": -40,                                 "unit": "celsius" }, "name": "Rear right tire temperature",  "suggestedMetric": "rearRightTireTemperature"},
+    {"id": "DAIHATSU_TT_SPARE",    "path": "Tires", "fmt": {"bix": 32, "len": 8, "max": 215, "min": -40, "add": -40, "nullmin": -40,                 "unit": "celsius" }, "name": "Spare tire temperature"},
+    {"id": "DAIHATSU_HR_TT_SPARE", "path": "Tires", "fmt": {"bix": 32, "len": 8, "max": 215, "min": -40, "add": -40, "nullmin": -40, "nullmax": 215, "unit": "celsius" }, "name": "Spare tire temperature"},
+    {"id": "DAIHATSU_TT_SPARE_V1", "path": "Tires", "fmt": {"bix": 32, "len": 8, "max": 150, "min": -20, "add": -40,                                 "unit": "celsius" }, "name": "Spare tire temperature"},
+    {"id": "DAIHATSU_TT_5",        "path": "Tires", "fmt": {"bix": 32, "len": 8, "max": 150, "min": -40, "add": -40,                                 "unit": "celsius" }, "name": "Spare tire temperature"}
   ]},
 { "hdr": "750", "rax": "758", "eax": "2A", "tst": "2A", "fcm1": true, "dbg": true, "cmd": {"21": "30"}, "freq": 2.5,
   "signals": [
-    {"id": "DAIHATSU_TP_FL",        "path": "Tires", "fmt": {           "len": 8, "max": 3.8,   "div": 58, "add": -0.5, "nullmin": 0, "unit": "bars" }, "name": "Front left tire pressure",  "suggestedMetric": "frontLeftTirePressure"},
-    {"id": "DAIHATSU_TIRE_P_FL",    "path": "Tires", "fmt": {           "len": 8, "max": 3.896, "div": 58, "add": -0.5, "nullmin": 0, "unit": "bars" }, "name": "Front left tire pressure",  "suggestedMetric": "frontLeftTirePressure"},
-    {"id": "DAIHATSU_TP_FR",        "path": "Tires", "fmt": {"bix": 8,  "len": 8, "max": 3.8,   "div": 58, "add": -0.5, "nullmin": 0, "unit": "bars" }, "name": "Front right tire pressure", "suggestedMetric": "frontRightTirePressure"},
-    {"id": "DAIHATSU_TIRE_P_FR",    "path": "Tires", "fmt": {"bix": 8,  "len": 8, "max": 3.896, "div": 58, "add": -0.5, "nullmin": 0, "unit": "bars" }, "name": "Front right tire pressure", "suggestedMetric": "frontRightTirePressure"},
-    {"id": "DAIHATSU_TP_RL",        "path": "Tires", "fmt": {"bix": 16, "len": 8, "max": 3.8,   "div": 58, "add": -0.5, "nullmin": 0, "unit": "bars" }, "name": "Rear left tire pressure",   "suggestedMetric": "rearLeftTirePressure"},
-    {"id": "DAIHATSU_TIRE_P_RL",    "path": "Tires", "fmt": {"bix": 16, "len": 8, "max": 3.896, "div": 58, "add": -0.5, "nullmin": 0, "unit": "bars" }, "name": "Rear left tire pressure",   "suggestedMetric": "rearLeftTirePressure"},
-    {"id": "DAIHATSU_TP_RR",        "path": "Tires", "fmt": {"bix": 24, "len": 8, "max": 3.8,   "div": 58, "add": -0.5, "nullmin": 0, "unit": "bars" }, "name": "Rear right tire pressure",  "suggestedMetric": "rearRightTirePressure"},
-    {"id": "DAIHATSU_TIRE_P_RR",    "path": "Tires", "fmt": {"bix": 24, "len": 8, "max": 3.896, "div": 58, "add": -0.5, "nullmin": 0, "unit": "bars" }, "name": "Rear right tire pressure",  "suggestedMetric": "rearRightTirePressure"},
-    {"id": "DAIHATSU_TP_SPARE",     "path": "Tires", "fmt": {"bix": 32, "len": 8, "max": 3.8,   "div": 58, "add": -0.5, "nullmin": 0, "unit": "bars" }, "name": "Spare tire pressure"},
-    {"id": "DAIHATSU_TIRE_P_SPARE", "path": "Tires", "fmt": {"bix": 32, "len": 8, "max": 3.896, "div": 58, "add": -0.5, "nullmin": 0, "unit": "bars" }, "name": "Spare tire pressure"}
+    {"id": "DAIHATSU_TP_FL",        "path": "Tires", "fmt": {           "len": 8, "max": 3.8,   "div": 58, "add": -0.5, "nullmin": 0,                   "unit": "bars" }, "name": "Front left tire pressure",  "suggestedMetric": "frontLeftTirePressure"},
+    {"id": "DAIHATSU_HR_TP_FL",     "path": "Tires", "fmt": {           "len": 8, "max": 3.896, "div": 58, "add": -0.5, "nullmin": 0, "nullmax": 3.896, "unit": "bars" }, "name": "Front left tire pressure",  "suggestedMetric": "frontLeftTirePressure"},
+    {"id": "DAIHATSU_TIRE_P_FL",    "path": "Tires", "fmt": {           "len": 8, "max": 3.896, "div": 58, "add": -0.5, "nullmin": 0,                   "unit": "bars" }, "name": "Front left tire pressure",  "suggestedMetric": "frontLeftTirePressure"},
+    {"id": "DAIHATSU_TP_FR",        "path": "Tires", "fmt": {"bix": 8,  "len": 8, "max": 3.8,   "div": 58, "add": -0.5, "nullmin": 0,                   "unit": "bars" }, "name": "Front right tire pressure", "suggestedMetric": "frontRightTirePressure"},
+    {"id": "DAIHATSU_HR_TP_FR",     "path": "Tires", "fmt": {"bix": 8,  "len": 8, "max": 3.896, "div": 58, "add": -0.5, "nullmin": 0, "nullmax": 3.896, "unit": "bars" }, "name": "Front right tire pressure", "suggestedMetric": "frontRightTirePressure"},
+    {"id": "DAIHATSU_TIRE_P_FR",    "path": "Tires", "fmt": {"bix": 8,  "len": 8, "max": 3.896, "div": 58, "add": -0.5, "nullmin": 0,                   "unit": "bars" }, "name": "Front right tire pressure", "suggestedMetric": "frontRightTirePressure"},
+    {"id": "DAIHATSU_TP_RL",        "path": "Tires", "fmt": {"bix": 16, "len": 8, "max": 3.8,   "div": 58, "add": -0.5, "nullmin": 0,                   "unit": "bars" }, "name": "Rear left tire pressure",   "suggestedMetric": "rearLeftTirePressure"},
+    {"id": "DAIHATSU_HR_TP_RL",     "path": "Tires", "fmt": {"bix": 16, "len": 8, "max": 3.896, "div": 58, "add": -0.5, "nullmin": 0, "nullmax": 3.896, "unit": "bars" }, "name": "Rear left tire pressure",   "suggestedMetric": "rearLeftTirePressure"},
+    {"id": "DAIHATSU_TIRE_P_RL",    "path": "Tires", "fmt": {"bix": 16, "len": 8, "max": 3.896, "div": 58, "add": -0.5, "nullmin": 0,                   "unit": "bars" }, "name": "Rear left tire pressure",   "suggestedMetric": "rearLeftTirePressure"},
+    {"id": "DAIHATSU_TP_RR",        "path": "Tires", "fmt": {"bix": 24, "len": 8, "max": 3.8,   "div": 58, "add": -0.5, "nullmin": 0,                   "unit": "bars" }, "name": "Rear right tire pressure",  "suggestedMetric": "rearRightTirePressure"},
+    {"id": "DAIHATSU_HR_TP_RR",     "path": "Tires", "fmt": {"bix": 24, "len": 8, "max": 3.896, "div": 58, "add": -0.5, "nullmin": 0, "nullmax": 3.896, "unit": "bars" }, "name": "Rear right tire pressure",  "suggestedMetric": "rearRightTirePressure"},
+    {"id": "DAIHATSU_TIRE_P_RR",    "path": "Tires", "fmt": {"bix": 24, "len": 8, "max": 3.896, "div": 58, "add": -0.5, "nullmin": 0,                   "unit": "bars" }, "name": "Rear right tire pressure",  "suggestedMetric": "rearRightTirePressure"},
+    {"id": "DAIHATSU_TP_SPARE",     "path": "Tires", "fmt": {"bix": 32, "len": 8, "max": 3.8,   "div": 58, "add": -0.5, "nullmin": 0,                   "unit": "bars" }, "name": "Spare tire pressure"},
+    {"id": "DAIHATSU_HR_TP_SPARE",  "path": "Tires", "fmt": {"bix": 32, "len": 8, "max": 3.896, "div": 58, "add": -0.5, "nullmin": 0, "nullmax": 3.896, "unit": "bars" }, "name": "Spare tire pressure"},
+    {"id": "DAIHATSU_TIRE_P_SPARE", "path": "Tires", "fmt": {"bix": 32, "len": 8, "max": 3.896, "div": 58, "add": -0.5, "nullmin": 0,                   "unit": "bars" }, "name": "Spare tire pressure"}
   ]},
 { "hdr": "750", "rax": "758", "eax": "2A", "tst": "2A", "fcm1": true, "dbg": true, "cmd": {"22": "1004"}, "freq": 15,
   "signals": [
@@ -1068,26 +1114,36 @@
   ]},
 { "hdr": "750", "rax": "758", "eax": "2A", "tst": "2A", "fcm1": true, "dbg": true, "cmd": {"22": "1005"}, "freq": 15,
   "signals": [
-    {"id": "DAIHATSU_TP_1",        "path": "Tires", "fmt": {"bix": 8,  "len": 8, "max": 56.121212, "div": 4.125, "add": -5.6969697, "nullmin": 0, "unit": "psi"  }, "name": "Front right tire pressure", "suggestedMetric": "frontRightTirePressure"},
-    {"id": "DAIHATSU_HYBRID_TP_1", "path": "Tires", "fmt": {"bix": 8,  "len": 8, "max": 56.12,     "div": 4.125, "add": -5.6969697, "nullmin": 0, "unit": "psi"  }, "name": "Front right tire pressure", "suggestedMetric": "frontRightTirePressure"},
-    {"id": "DAIHATSU_TP_FL_V2",    "path": "Tires", "fmt": {"bix": 8,  "len": 8, "max": 3.8965,    "div": 58,    "add": -0.5,                     "unit": "bars" }, "name": "Tire sensor 1 pressure"},
-    {"id": "DAIHATSU_TP_FL_V2",    "path": "Tires", "fmt": {"bix": 8,  "len": 8, "max": 3.8,       "div": 58,    "add": -0.5,       "nullmin": 0, "unit": "bars" }, "name": "Front left tire pressure",  "suggestedMetric": "frontLeftTirePressure"},
-    {"id": "DAIHATSU_TP_2",        "path": "Tires", "fmt": {"bix": 24, "len": 8, "max": 56.121212, "div": 4.125, "add": -5.6969697, "nullmin": 0, "unit": "psi"  }, "name": "Rear right tire pressure",  "suggestedMetric": "rearRightTirePressure"},
-    {"id": "DAIHATSU_HYBRID_TP_2", "path": "Tires", "fmt": {"bix": 24, "len": 8, "max": 56.12,     "div": 4.125, "add": -5.6969697, "nullmin": 0, "unit": "psi"  }, "name": "Rear right tire pressure",  "suggestedMetric": "rearRightTirePressure"},
-    {"id": "DAIHATSU_TP_FR_V2",    "path": "Tires", "fmt": {"bix": 24, "len": 8, "max": 3.8965,    "div": 58,    "add": -0.5,                     "unit": "bars" }, "name": "Tire sensor 2 pressure"},
-    {"id": "DAIHATSU_TP_FR_V2",    "path": "Tires", "fmt": {"bix": 24, "len": 8, "max": 3.8,       "div": 58,    "add": -0.5,       "nullmin": 0, "unit": "bars" }, "name": "Front right tire pressure", "suggestedMetric": "frontRightTirePressure"},
-    {"id": "DAIHATSU_TP_3",        "path": "Tires", "fmt": {"bix": 40, "len": 8, "max": 56.121212, "div": 4.125, "add": -5.6969697, "nullmin": 0, "unit": "psi"  }, "name": "Front left tire pressure",  "suggestedMetric": "frontLeftTirePressure"},
-    {"id": "DAIHATSU_HYBRID_TP_3", "path": "Tires", "fmt": {"bix": 40, "len": 8, "max": 56.12,     "div": 4.125, "add": -5.6969697, "nullmin": 0, "unit": "psi"  }, "name": "Front left tire pressure",  "suggestedMetric": "frontLeftTirePressure"},
-    {"id": "DAIHATSU_TP_RL_V2",    "path": "Tires", "fmt": {"bix": 40, "len": 8, "max": 3.8965,    "div": 58,    "add": -0.5,                     "unit": "bars" }, "name": "Tire sensor 3 pressure"},
-    {"id": "DAIHATSU_TP_RL_V2",    "path": "Tires", "fmt": {"bix": 40, "len": 8, "max": 3.8,       "div": 58,    "add": -0.5,       "nullmin": 0, "unit": "bars" }, "name": "Rear left tire pressure",   "suggestedMetric": "rearLeftTirePressure"},
-    {"id": "DAIHATSU_TP_4",        "path": "Tires", "fmt": {"bix": 56, "len": 8, "max": 56.121212, "div": 4.125, "add": -5.6969697, "nullmin": 0, "unit": "psi"  }, "name": "Rear left tire pressure",   "suggestedMetric": "rearLeftTirePressure"},
-    {"id": "DAIHATSU_HYBRID_TP_4", "path": "Tires", "fmt": {"bix": 56, "len": 8, "max": 56.12,     "div": 4.125, "add": -5.6969697, "nullmin": 0, "unit": "psi"  }, "name": "Rear left tire pressure",   "suggestedMetric": "rearLeftTirePressure"},
-    {"id": "DAIHATSU_TP_RR_V2",    "path": "Tires", "fmt": {"bix": 56, "len": 8, "max": 3.8965,    "div": 58,    "add": -0.5,                     "unit": "bars" }, "name": "Tire sensor 4 pressure"},
-    {"id": "DAIHATSU_TP_RR_V2",    "path": "Tires", "fmt": {"bix": 56, "len": 8, "max": 3.8,       "div": 58,    "add": -0.5,       "nullmin": 0, "unit": "bars" }, "name": "Rear right tire pressure",  "suggestedMetric": "rearRightTirePressure"},
-    {"id": "DAIHATSU_TP_5",        "path": "Tires", "fmt": {"bix": 72, "len": 8, "max": 56.121212, "div": 4.125, "add": -5.6969697, "nullmin": 0, "unit": "psi"  }, "name": "Spare tire pressure"},
-    {"id": "DAIHATSU_HYBRID_TP_5", "path": "Tires", "fmt": {"bix": 72, "len": 8, "max": 56.12,     "div": 4.125, "add": -5.6969697, "nullmin": 0, "unit": "psi"  }, "name": "Spare tire pressure"},
-    {"id": "DAIHATSU_TP_SPARE_V2", "path": "Tires", "fmt": {"bix": 72, "len": 8, "max": 3.8965,    "div": 58,    "add": -0.5,                     "unit": "bars" }, "name": "Spare tire pressure"},
-    {"id": "DAIHATSU_TP_SPARE_V2", "path": "Tires", "fmt": {"bix": 72, "len": 8, "max": 3.8,       "div": 58,    "add": -0.5,       "nullmin": 0, "unit": "bars" }, "name": "Spare tire pressure"}
+    {"id": "DAIHATSU_TP_1",            "path": "Tires", "fmt": {"bix": 8,  "len": 8, "max": 56.121212, "div": 4.125, "add": -5.6969697, "nullmin": 0,                     "unit": "psi"  }, "name": "Front right tire pressure", "suggestedMetric": "frontRightTirePressure"},
+    {"id": "DAIHATSU_HR_TP_1",         "path": "Tires", "fmt": {"bix": 8,  "len": 8, "max": 56.1212,   "div": 4.125, "add": -5.6969697, "nullmin": 0, "nullmax": 56.1212, "unit": "psi"  }, "name": "Front right tire pressure", "suggestedMetric": "frontRightTirePressure"},
+    {"id": "DAIHATSU_HYBRID_TP_1",     "path": "Tires", "fmt": {"bix": 8,  "len": 8, "max": 56.12,     "div": 4.125, "add": -5.6969697, "nullmin": 0,                     "unit": "psi"  }, "name": "Front right tire pressure", "suggestedMetric": "frontRightTirePressure"},
+    {"id": "DAIHATSU_TP_FL_V2",        "path": "Tires", "fmt": {"bix": 8,  "len": 8, "max": 3.8965,    "div": 58,    "add": -0.5,                                         "unit": "bars" }, "name": "Tire sensor 1 pressure"},
+    {"id": "DAIHATSU_HIGHLANDER_TP_1", "path": "Tires", "fmt": {"bix": 8,  "len": 8, "max": 56.1212,   "div": 4.125, "add": -5.6969697, "nullmin": 0,                     "unit": "psi"  }, "name": "Front right tire pressure", "suggestedMetric": "frontRightTirePressure"},
+    {"id": "DAIHATSU_TP_FL_V2",        "path": "Tires", "fmt": {"bix": 8,  "len": 8, "max": 3.8,       "div": 58,    "add": -0.5,       "nullmin": 0,                     "unit": "bars" }, "name": "Front left tire pressure",  "suggestedMetric": "frontLeftTirePressure"},
+    {"id": "DAIHATSU_TP_2",            "path": "Tires", "fmt": {"bix": 24, "len": 8, "max": 56.121212, "div": 4.125, "add": -5.6969697, "nullmin": 0,                     "unit": "psi"  }, "name": "Rear right tire pressure",  "suggestedMetric": "rearRightTirePressure"},
+    {"id": "DAIHATSU_HR_TP_2",         "path": "Tires", "fmt": {"bix": 24, "len": 8, "max": 56.1212,   "div": 4.125, "add": -5.6969697, "nullmin": 0, "nullmax": 56.1212, "unit": "psi"  }, "name": "Rear right tire pressure",  "suggestedMetric": "rearRightTirePressure"},
+    {"id": "DAIHATSU_HYBRID_TP_2",     "path": "Tires", "fmt": {"bix": 24, "len": 8, "max": 56.12,     "div": 4.125, "add": -5.6969697, "nullmin": 0,                     "unit": "psi"  }, "name": "Rear right tire pressure",  "suggestedMetric": "rearRightTirePressure"},
+    {"id": "DAIHATSU_TP_FR_V2",        "path": "Tires", "fmt": {"bix": 24, "len": 8, "max": 3.8965,    "div": 58,    "add": -0.5,                                         "unit": "bars" }, "name": "Tire sensor 2 pressure"},
+    {"id": "DAIHATSU_HIGHLANDER_TP_2", "path": "Tires", "fmt": {"bix": 24, "len": 8, "max": 56.1212,   "div": 4.125, "add": -5.6969697, "nullmin": 0,                     "unit": "psi"  }, "name": "Rear right tire pressure",  "suggestedMetric": "rearRightTirePressure"},
+    {"id": "DAIHATSU_TP_FR_V2",        "path": "Tires", "fmt": {"bix": 24, "len": 8, "max": 3.8,       "div": 58,    "add": -0.5,       "nullmin": 0,                     "unit": "bars" }, "name": "Front right tire pressure", "suggestedMetric": "frontRightTirePressure"},
+    {"id": "DAIHATSU_TP_3",            "path": "Tires", "fmt": {"bix": 40, "len": 8, "max": 56.121212, "div": 4.125, "add": -5.6969697, "nullmin": 0,                     "unit": "psi"  }, "name": "Front left tire pressure",  "suggestedMetric": "frontLeftTirePressure"},
+    {"id": "DAIHATSU_HR_TP_3",         "path": "Tires", "fmt": {"bix": 40, "len": 8, "max": 56.1212,   "div": 4.125, "add": -5.6969697, "nullmin": 0, "nullmax": 56.1212, "unit": "psi"  }, "name": "Front left tire pressure",  "suggestedMetric": "frontLeftTirePressure"},
+    {"id": "DAIHATSU_HYBRID_TP_3",     "path": "Tires", "fmt": {"bix": 40, "len": 8, "max": 56.12,     "div": 4.125, "add": -5.6969697, "nullmin": 0,                     "unit": "psi"  }, "name": "Front left tire pressure",  "suggestedMetric": "frontLeftTirePressure"},
+    {"id": "DAIHATSU_TP_RL_V2",        "path": "Tires", "fmt": {"bix": 40, "len": 8, "max": 3.8965,    "div": 58,    "add": -0.5,                                         "unit": "bars" }, "name": "Tire sensor 3 pressure"},
+    {"id": "DAIHATSU_HIGHLANDER_TP_3", "path": "Tires", "fmt": {"bix": 40, "len": 8, "max": 56.1212,   "div": 4.125, "add": -5.6969697, "nullmin": 0,                     "unit": "psi"  }, "name": "Front left tire pressure",  "suggestedMetric": "frontLeftTirePressure"},
+    {"id": "DAIHATSU_TP_RL_V2",        "path": "Tires", "fmt": {"bix": 40, "len": 8, "max": 3.8,       "div": 58,    "add": -0.5,       "nullmin": 0,                     "unit": "bars" }, "name": "Rear left tire pressure",   "suggestedMetric": "rearLeftTirePressure"},
+    {"id": "DAIHATSU_TP_4",            "path": "Tires", "fmt": {"bix": 56, "len": 8, "max": 56.121212, "div": 4.125, "add": -5.6969697, "nullmin": 0,                     "unit": "psi"  }, "name": "Rear left tire pressure",   "suggestedMetric": "rearLeftTirePressure"},
+    {"id": "DAIHATSU_HR_TP_4",         "path": "Tires", "fmt": {"bix": 56, "len": 8, "max": 56.1212,   "div": 4.125, "add": -5.6969697, "nullmin": 0, "nullmax": 56.1212, "unit": "psi"  }, "name": "Rear left tire pressure",   "suggestedMetric": "rearLeftTirePressure"},
+    {"id": "DAIHATSU_HYBRID_TP_4",     "path": "Tires", "fmt": {"bix": 56, "len": 8, "max": 56.12,     "div": 4.125, "add": -5.6969697, "nullmin": 0,                     "unit": "psi"  }, "name": "Rear left tire pressure",   "suggestedMetric": "rearLeftTirePressure"},
+    {"id": "DAIHATSU_TP_RR_V2",        "path": "Tires", "fmt": {"bix": 56, "len": 8, "max": 3.8965,    "div": 58,    "add": -0.5,                                         "unit": "bars" }, "name": "Tire sensor 4 pressure"},
+    {"id": "DAIHATSU_HIGHLANDER_TP_4", "path": "Tires", "fmt": {"bix": 56, "len": 8, "max": 56.1212,   "div": 4.125, "add": -5.6969697, "nullmin": 0,                     "unit": "psi"  }, "name": "Rear left tire pressure",   "suggestedMetric": "rearLeftTirePressure"},
+    {"id": "DAIHATSU_TP_RR_V2",        "path": "Tires", "fmt": {"bix": 56, "len": 8, "max": 3.8,       "div": 58,    "add": -0.5,       "nullmin": 0,                     "unit": "bars" }, "name": "Rear right tire pressure",  "suggestedMetric": "rearRightTirePressure"},
+    {"id": "DAIHATSU_TP_5",            "path": "Tires", "fmt": {"bix": 72, "len": 8, "max": 56.121212, "div": 4.125, "add": -5.6969697, "nullmin": 0,                     "unit": "psi"  }, "name": "Spare tire pressure"},
+    {"id": "DAIHATSU_HR_TP_5",         "path": "Tires", "fmt": {"bix": 72, "len": 8, "max": 56.1212,   "div": 4.125, "add": -5.6969697, "nullmin": 0, "nullmax": 56.1212, "unit": "psi"  }, "name": "Spare tire pressure"},
+    {"id": "DAIHATSU_HYBRID_TP_5",     "path": "Tires", "fmt": {"bix": 72, "len": 8, "max": 56.12,     "div": 4.125, "add": -5.6969697, "nullmin": 0,                     "unit": "psi"  }, "name": "Spare tire pressure"},
+    {"id": "DAIHATSU_TP_SPARE_V2",     "path": "Tires", "fmt": {"bix": 72, "len": 8, "max": 3.8965,    "div": 58,    "add": -0.5,                                         "unit": "bars" }, "name": "Spare tire pressure"},
+    {"id": "DAIHATSU_HIGHLANDER_TP_5", "path": "Tires", "fmt": {"bix": 72, "len": 8, "max": 56.1212,   "div": 4.125, "add": -5.6969697, "nullmin": 0,                     "unit": "psi"  }, "name": "Spare tire pressure"},
+    {"id": "DAIHATSU_TP_SPARE_V2",     "path": "Tires", "fmt": {"bix": 72, "len": 8, "max": 3.8,       "div": 58,    "add": -0.5,       "nullmin": 0,                     "unit": "bars" }, "name": "Spare tire pressure"}
   ]},
 { "hdr": "750", "rax": "758", "eax": "2A", "tst": "2A", "fcm1": true, "dbg": true, "cmd": {"22": "2021"}, "freq": 86400,
   "signals": [
@@ -1190,23 +1246,23 @@
   ]},
 { "hdr": "7B0", "rax": "7B8", "dbg": true, "cmd": {"21": "42"}, "freq": 0.25,
   "signals": [
-    {"id": "DAIHATSU_FR_WHEEL_ACCELERATION",        "path": "Movement", "fmt": {           "len": 8, "max": 255,                                                  "unit": "metersPerSecondSquared" }, "name": "Front right wheel acceleration"},
-    {"id": "DAIHATSU_HYBRID_FR_WHEEL_ACCELERATION", "path": "Movement", "fmt": {           "len": 8, "max": 199.27, "min": -200.83, "mul": 1.56906, "sign": true, "unit": "metersPerSecondSquared" }, "name": "Front right wheel acceleration"},
-    {"id": "DAIHATSU_FL_WHEEL_ACCELERATION",        "path": "Movement", "fmt": {"bix": 8,  "len": 8, "max": 255,                                                  "unit": "metersPerSecondSquared" }, "name": "Front left wheel acceleration"},
-    {"id": "DAIHATSU_HYBRID_FL_WHEEL_ACCELERATION", "path": "Movement", "fmt": {"bix": 8,  "len": 8, "max": 199.27, "min": -200.83, "mul": 1.56906, "sign": true, "unit": "metersPerSecondSquared" }, "name": "Front left wheel acceleration"},
-    {"id": "DAIHATSU_RR_WHEEL_ACCELERATION",        "path": "Movement", "fmt": {"bix": 16, "len": 8, "max": 255,                                                  "unit": "metersPerSecondSquared" }, "name": "Rear right wheel acceleration"},
-    {"id": "DAIHATSU_HYBRID_RR_WHEEL_ACCELERATION", "path": "Movement", "fmt": {"bix": 16, "len": 8, "max": 199.27, "min": -200.83, "mul": 1.56906, "sign": true, "unit": "metersPerSecondSquared" }, "name": "Rear right wheel acceleration"},
-    {"id": "DAIHATSU_RL_WHEEL_ACCELERATION",        "path": "Movement", "fmt": {"bix": 24, "len": 8, "max": 255,                                                  "unit": "metersPerSecondSquared" }, "name": "Rear left wheel acceleration"},
-    {"id": "DAIHATSU_HYBRID_RL_WHEEL_ACCELERATION", "path": "Movement", "fmt": {"bix": 24, "len": 8, "max": 199.27, "min": -200.83, "mul": 1.56906, "sign": true, "unit": "metersPerSecondSquared" }, "name": "Rear left wheel acceleration"}
+    {"id": "DAIHATSU_FR_WHEEL_ACCELERATION",    "path": "Movement", "fmt": {           "len": 8, "max": 255,                                                  "unit": "metersPerSecondSquared" }, "name": "Front right wheel acceleration"},
+    {"id": "DAIHATSU_HR_FR_WHEEL_ACCELERATION", "path": "Movement", "fmt": {           "len": 8, "max": 199.27, "min": -200.83, "mul": 1.56906, "sign": true, "unit": "metersPerSecondSquared" }, "name": "Front right wheel acceleration"},
+    {"id": "DAIHATSU_FL_WHEEL_ACCELERATION",    "path": "Movement", "fmt": {"bix": 8,  "len": 8, "max": 255,                                                  "unit": "metersPerSecondSquared" }, "name": "Front left wheel acceleration"},
+    {"id": "DAIHATSU_HR_FL_WHEEL_ACCELERATION", "path": "Movement", "fmt": {"bix": 8,  "len": 8, "max": 199.27, "min": -200.83, "mul": 1.56906, "sign": true, "unit": "metersPerSecondSquared" }, "name": "Front left wheel acceleration"},
+    {"id": "DAIHATSU_RR_WHEEL_ACCELERATION",    "path": "Movement", "fmt": {"bix": 16, "len": 8, "max": 255,                                                  "unit": "metersPerSecondSquared" }, "name": "Rear right wheel acceleration"},
+    {"id": "DAIHATSU_HR_RR_WHEEL_ACCELERATION", "path": "Movement", "fmt": {"bix": 16, "len": 8, "max": 199.27, "min": -200.83, "mul": 1.56906, "sign": true, "unit": "metersPerSecondSquared" }, "name": "Rear right wheel acceleration"},
+    {"id": "DAIHATSU_RL_WHEEL_ACCELERATION",    "path": "Movement", "fmt": {"bix": 24, "len": 8, "max": 255,                                                  "unit": "metersPerSecondSquared" }, "name": "Rear left wheel acceleration"},
+    {"id": "DAIHATSU_HR_RL_WHEEL_ACCELERATION", "path": "Movement", "fmt": {"bix": 24, "len": 8, "max": 199.27, "min": -200.83, "mul": 1.56906, "sign": true, "unit": "metersPerSecondSquared" }, "name": "Rear left wheel acceleration"}
   ]},
 { "hdr": "7B0", "rax": "7B8", "dbg": true, "cmd": {"21": "46"}, "freq": 0.25,
   "signals": [
-    {"id": "DAIHATSU_ZP_DEC",         "path": "Orientation", "fmt": {           "len": 8, "max": 24.91, "min": -25.11, "mul": 0.1961568627,            "add": -25.11,               "unit": "metersPerSecondSquared" }, "name": "Zero point of deceleration"},
-    {"id": "DAIHATSU_HYBRID_ZP_DEC",  "path": "Orientation", "fmt": {           "len": 8, "max": 2.54,  "min": -2.56,                       "div": 50,                "sign": true, "unit": "gravity"                }, "name": "Zero point of deceleration"},
-    {"id": "DAIHATSU_ZP_DEC2",        "path": "Orientation", "fmt": {"bix": 8,  "len": 8, "max": 24.91, "min": -25.11, "mul": 0.1961568627,            "add": -25.11,               "unit": "metersPerSecondSquared" }, "name": "Zero point of deceleration 2"},
-    {"id": "DAIHATSU_HYBRID_ZP_DEC2", "path": "Orientation", "fmt": {"bix": 8,  "len": 8, "max": 2.54,  "min": -2.56,                       "div": 50,                "sign": true, "unit": "gravity"                }, "name": "Zero point of deceleration 2"},
-    {"id": "DAIHATSU_ZP_YAW",         "path": "Orientation", "fmt": {"bix": 16, "len": 8, "max": 127,   "min": -128,                                   "add": -128,                 "unit": "scalar"                 }, "name": "Zero point of yaw rate (degrees/sec)"},
-    {"id": "DAIHATSU_ZP_YAW_RATE",    "path": "Control",     "fmt": {"bix": 16, "len": 8, "max": 127,   "min": -128,                                   "add": -128,                 "unit": "degrees"                }, "name": "Zero point of yaw rate"}
+    {"id": "DAIHATSU_ZP_DEC",      "path": "Orientation", "fmt": {           "len": 8, "max": 24.91, "min": -25.11, "mul": 0.1961568627,            "add": -25.11,               "unit": "metersPerSecondSquared" }, "name": "Zero point of deceleration"},
+    {"id": "DAIHATSU_HR_ZP_DEC",   "path": "Orientation", "fmt": {           "len": 8, "max": 2.54,  "min": -2.56,                       "div": 50,                "sign": true, "unit": "gravity"                }, "name": "Zero point of deceleration"},
+    {"id": "DAIHATSU_ZP_DEC2",     "path": "Orientation", "fmt": {"bix": 8,  "len": 8, "max": 24.91, "min": -25.11, "mul": 0.1961568627,            "add": -25.11,               "unit": "metersPerSecondSquared" }, "name": "Zero point of deceleration 2"},
+    {"id": "DAIHATSU_HR_ZP_DEC2",  "path": "Orientation", "fmt": {"bix": 8,  "len": 8, "max": 2.54,  "min": -2.56,                       "div": 50,                "sign": true, "unit": "gravity"                }, "name": "Zero point of deceleration 2"},
+    {"id": "DAIHATSU_ZP_YAW",      "path": "Orientation", "fmt": {"bix": 16, "len": 8, "max": 127,   "min": -128,                                   "add": -128,                 "unit": "scalar"                 }, "name": "Zero point of yaw rate (degrees/sec)"},
+    {"id": "DAIHATSU_ZP_YAW_RATE", "path": "Control",     "fmt": {"bix": 16, "len": 8, "max": 127,   "min": -128,                                   "add": -128,                 "unit": "degrees"                }, "name": "Zero point of yaw rate"}
   ]},
 { "hdr": "7B0", "rax": "7B8", "dbg": true, "cmd": {"21": "47"}, "freq": 0.25,
   "signals": [
@@ -1296,14 +1352,14 @@
   ]},
 { "hdr": "7B0", "rax": "7B8", "fcm1": true, "dbg": true, "cmd": {"22": "1045"}, "freq": 5,
   "signals": [
-    {"id": "DAIHATSU_EPB", "path": "Brakes", "name": "Parking brake actuator status", "fmt": {"len": 8, "map": {
+    {"id": "DAIHATSU_HIGHLANDER_EPB", "path": "Brakes", "name": "Parking brake actuator status", "fmt": {"len": 8, "map": {
           "0": { "description": "Applied", "value": "APPLIED" }
         }}
     }
   ]},
 { "hdr": "7B0", "rax": "7B8", "fcm1": true, "dbg": true, "cmd": {"22": "104C"}, "freq": 1,
   "signals": [
-    {"id": "DAIHATSU_BRAKE_STROKE", "path": "Control", "fmt": { "len": 8, "max": 255, "unit": "millimeters" }, "name": "Brake pedal stroke"}
+    {"id": "DAIHATSU_HIGHLANDER_BRAKE_STROKE", "path": "Control", "fmt": { "len": 8, "max": 255, "unit": "millimeters" }, "name": "Brake pedal stroke"}
   ]},
 { "hdr": "7B1", "rax": "7B9", "dbg": true, "cmd": {"22": "0103"}, "freq": 30,
   "signals": [
@@ -1339,7 +1395,7 @@
   ]},
 { "hdr": "7B3", "rax": "7BB", "dbg": true, "cmd": {"22": "1004"}, "freq": 0.25,
   "signals": [
-    {"id": "DAIHATSU_STEERING_ANGLE_7B3", "path": "Control", "fmt": { "len": 16, "max": 410, "min": -410, "mul": 1.5, "sign": true, "unit": "degrees" }, "name": "Steering angle"}
+    {"id": "DAIHATSU_HR_STEERING_ANGLE", "path": "Control", "fmt": { "len": 16, "max": 410, "min": -410, "mul": 1.5, "sign": true, "unit": "degrees" }, "name": "Steering angle"}
   ]},
 { "hdr": "7C0", "rax": "7C8", "dbg": true, "cmd": {"21": "12"}, "freq": 1,
   "signals": [
@@ -1396,9 +1452,10 @@
   ]},
 { "hdr": "7C0", "rax": "7C8", "dbg": true, "cmd": {"22": "1022"}, "freq": 30,
   "signals": [
-    {"id": "DAIHATSU_FUEL_LEVEL",        "path": "Fuel", "fmt": { "len": 16, "max": 655.35, "div": 100,                 "unit": "liters" }, "name": "Fuel level",     "suggestedMetric": "fuelTankLevel"},
-    {"id": "DAIHATSU_HYBRID_FUEL_LEVEL", "path": "Fuel", "fmt": { "len": 16, "max": 655.35, "div": 100,                 "unit": "liters" }, "name": "Fuel level"},
-    {"id": "DAIHATSU_FLV",               "path": "Fuel", "fmt": { "len": 16, "max": 655,    "div": 100, "nullmax": 655, "unit": "liters" }, "name": "Fuel remaining", "suggestedMetric": "fuelTankLevel"}
+    {"id": "DAIHATSU_FUEL_LEVEL",        "path": "Fuel", "fmt": { "len": 16, "max": 655.35, "div": 100,                    "unit": "liters" }, "name": "Fuel level",     "suggestedMetric": "fuelTankLevel"},
+    {"id": "DAIHATSU_HR_FUEL_LEVEL",     "path": "Fuel", "fmt": { "len": 16, "max": 655.35, "div": 100, "nullmax": 655.35, "unit": "liters" }, "name": "Fuel level",     "suggestedMetric": "fuelTankLevel"},
+    {"id": "DAIHATSU_HYBRID_FUEL_LEVEL", "path": "Fuel", "fmt": { "len": 16, "max": 655.35, "div": 100,                    "unit": "liters" }, "name": "Fuel level"},
+    {"id": "DAIHATSU_FLV",               "path": "Fuel", "fmt": { "len": 16, "max": 655,    "div": 100, "nullmax": 655,    "unit": "liters" }, "name": "Fuel remaining", "suggestedMetric": "fuelTankLevel"}
   ]},
 { "hdr": "7C4", "dbg": true, "cmd": {"21": "43"}, "freq": 1,
   "signals": [
@@ -1462,8 +1519,8 @@
   ]},
 { "hdr": "7C4", "rax": "7CC", "dbg": true, "cmd": {"21": "53"}, "freq": 5,
   "signals": [
-    {"id": "DAIHATSU_REGULATOR_P",        "path": "Engine", "fmt": { "len": 8, "max": 3.29437, "min": -0.45668, "mul": 3.75105, "div": 255,   "add": -0.45668, "unit": "scalar"     }, "name": "Regulator pressure sensor"},
-    {"id": "DAIHATSU_HYBRID_REGULATOR_P", "path": "Engine", "fmt": { "len": 8, "max": 3294,    "min": -456.68,  "mul": 375105,  "div": 25500, "add": -456.68,  "unit": "kilopascal" }, "name": "Regulator pressure"}
+    {"id": "DAIHATSU_REGULATOR_P",    "path": "Engine", "fmt": { "len": 8, "max": 3.29437, "min": -0.45668, "mul": 3.75105, "div": 255,   "add": -0.45668, "unit": "scalar"     }, "name": "Regulator pressure sensor"},
+    {"id": "DAIHATSU_HR_REGULATOR_P", "path": "Engine", "fmt": { "len": 8, "max": 3294,    "min": -456.68,  "mul": 375105,  "div": 25500, "add": -456.68,  "unit": "kilopascal" }, "name": "Regulator pressure"}
   ]},
 { "hdr": "7C4", "rax": "7CC", "dbg": true, "cmd": {"21": "AF"}, "freq": 5,
   "signals": [
@@ -1475,15 +1532,15 @@
   ]},
 { "hdr": "7C4", "rax": "7CC", "fcm1": true, "dbg": true, "cmd": {"22": "1001"}, "freq": 10,
   "signals": [
-    {"id": "DAIHATSU_CABIN_T_V2", "path": "Climate", "fmt": { "len": 16, "max": 327.67, "min": -327.68, "div": 100, "sign": true, "unit": "celsius" }, "name": "Cabin temperature"}
+    {"id": "DAIHATSU_HIGHLANDER_CABIN_T_V2", "path": "Climate", "fmt": { "len": 16, "max": 327.67, "min": -327.68, "div": 100, "sign": true, "unit": "celsius" }, "name": "Cabin temperature"}
   ]},
 { "hdr": "7C4", "rax": "7CC", "fcm1": true, "dbg": true, "cmd": {"22": "1002"}, "freq": 10,
   "signals": [
-    {"id": "DAIHATSU_AAT_7C4_V2", "path": "Climate", "fmt": { "len": 16, "max": 327.67, "min": -327.68, "div": 100, "sign": true, "unit": "celsius" }, "name": "Ambient temperature, climate"}
+    {"id": "DAIHATSU_HIGHLANDER_AAT_7C4_V2", "path": "Climate", "fmt": { "len": 16, "max": 327.67, "min": -327.68, "div": 100, "sign": true, "unit": "celsius" }, "name": "Ambient temperature, climate"}
   ]},
 { "hdr": "7C4", "rax": "7CC", "fcm1": true, "dbg": true, "cmd": {"22": "1036"}, "freq": 10,
   "signals": [
-    {"id": "DAIHATSU_HVAC_SET_RAW", "path": "Climate", "fmt": { "len": 8, "max": 255, "unit": "scalar" }, "name": "Climate set point code"}
+    {"id": "DAIHATSU_HIGHLANDER_HVAC_SET_RAW", "path": "Climate", "fmt": { "len": 8, "max": 255, "unit": "scalar" }, "name": "Climate set point code"}
   ]},
 { "hdr": "7C4", "rax": "7CC", "fcm1": true, "dbg": true, "cmd": {"22": "1086"}, "freq": 10,
   "signals": [
@@ -1491,7 +1548,7 @@
   ]},
 { "hdr": "7C4", "rax": "7CC", "fcm1": true, "dbg": true, "cmd": {"22": "2801"}, "freq": 10,
   "signals": [
-    {"id": "DAIHATSU_BLOWER", "path": "Climate", "fmt": { "len": 8, "max": 7, "unit": "scalar" }, "name": "Blower level"}
+    {"id": "DAIHATSU_HIGHLANDER_BLOWER", "path": "Climate", "fmt": { "len": 8, "max": 7, "unit": "scalar" }, "name": "Blower level"}
   ]},
 { "hdr": "7D0", "rax": "7D8", "dbg": true, "cmd": {"21": "62"}, "freq": 1,
   "signals": [
@@ -1510,19 +1567,36 @@
           "208": { "description": "Off", "value": "OFF" },
           "240": { "description": "On",  "value": "ON" }
         }}
+    },
+    {"id": "DAIHATSU_HR_PARKING_BRAKE", "path": "Control", "name": "Parking brake", "fmt": {"len": 8, "map": {
+          "1":   { "description": "Off", "value": "OFF" },
+          "3":   { "description": "On",  "value": "ON" },
+          "5":   { "description": "Off", "value": "OFF" },
+          "7":   { "description": "On",  "value": "ON" },
+          "9":   { "description": "Off", "value": "OFF" },
+          "11":  { "description": "On",  "value": "ON" },
+          "16":  { "description": "Off", "value": "OFF" },
+          "25":  { "description": "Off", "value": "OFF" },
+          "27":  { "description": "On",  "value": "ON" },
+          "48":  { "description": "On",  "value": "ON" },
+          "144": { "description": "Off", "value": "OFF" },
+          "176": { "description": "On",  "value": "ON" },
+          "208": { "description": "Off", "value": "OFF" },
+          "240": { "description": "On",  "value": "ON" }
+        }}
     }
   ]},
 { "hdr": "7D2", "rax": "7DA", "dbg": true, "cmd": {"22": "0102"}, "freq": 1,
   "signals": [
-    {"id": "DAIHATSU_HYBRID_KEY_CYCLE", "path": "Engine", "fmt": { "len": 16, "max": 65535, "unit": "scalar" }, "name": "Key cycle"}
+    {"id": "DAIHATSU_HR_KEY_CYCLE", "path": "Engine", "fmt": { "len": 16, "max": 65535, "unit": "scalar" }, "name": "Key cycle"}
   ]},
 { "hdr": "7D2", "rax": "7DA", "fcm1": true, "dbg": true, "cmd": {"22": "0103"}, "freq": 10,
   "signals": [
-    {"id": "DAIHATSU_HYBRID_ODO_V2_V2", "path": "Trips", "fmt": {"bix": 8, "len": 24, "max": 16777215, "unit": "kilometers" }, "name": "Odometer", "suggestedMetric": "odometer"}
+    {"id": "DAIHATSU_HR_ODO_V2_V2", "path": "Trips", "fmt": {"bix": 8, "len": 24, "max": 16777215, "unit": "kilometers" }, "name": "Odometer", "suggestedMetric": "odometer"}
   ]},
 { "hdr": "7D2", "rax": "7DA", "dbg": true, "cmd": {"22": "1002"}, "freq": 5,
   "signals": [
-    {"id": "DAIHATSU_HYBRID_AUX_BAT_V", "path": "Battery", "fmt": { "len": 16, "max": 79.95, "mul": 61, "div": 50000, "unit": "volts" }, "name": "Auxiliary battery voltage"}
+    {"id": "DAIHATSU_HR_AUX_BAT_V", "path": "Battery", "fmt": { "len": 16, "max": 79.95, "mul": 61, "div": 50000, "unit": "volts" }, "name": "Aux battery voltage"}
   ]},
 { "hdr": "7D2", "rax": "7DA", "fcm1": true, "dbg": true, "cmd": {"22": "1004"}, "freq": 5,
   "signals": [
@@ -1541,19 +1615,19 @@
   ]},
 { "hdr": "7D2", "rax": "7DA", "dbg": true, "cmd": {"22": "1039"}, "freq": 0.25,
   "signals": [
-    {"id": "DAIHATSU_HYBRID_FRONT_REAR_MOTOR_TQ", "path": "Engine", "fmt": {"bix": 16, "len": 16, "max": 32.76, "min": -32.76, "div": 1000, "add": -32.768, "unit": "scalar" }, "name": "Front/rear motor torque ratio"}
+    {"id": "DAIHATSU_HR_FRONT_REAR_MOTOR_TQ", "path": "Engine", "fmt": {"bix": 16, "len": 16, "max": 32.76, "min": -32.76, "div": 1000, "add": -32.768, "unit": "scalar" }, "name": "Front/rear motor torque ratio"}
   ]},
 { "hdr": "7D2", "rax": "7DA", "dbg": true, "cmd": {"22": "1040"}, "freq": 1,
   "signals": [
-    {"id": "DAIHATSU_HYBRID_TRANSAXLE_OIL_T", "path": "Engine", "fmt": {"bix": 16, "len": 8, "max": 215, "min": -40, "add": -40, "unit": "celsius" }, "name": "Transaxle oil temperature"}
+    {"id": "DAIHATSU_HR_TRANSAXLE_OIL_T", "path": "Engine", "fmt": {"bix": 16, "len": 8, "max": 215, "min": -40, "add": -40, "unit": "celsius" }, "name": "Transaxle oil temperature"}
   ]},
 { "hdr": "7D2", "rax": "7DA", "fcm1": true, "dbg": true, "cmd": {"22": "1060"}, "freq": 1,
   "signals": [
-    {"id": "DAIHATSU_APP_V2", "path": "Engine", "fmt": { "len": 8, "max": 100, "div": 2, "unit": "percent" }, "name": "Accelerator pedal position"}
+    {"id": "DAIHATSU_HIGHLANDER_APP_V2", "path": "Engine", "fmt": { "len": 8, "max": 100, "div": 2, "unit": "percent" }, "name": "Accelerator pedal position"}
   ]},
 { "hdr": "7D2", "rax": "7DA", "fcm1": true, "dbg": true, "cmd": {"22": "1061"}, "freq": 1,
   "signals": [
-    {"id": "DAIHATSU_SHIFT", "path": "Transmission", "name": "Shift position", "fmt": {"len": 8, "map": {
+    {"id": "DAIHATSU_HIGHLANDER_SHIFT", "path": "Transmission", "name": "Shift position", "fmt": {"len": 8, "map": {
           "0": { "description": "Park",    "value": "P" },
           "2": { "description": "Reverse", "value": "R" },
           "4": { "description": "Neutral", "value": "N" },
@@ -1563,38 +1637,37 @@
   ]},
 { "hdr": "7D2", "rax": "7DA", "dbg": true, "cmd": {"22": "1069"}, "freq": 0.25,
   "signals": [
-    {"id": "DAIHATSU_HYBRID_MOTOR_REGENERATIVE",       "path": "Engine", "fmt": {           "len": 16, "max": 4095, "min": -4096, "div": 8, "add": -4096, "unit": "kilowatts" }, "name": "Motor regenerative brake torque, requested"},
-    {"id": "DAIHATSU_HYBRID_MOTOR_REGENERATIVE_BREAK", "path": "Engine", "fmt": {"bix": 16, "len": 16, "max": 4095, "min": -4096, "div": 8, "add": -4096, "unit": "kilowatts" }, "name": "Motor regenerative brake torque"}
+    {"id": "DAIHATSU_HR_MOTOR_REGENERATIVE",       "path": "Engine", "fmt": {           "len": 16, "max": 4095, "min": -4096, "div": 8, "add": -4096, "unit": "kilowatts" }, "name": "Motor regenerative brake torque, requested"},
+    {"id": "DAIHATSU_HR_MOTOR_REGENERATIVE_BREAK", "path": "Engine", "fmt": {"bix": 16, "len": 16, "max": 4095, "min": -4096, "div": 8, "add": -4096, "unit": "kilowatts" }, "name": "Motor regenerative brake torque"}
   ]},
 { "hdr": "7D2", "rax": "7DA", "dbg": true, "cmd": {"22": "106A"}, "freq": 0.25,
   "signals": [
-    {"id": "DAIHATSU_HYBRID_REAR_MOTOR",              "path": "Engine", "fmt": {           "len": 16, "max": 4095, "min": -4096, "div": 8, "add": -4096, "unit": "kilowatts" }, "name": "Rear motor regenerative brake torque, requested"},
-    {"id": "DAIHATSU_HYBRID_REAR_MOTOR_REGENERATIVE", "path": "Engine", "fmt": {"bix": 16, "len": 16, "max": 4095, "min": -4096, "div": 8, "add": -4096, "unit": "kilowatts" }, "name": "Rear motor regenerative brake torque"}
+    {"id": "DAIHATSU_HR_REAR_MOTOR",              "path": "Engine", "fmt": {           "len": 16, "max": 4095, "min": -4096, "div": 8, "add": -4096, "unit": "kilowatts" }, "name": "Rear motor regenerative brake torque, requested"},
+    {"id": "DAIHATSU_HR_REAR_MOTOR_REGENERATIVE", "path": "Engine", "fmt": {"bix": 16, "len": 16, "max": 4095, "min": -4096, "div": 8, "add": -4096, "unit": "kilowatts" }, "name": "Rear motor regenerative brake torque"}
   ]},
 { "hdr": "7D2", "rax": "7DA", "fcm1": true, "dbg": true, "cmd": {"22": "106C"}, "freq": 5,
   "signals": [
-    {"id": "DAIHATSU_HYBRID_HVBAT_SOC_MAX", "path": "Battery", "fmt": {"bix": 8,  "len": 8, "max": 100, "div": 2, "unit": "percent" }, "name": "HV battery charge, maximum"},
-    {"id": "DAIHATSU_HYBRID_HVBAT_SOC_MIN", "path": "Battery", "fmt": {"bix": 16, "len": 8, "max": 100, "div": 2, "unit": "percent" }, "name": "HV battery charge, minimum"}
+    {"id": "DAIHATSU_HR_HVBAT_SOC_MAX", "path": "Battery", "fmt": {"bix": 8,  "len": 8, "max": 100, "div": 2, "unit": "percent" }, "name": "HV battery charge, maximum"},
+    {"id": "DAIHATSU_HR_HVBAT_SOC_MIN", "path": "Battery", "fmt": {"bix": 16, "len": 8, "max": 100, "div": 2, "unit": "percent" }, "name": "HV battery charge, minimum"}
   ]},
 { "hdr": "7D2", "rax": "7DA", "dbg": true, "cmd": {"22": "106E"}, "freq": 1,
   "signals": [
-    {"id": "DAIHATSU_HYBRID_AC_POWER_CONS", "path": "Engine",  "fmt": { "len": 8, "max": -12500, "min": -12500, "div": 2000, "add": -12500, "unit": "kilowatts" }, "name": "Air conditioning power consumption"},
-    {"id": "DAIHATSU_HVAC_P",               "path": "Climate", "fmt": { "len": 8, "max": 12.75,                 "div": 20,                  "unit": "kilowatts" }, "name": "Climate power"}
+    {"id": "DAIHATSU_HR_AC_POWER_CONS", "path": "Engine", "fmt": { "len": 8, "max": 12.75, "div": 20, "unit": "kilowatts" }, "name": "Air conditioning power consumption"}
   ]},
 { "hdr": "7D2", "rax": "7DA", "dbg": true, "cmd": {"22": "1075"}, "freq": 0.1,
   "signals": [
-    {"id": "DAIHATSU_HYBRID_FR_WHEEL_VSS", "path": "Movement", "fmt": {           "len": 16, "max": 327.67, "min": -327.68, "div": 100, "add": -327.68, "unit": "kilometersPerHour" }, "name": "Front right wheel speed"},
-    {"id": "DAIHATSU_HYBRID_FL_WHEEL_VSS", "path": "Movement", "fmt": {"bix": 16, "len": 16, "max": 327.67, "min": -327.68, "div": 100, "add": -327.68, "unit": "kilometersPerHour" }, "name": "Front left wheel speed"},
-    {"id": "DAIHATSU_HYBRID_RR_WHEEL_VSS", "path": "Movement", "fmt": {"bix": 32, "len": 16, "max": 327.67, "min": -327.68, "div": 100, "add": -327.68, "unit": "kilometersPerHour" }, "name": "Rear right wheel speed"},
-    {"id": "DAIHATSU_HYBRID_RL_WHEEL_VSS", "path": "Movement", "fmt": {"bix": 48, "len": 16, "max": 327.67, "min": -327.68, "div": 100, "add": -327.68, "unit": "kilometersPerHour" }, "name": "Rear left wheel speed"}
+    {"id": "DAIHATSU_HR_FR_WHEEL_VSS", "path": "Movement", "fmt": {           "len": 16, "max": 327.67, "min": -327.68, "div": 100, "add": -327.68, "unit": "kilometersPerHour" }, "name": "Front right wheel speed"},
+    {"id": "DAIHATSU_HR_FL_WHEEL_VSS", "path": "Movement", "fmt": {"bix": 16, "len": 16, "max": 327.67, "min": -327.68, "div": 100, "add": -327.68, "unit": "kilometersPerHour" }, "name": "Front left wheel speed"},
+    {"id": "DAIHATSU_HR_RR_WHEEL_VSS", "path": "Movement", "fmt": {"bix": 32, "len": 16, "max": 327.67, "min": -327.68, "div": 100, "add": -327.68, "unit": "kilometersPerHour" }, "name": "Rear right wheel speed"},
+    {"id": "DAIHATSU_HR_RL_WHEEL_VSS", "path": "Movement", "fmt": {"bix": 48, "len": 16, "max": 327.67, "min": -327.68, "div": 100, "add": -327.68, "unit": "kilometersPerHour" }, "name": "Rear left wheel speed"}
   ]},
 { "hdr": "7D2", "rax": "7DA", "fcm1": true, "dbg": true, "cmd": {"22": "1076"}, "freq": 1,
   "signals": [
-    {"id": "DAIHATSU_READY", "path": "Drivetrain", "fmt": {"bix": 15, "len": 1, "max": 1, "unit": "noyes" }, "name": "Ready to drive"}
+    {"id": "DAIHATSU_HIGHLANDER_READY", "path": "Drivetrain", "fmt": {"bix": 15, "len": 1, "max": 1, "unit": "noyes" }, "name": "Ready to drive"}
   ]},
 { "hdr": "7D2", "rax": "7DA", "dbg": true, "cmd": {"22": "107E"}, "freq": 5,
   "signals": [
-    {"id": "DAIHATSU_HYBRID_12V_BAT_V_BEFORE_SMR", "path": "Battery", "fmt": { "len": 8, "max": 11.56, "mul": 61, "div": 50000, "add": 11.25, "unit": "volts" }, "name": "12V battery voltage before system main relay"}
+    {"id": "DAIHATSU_HR_12V_BAT_V_BEFORE_SMR", "path": "Battery", "fmt": { "len": 8, "max": 11.56, "mul": 61, "div": 50000, "add": 11.25, "unit": "volts" }, "name": "12V battery voltage before system main relay"}
   ]},
 { "hdr": "7D2", "rax": "7DA", "fcm1": true, "dbg": true, "cmd": {"22": "1087"}, "freq": 5,
   "signals": [
@@ -1609,152 +1682,158 @@
   ]},
 { "hdr": "7D2", "rax": "7DA", "dbg": true, "cmd": {"22": "10A1"}, "freq": 0.25,
   "signals": [
-    {"id": "DAIHATSU_HYBRID_RPM", "path": "Engine", "fmt": {           "len": 16, "max": 32767, "min": -32768,           "add": -32768, "unit": "rpm"          }, "name": "Motor RPM"},
-    {"id": "DAIHATSU_HYBRID_TQ",  "path": "Engine", "fmt": {"bix": 48, "len": 16, "max": 4095,  "min": -4096,  "div": 8, "add": -4096,  "unit": "newtonMeters" }, "name": "Motor torque"}
+    {"id": "DAIHATSU_HR_RPM", "path": "Engine", "fmt": {           "len": 16, "max": 32767, "min": -32768,           "add": -32768, "unit": "rpm"          }, "name": "Motor RPM"},
+    {"id": "DAIHATSU_HR_TQ",  "path": "Engine", "fmt": {"bix": 48, "len": 16, "max": 4095,  "min": -4096,  "div": 8, "add": -4096,  "unit": "newtonMeters" }, "name": "Motor torque"}
   ]},
 { "hdr": "7D2", "rax": "7DA", "dbg": true, "cmd": {"22": "10A2"}, "freq": 0.25,
   "signals": [
+    {"id": "DAIHATSU_HR_RM_TQ_REQ",     "path": "Engine", "fmt": {           "len": 16, "max": 32767, "min": -32768,           "add": -32768, "unit": "rpm"          }, "name": "Rear motor speed"},
     {"id": "DAIHATSU_HYBRID_RM_TQ_REQ", "path": "Engine", "fmt": {           "len": 16, "max": 32767, "min": -32768,           "add": -32768, "unit": "newtonMeters" }, "name": "Rear motor torque, requested"},
-    {"id": "DAIHATSU_HYBRID_RM_TQ",     "path": "Engine", "fmt": {"bix": 48, "len": 16, "max": 4095,  "min": -4096,  "div": 8, "add": -4096,  "unit": "newtonMeters" }, "name": "Rear motor torque"}
+    {"id": "DAIHATSU_HR_RM_TQ",         "path": "Engine", "fmt": {"bix": 48, "len": 16, "max": 4095,  "min": -4096,  "div": 8, "add": -4096,  "unit": "newtonMeters" }, "name": "Rear motor torque"}
   ]},
 { "hdr": "7D2", "rax": "7DA", "dbg": true, "cmd": {"22": "10A4"}, "freq": 5,
   "signals": [
-    {"id": "DAIHATSU_HYBRID_GEN_INVERTER_T", "path": "Engine", "fmt": { "len": 8, "max": 215, "min": -40, "add": -40, "unit": "celsius" }, "name": "Generator inverter temperature"}
+    {"id": "DAIHATSU_HR_GEN_INVERTER_T", "path": "Engine", "fmt": { "len": 8, "max": 215, "min": -40, "add": -40, "unit": "celsius" }, "name": "Generator inverter temperature"}
   ]},
 { "hdr": "7D2", "rax": "7DA", "dbg": true, "cmd": {"22": "10A5"}, "freq": 5,
   "signals": [
-    {"id": "DAIHATSU_HYBRID_MOTOR_INVERTER_T",     "path": "Engine", "fmt": {           "len": 8, "max": 215, "min": -40, "add": -40, "unit": "celsius" }, "name": "Motor inverter temperature"},
-    {"id": "DAIHATSU_HYBRID_MOTOR_INVERTER_T_ON",  "path": "Engine", "fmt": {"bix": 8,  "len": 8, "max": 215, "min": -40, "add": -40, "unit": "celsius" }, "name": "Motor inverter temperature after ignition on"},
-    {"id": "DAIHATSU_HYBRID_MAX_MOTOR_INVERTER_T", "path": "Engine", "fmt": {"bix": 16, "len": 8, "max": 215, "min": -40, "add": -40, "unit": "celsius" }, "name": "Maximum motor inverter temperature"}
+    {"id": "DAIHATSU_HR_MOTOR_INVERTER_T",     "path": "Engine", "fmt": {           "len": 8, "max": 215, "min": -40, "add": -40, "unit": "celsius" }, "name": "Motor inverter temperature"},
+    {"id": "DAIHATSU_HR_MOTOR_INVERTER_T_ON",  "path": "Engine", "fmt": {"bix": 8,  "len": 8, "max": 215, "min": -40, "add": -40, "unit": "celsius" }, "name": "Motor inverter temperature after ignition on"},
+    {"id": "DAIHATSU_HR_MAX_MOTOR_INVERTER_T", "path": "Engine", "fmt": {"bix": 16, "len": 8, "max": 215, "min": -40, "add": -40, "unit": "celsius" }, "name": "Maximum motor inverter temperature"}
   ]},
 { "hdr": "7D2", "rax": "7DA", "dbg": true, "cmd": {"22": "10A6"}, "freq": 1,
   "signals": [
-    {"id": "DAIHATSU_HYBRID_RM_INVRT_COOL_T", "path": "Engine", "fmt": {           "len": 8, "max": 215, "min": -40, "add": -40, "unit": "celsius" }, "name": "Rear motor inverter, coolant temperature"},
-    {"id": "DAIHATSU_HYBRID_M_INVRT_MAX_T",   "path": "Engine", "fmt": {"bix": 16, "len": 8, "max": 215, "min": -40, "add": -40, "unit": "celsius" }, "name": "Motor inverter, maximum temperature"}
+    {"id": "DAIHATSU_HR_RM_INVRT_COOL_T", "path": "Engine", "fmt": {           "len": 8, "max": 215, "min": -40, "add": -40, "unit": "celsius" }, "name": "Rear motor inverter, coolant temperature"},
+    {"id": "DAIHATSU_HR_M_INVRT_MAX_T",   "path": "Engine", "fmt": {"bix": 16, "len": 8, "max": 215, "min": -40, "add": -40, "unit": "celsius" }, "name": "Motor inverter, maximum temperature"}
   ]},
 { "hdr": "7D2", "rax": "7DA", "dbg": true, "cmd": {"22": "10A7"}, "freq": 5,
   "signals": [
-    {"id": "DAIHATSU_HYBRID_BOOSTING_CONV_T_HI", "path": "Transmission", "fmt": {          "len": 8, "max": 215, "min": -40, "add": -40, "unit": "celsius" }, "name": "Boosting converter temperature, upper"},
-    {"id": "DAIHATSU_HYBRID_BOOSTING_CONV_T_LO", "path": "Transmission", "fmt": {"bix": 8, "len": 8, "max": 215, "min": -40, "add": -40, "unit": "celsius" }, "name": "Boosting converter temperature, lower"}
+    {"id": "DAIHATSU_HR_BOOSTING_CONV_T_HI", "path": "Transmission", "fmt": {          "len": 8, "max": 215, "min": -40, "add": -40, "unit": "celsius" }, "name": "Boosting converter temperature, upper"},
+    {"id": "DAIHATSU_HR_BOOSTING_CONV_T_LO", "path": "Transmission", "fmt": {"bix": 8, "len": 8, "max": 215, "min": -40, "add": -40, "unit": "celsius" }, "name": "Boosting converter temperature, lower"}
   ]},
 { "hdr": "7D2", "rax": "7DA", "dbg": true, "cmd": {"22": "10A8"}, "freq": 5,
   "signals": [
-    {"id": "DAIHATSU_HYBRID_GEN_INVERTER_T_7D2",      "path": "Engine", "fmt": {           "len": 8, "max": 215, "min": -40, "add": -40, "unit": "celsius" }, "name": "Generator inverter temperature"},
-    {"id": "DAIHATSU_HYBRID_GEN_INVERTER_T_AFTER_ON", "path": "Engine", "fmt": {"bix": 8,  "len": 8, "max": 215, "min": -40, "add": -40, "unit": "celsius" }, "name": "Generator inverter temperature after ignition on"},
-    {"id": "DAIHATSU_HYBRID_MAX_GEN_INVERTER_T",      "path": "Engine", "fmt": {"bix": 16, "len": 8, "max": 215, "min": -40, "add": -40, "unit": "celsius" }, "name": "Maximum generator inverter temperature"}
+    {"id": "DAIHATSU_HR_GEN_INVERTER_T_7D2",      "path": "Engine", "fmt": {           "len": 8, "max": 215, "min": -40, "add": -40, "unit": "celsius" }, "name": "Generator inverter temperature"},
+    {"id": "DAIHATSU_HR_GEN_INVERTER_T_AFTER_ON", "path": "Engine", "fmt": {"bix": 8,  "len": 8, "max": 215, "min": -40, "add": -40, "unit": "celsius" }, "name": "Generator inverter temperature after ignition on"},
+    {"id": "DAIHATSU_HR_MAX_GEN_INVERTER_T",      "path": "Engine", "fmt": {"bix": 16, "len": 8, "max": 215, "min": -40, "add": -40, "unit": "celsius" }, "name": "Maximum generator inverter temperature"}
   ]},
 { "hdr": "7D2", "rax": "7DA", "dbg": true, "cmd": {"22": "10B0"}, "freq": 1,
   "signals": [
-    {"id": "DAIHATSU_HYBRID_VL_V_BEFORE_BOOSTING", "path": "Battery", "fmt": {           "len": 16, "max": 32767, "div": 2, "unit": "volts" }, "name": "Boost converter voltage before boosting"},
-    {"id": "DAIHATSU_HYBRID_VH_V_AFTER_BOOSTING",  "path": "Battery", "fmt": {"bix": 16, "len": 16, "max": 32767, "div": 2, "unit": "volts" }, "name": "Boost converter voltage after boosting"}
+    {"id": "DAIHATSU_HR_VL_V_BEFORE_BOOSTING", "path": "Battery", "fmt": {           "len": 16, "max": 32767, "div": 2, "unit": "volts" }, "name": "Vl-voltage before boosting"},
+    {"id": "DAIHATSU_HR_VH_V_AFTER_BOOSTING",  "path": "Battery", "fmt": {"bix": 16, "len": 16, "max": 32767, "div": 2, "unit": "volts" }, "name": "Vh-voltage after boosting"}
   ]},
 { "hdr": "7D2", "rax": "7DA", "dbg": true, "cmd": {"22": "10B2"}, "freq": 1,
   "signals": [
-    {"id": "DAIHATSU_HYBRID_INVRT_COOLANT_T", "path": "Engine", "fmt": { "len": 8, "max": 100, "add": -40, "unit": "celsius" }, "name": "Inverter coolant temperature"}
+    {"id": "DAIHATSU_HR_INVRT_COOLANT_T", "path": "Engine", "fmt": { "len": 8, "max": 100, "add": -40, "unit": "celsius" }, "name": "Inverter coolant temperature"}
   ]},
 { "hdr": "7D2", "rax": "7DA", "dbg": true, "cmd": {"22": "1112"}, "freq": 1,
   "signals": [
-    {"id": "DAIHATSU_HYBRID_INVERTER_WATER_PMP", "path": "Engine", "fmt": { "len": 16, "max": 199, "mul": 15259, "div": 5000000, "unit": "percent" }, "name": "Inverter water pump duty"}
+    {"id": "DAIHATSU_HR_INVERTER_WATER_PMP", "path": "Engine", "fmt": { "len": 16, "max": 199, "mul": 15259, "div": 5000000, "unit": "percent" }, "name": "Inverter water pump duty"}
   ]},
 { "hdr": "7D2", "rax": "7DA", "dbg": true, "cmd": {"22": "111C"}, "freq": 1,
   "signals": [
-    {"id": "DAIHATSU_HYBRID_DC_DC_CONV_OUTPUT", "path": "Transmission", "fmt": { "len": 8, "max": 199, "mul": 25, "div": 32, "unit": "amps" }, "name": "DC-DC converter output current"}
+    {"id": "DAIHATSU_HR_DC_DC_CONV_OUTPUT", "path": "Transmission", "fmt": { "len": 8, "max": 199, "mul": 25, "div": 32, "unit": "amps" }, "name": "DC-DC converter output current"}
   ]},
 { "hdr": "7D2", "rax": "7DA", "dbg": true, "cmd": {"22": "111D"}, "freq": 1,
   "signals": [
-    {"id": "DAIHATSU_HYBRID_DC_DC_CONV_LOW_SIDE_V", "path": "Battery", "fmt": { "len": 8, "max": 19.92, "mul": 1953, "div": 25000, "unit": "volts" }, "name": "DC-DC converter low side voltage"}
+    {"id": "DAIHATSU_HR_DC_DC_CONV_LOW_SIDE_V", "path": "Battery", "fmt": { "len": 8, "max": 19.92, "mul": 1953, "div": 25000, "unit": "volts" }, "name": "DC-DC converter low side voltage"}
   ]},
 { "hdr": "7D2", "rax": "7DA", "dbg": true, "cmd": {"22": "111E"}, "freq": 1,
   "signals": [
-    {"id": "DAIHATSU_HYBRID_DC_DC_CONV_HIGH_SIDE_V", "path": "Battery", "fmt": { "len": 16, "max": 7999, "mul": 1220703, "div": 10000000, "unit": "volts" }, "name": "DC-DC converter high side voltage"}
+    {"id": "DAIHATSU_HR_DC_DC_CONV_HIGH_SIDE_V", "path": "Battery", "fmt": { "len": 16, "max": 7999, "mul": 1220703, "div": 10000000, "unit": "volts" }, "name": "DC-DC converter high side voltage"}
   ]},
 { "hdr": "7D2", "rax": "7DA", "dbg": true, "cmd": {"22": "111F"}, "freq": 1,
   "signals": [
-    {"id": "DAIHATSU_HYBRID_DC_DC_CONV_TGT_V", "path": "Battery", "fmt": { "len": 16, "max": 7999, "mul": 1220703, "div": 10000000, "unit": "volts" }, "name": "DC-DC converter, target voltage before charging"}
+    {"id": "DAIHATSU_HR_DC_DC_CONV_TGT_V", "path": "Battery", "fmt": { "len": 16, "max": 7999, "mul": 1220703, "div": 10000000, "unit": "volts" }, "name": "DC-DC converter, target voltage before charging"}
   ]},
 { "hdr": "7D2", "rax": "7DA", "fcm1": true, "dbg": true, "cmd": {"22": "15E5"}, "freq": 60,
   "signals": [
-    {"id": "DAIHATSU_12V_CAP", "path": "Electrical", "fmt": { "len": 8, "max": 127.5, "div": 2, "unit": "ampereHours" }, "name": "12V battery full charge capacity"}
+    {"id": "DAIHATSU_HIGHLANDER_12V_CAP", "path": "Electrical", "fmt": { "len": 8, "max": 127.5, "div": 2, "unit": "ampereHours" }, "name": "12V battery full charge capacity"}
   ]},
 { "hdr": "7D2", "rax": "7DA", "fcm1": true, "dbg": true, "cmd": {"22": "15E8"}, "freq": 60,
   "signals": [
-    {"id": "DAIHATSU_12V_AH_IN",   "path": "Electrical", "fmt": {           "len": 32, "max": 429496729.5, "div": 10, "unit": "ampereHours" }, "name": "12V battery charge, total"},
-    {"id": "DAIHATSU_12V_AH_OUT",  "path": "Electrical", "fmt": {"bix": 32, "len": 32, "max": 429496729.5, "div": 10, "unit": "ampereHours" }, "name": "12V battery discharge, total"},
-    {"id": "DAIHATSU_READY_HOURS", "path": "Stats",      "fmt": {"bix": 80, "len": 16, "max": 65535,                  "unit": "hours"       }, "name": "Ready-on time, total"}
+    {"id": "DAIHATSU_HIGHLANDER_12V_AH_IN",   "path": "Electrical", "fmt": {           "len": 32, "max": 429496729.5, "div": 10, "unit": "ampereHours" }, "name": "12V battery charge, total"},
+    {"id": "DAIHATSU_HIGHLANDER_12V_AH_OUT",  "path": "Electrical", "fmt": {"bix": 32, "len": 32, "max": 429496729.5, "div": 10, "unit": "ampereHours" }, "name": "12V battery discharge, total"},
+    {"id": "DAIHATSU_HIGHLANDER_READY_HOURS", "path": "Stats",      "fmt": {"bix": 80, "len": 16, "max": 65535,                  "unit": "hours"       }, "name": "Ready-on time, total"}
   ]},
 { "hdr": "7D2", "rax": "7DA", "dbg": true, "cmd": {"22": "15EE"}, "freq": 1,
   "signals": [
-    {"id": "DAIHATSU_HYBRID_12V_V_7D2", "path": "Battery", "fmt": { "len": 8, "max": 80.2, "mul": 0.31448, "add": 0.0125, "unit": "volts" }, "name": "12V battery voltage", "suggestedMetric": "starterBatteryVoltage"}
+    {"id": "DAIHATSU_HR_12V_V_V2", "path": "Battery", "fmt": { "len": 8, "max": 80.2, "mul": 0.31448, "add": 0.0125, "unit": "volts" }, "name": "12V battery voltage", "suggestedMetric": "starterBatteryVoltage"}
   ]},
 { "hdr": "7D2", "rax": "7DA", "dbg": true, "cmd": {"22": "15F7"}, "freq": 0.5,
   "signals": [
-    {"id": "DAIHATSU_HYBRID_12V_C", "path": "Battery", "fmt": { "len": 16, "max": 124, "min": -125, "mul": 38.147, "div": 10000, "add": -125, "unit": "amps" }, "name": "12V battery current"}
+    {"id": "DAIHATSU_HR_12V_C", "path": "Battery", "fmt": { "len": 16, "max": 124, "min": -125, "mul": 38.147, "div": 10000, "add": -125, "unit": "amps" }, "name": "12V battery current"}
   ]},
 { "hdr": "7D2", "rax": "7DA", "dbg": true, "cmd": {"22": "15F8"}, "freq": 1,
   "signals": [
-    {"id": "DAIHATSU_HYBRID_12V_T", "path": "Battery", "fmt": { "len": 16, "max": 6513.5, "min": -40, "div": 10, "add": -40, "unit": "celsius" }, "name": "12V battery temperature"}
+    {"id": "DAIHATSU_HR_12V_T", "path": "Battery", "fmt": { "len": 16, "max": 6513.5, "min": -40, "div": 10, "add": -40, "unit": "celsius" }, "name": "12V battery temperature"}
   ]},
 { "hdr": "7D2", "rax": "7DA", "dbg": true, "cmd": {"22": "1609"}, "freq": 1,
   "signals": [
-    {"id": "DAIHATSU_HYBRID_HVBAT_CHRG_V", "path": "Battery", "fmt": { "len": 16, "max": 100, "div": 10, "unit": "volts" }, "name": "HV battery charge voltage"}
+    {"id": "DAIHATSU_HR_HVBAT_CHRG_V", "path": "Battery", "fmt": { "len": 16, "max": 100, "div": 10, "unit": "volts" }, "name": "HV battery charge voltage"}
   ]},
 { "hdr": "7D2", "rax": "7DA", "dbg": true, "cmd": {"22": "1802"}, "freq": 1,
   "signals": [
-    {"id": "DAIHATSU_HYBRID_AUXILIARY_BAT", "path": "Battery", "fmt": {           "len": 8, "max": -12451, "min": -12500, "mul": 2525, "div": 13107, "add": -12500, "unit": "amps"    }, "name": "Auxiliary battery current"},
-    {"id": "DAIHATSU_HYBRID_BAT_1_FAN",     "path": "Battery", "fmt": {"bix": 16, "len": 8, "max": 127,                                "div": 2,                    "unit": "percent" }, "name": "Hybrid battery 1 fan"}
+    {"id": "DAIHATSU_HR_AUXILIARY_BAT",    "path": "Battery", "fmt": {           "len": 8, "max": -12451, "min": -12500, "mul": 2525, "div": 13107, "add": -12500, "unit": "amps"    }, "name": "Auxiliary battery current"},
+    {"id": "DAIHATSU_HR_HYBRID_BAT_1_FAN", "path": "Battery", "fmt": {"bix": 16, "len": 8, "max": 127,                                "div": 2,                    "unit": "percent" }, "name": "Hybrid battery 1 fan"}
   ]},
 { "hdr": "7D2", "rax": "7DA", "dbg": true, "cmd": {"22": "1814"}, "freq": 5,
   "signals": [
-    {"id": "DAIHATSU_HYBRID_BAT_T_1", "path": "Battery", "fmt": {           "len": 16, "max": 400, "min": -58, "mul": 458, "div": 65535, "add": -58, "unit": "fahrenheit" }, "name": "Hybrid battery temperature 1"},
-    {"id": "DAIHATSU_HYBRID_BAT_T_2", "path": "Battery", "fmt": {"bix": 16, "len": 8,  "max": 401, "min": -58, "mul": 9,   "div": 5,     "add": -58, "unit": "fahrenheit" }, "name": "Hybrid battery temperature 2"},
-    {"id": "DAIHATSU_HYBRID_BAT_T_3", "path": "Battery", "fmt": {"bix": 32, "len": 16, "max": 400, "min": -58, "mul": 458, "div": 65535, "add": -58, "unit": "fahrenheit" }, "name": "Hybrid battery temperature 3"}
+    {"id": "DAIHATSU_HR_HYBRID_BAT_T_1", "path": "Battery", "fmt": {           "len": 16, "max": 400, "min": -58, "mul": 458, "div": 65535, "add": -58, "unit": "fahrenheit" }, "name": "Hybrid battery temperature 1"},
+    {"id": "DAIHATSU_HR_HYBRID_BAT_T_2", "path": "Battery", "fmt": {"bix": 16, "len": 8,  "max": 401, "min": -58, "mul": 9,   "div": 5,     "add": -58, "unit": "fahrenheit" }, "name": "Hybrid battery temperature 2"},
+    {"id": "DAIHATSU_HR_HYBRID_BAT_T_3", "path": "Battery", "fmt": {"bix": 32, "len": 16, "max": 400, "min": -58, "mul": 458, "div": 65535, "add": -58, "unit": "fahrenheit" }, "name": "Hybrid battery temperature 3"}
   ]},
 { "hdr": "7D2", "rax": "7DA", "dbg": true, "cmd": {"22": "1829"}, "freq": 1,
   "signals": [
-    {"id": "DAIHATSU_HYBRID_HVBAT_MAX_T", "path": "Battery", "fmt": { "len": 8, "max": 205, "min": -50, "add": -50, "unit": "celsius" }, "name": "HV battery maximum temperature"}
+    {"id": "DAIHATSU_HR_HVBAT_MAX_T", "path": "Battery", "fmt": { "len": 8, "max": 205, "min": -50, "add": -50, "unit": "celsius" }, "name": "HV battery maximum temperature"}
   ]},
 { "hdr": "7D2", "rax": "7DA", "dbg": true, "cmd": {"22": "182A"}, "freq": 1,
   "signals": [
-    {"id": "DAIHATSU_HYBRID_HVBAT_MIN_T", "path": "Battery", "fmt": { "len": 8, "max": 205, "min": -50, "add": -50, "unit": "celsius" }, "name": "HV battery minimum temperature"}
+    {"id": "DAIHATSU_HR_HVBAT_MIN_T", "path": "Battery", "fmt": { "len": 8, "max": 205, "min": -50, "add": -50, "unit": "celsius" }, "name": "HV battery minimum temperature"}
   ]},
 { "hdr": "7D2", "rax": "7DA", "dbg": true, "cmd": {"22": "1F05"}, "freq": 1,
   "signals": [
-    {"id": "DAIHATSU_HYBRID_COOL_T", "path": "Engine", "fmt": { "len": 8, "max": 215, "min": -40, "add": -40, "unit": "celsius" }, "name": "Coolant temperature"}
+    {"id": "DAIHATSU_HR_COOL_T",     "path": "Engine", "fmt": { "len": 8, "max": 215, "min": -40, "add": -40, "nullmax": 215, "unit": "celsius" }, "name": "Coolant temperature"},
+    {"id": "DAIHATSU_HYBRID_COOL_T", "path": "Engine", "fmt": { "len": 8, "max": 215, "min": -40, "add": -40,                 "unit": "celsius" }, "name": "Coolant temperature"}
   ]},
 { "hdr": "7D2", "rax": "7DA", "fcm1": true, "dbg": true, "cmd": {"22": "1F0D"}, "freq": 0.25,
   "signals": [
-    {"id": "DAIHATSU_HYBRID_VSS_V2", "path": "Movement", "fmt": { "len": 8, "max": 255, "unit": "kilometersPerHour" }, "name": "Vehicle speed", "suggestedMetric": "speed"}
+    {"id": "DAIHATSU_HR_VSS_V2", "path": "Movement", "fmt": { "len": 8, "max": 255, "unit": "kilometersPerHour" }, "name": "Vehicle speed", "suggestedMetric": "speed"}
   ]},
 { "hdr": "7D2", "rax": "7DA", "dbg": true, "cmd": {"22": "1F42"}, "freq": 5,
   "signals": [
-    {"id": "DAIHATSU_HYBRID_12V_BAT_V_SMOOTHED", "path": "Battery", "fmt": { "len": 16, "max": 65.53, "div": 1000, "unit": "volts" }, "name": "12V battery voltage smoothed"}
+    {"id": "DAIHATSU_HR_12V_BAT_V_SMOOTHED", "path": "Battery", "fmt": { "len": 16, "max": 65.53, "div": 1000, "unit": "volts" }, "name": "12V battery voltage smoothed"}
   ]},
 { "hdr": "7D2", "rax": "7DA", "dbg": true, "cmd": {"22": "1F46"}, "freq": 1,
   "signals": [
-    {"id": "DAIHATSU_HYBRID_AAT", "path": "Engine", "fmt": { "len": 8, "max": 215, "min": -40, "add": -40, "nullmin": -40, "unit": "celsius" }, "name": "Ambient temperature"}
+    {"id": "DAIHATSU_HR_AAT_7D2", "path": "Engine", "fmt": { "len": 8, "max": 215, "min": -40, "add": -40, "nullmin": -40, "unit": "celsius" }, "name": "Ambient temperature"}
   ]},
 { "hdr": "7D2", "rax": "7DA", "dbg": true, "cmd": {"22": "1F49"}, "freq": 1,
   "signals": [
-    {"id": "DAIHATSU_HYBRID_ACC_PEDAL_POS_1", "path": "Control", "fmt": { "len": 8, "max": 100, "mul": 100, "div": 255, "unit": "percent" }, "name": "Accelerator pedal, position 1"}
+    {"id": "DAIHATSU_HR_ACC_PEDAL_POS_1", "path": "Control", "fmt": { "len": 8, "max": 100, "mul": 100, "div": 255, "unit": "percent" }, "name": "Accelerator pedal, position 1"}
   ]},
 { "hdr": "7D2", "rax": "7DA", "dbg": true, "cmd": {"22": "1F4A"}, "freq": 1,
   "signals": [
-    {"id": "DAIHATSU_HYBRID_ACC_PEDAL_POS_2", "path": "Control", "fmt": { "len": 8, "max": 100, "mul": 100, "div": 255, "unit": "percent" }, "name": "Accelerator pedal, position 2"}
+    {"id": "DAIHATSU_HR_ACC_PEDAL_POS_2", "path": "Control", "fmt": { "len": 8, "max": 100, "mul": 100, "div": 255, "unit": "percent" }, "name": "Accelerator pedal, position 2"}
   ]},
 { "hdr": "7D2", "rax": "7DA", "fcm1": true, "dbg": true, "cmd": {"22": "1F5B"}, "freq": 1,
   "signals": [
-    {"id": "DAIHATSU_HYBRID_SOC", "path": "Battery", "fmt": { "len": 8, "max": 100, "mul": 100, "div": 255, "unit": "percent" }, "name": "State of charge", "suggestedMetric": "stateOfCharge"}
+    {"id": "DAIHATSU_HR_SOC", "path": "Battery", "fmt": { "len": 8, "max": 100, "mul": 100, "div": 255, "unit": "percent" }, "name": "State of charge", "suggestedMetric": "stateOfCharge"}
   ]},
 { "hdr": "7D2", "rax": "7DA", "dbg": true, "cmd": {"22": "1F9A"}, "freq": 0.5,
   "signals": [
+    {"id": "DAIHATSU_HR_HVBAT_V",     "path": "Battery", "fmt": {"bix": 16, "len": 16, "max": 1023,                   "mul": 156.25, "div": 10000,               "unit": "volts" }, "name": "HV battery voltage", "suggestedMetric": "tractionBatteryVoltage"},
     {"id": "DAIHATSU_HYBRID_HVBAT_V", "path": "Battery", "fmt": {"bix": 16, "len": 16, "max": 1023,                   "mul": 156.25, "div": 10000,               "unit": "volts" }, "name": "HV battery voltage"},
-    {"id": "DAIHATSU_HVBAT_V",        "path": "Battery", "fmt": {"bix": 16, "len": 16, "max": 1023,                   "mul": 156.25, "div": 10000,               "unit": "volts" }, "name": "HV battery voltage", "suggestedMetric": "tractionBatteryVoltage"},
-    {"id": "DAIHATSU_HYBRID_HVBAT_C", "path": "Battery", "fmt": {"bix": 32, "len": 16, "max": 3276.7, "min": -3276.8,                "div": 10,    "sign": true, "unit": "amps"  }, "name": "HV battery current"},
-    {"id": "DAIHATSU_HVBAT_C",        "path": "Battery", "fmt": {"bix": 32, "len": 16, "max": 3276.7, "min": -3276.8,                "div": 10,    "sign": true, "unit": "amps"  }, "name": "HV battery current", "suggestedMetric": "tractionBatteryCurrent"}
+    {"id": "DAIHATSU_HR_HVBAT_C",     "path": "Battery", "fmt": {"bix": 32, "len": 16, "max": 3276.7, "min": -3276.8,                "div": 10,    "sign": true, "unit": "amps"  }, "name": "HV battery current", "suggestedMetric": "tractionBatteryCurrent"},
+    {"id": "DAIHATSU_HYBRID_HVBAT_C", "path": "Battery", "fmt": {"bix": 32, "len": 16, "max": 3276.7, "min": -3276.8,                "div": 10,    "sign": true, "unit": "amps"  }, "name": "HV battery current"}
   ]},
 { "hdr": "7D2", "rax": "7DA", "fcm1": true, "dbg": true, "cmd": {"22": "1FA6"}, "freq": 10,
   "signals": [
-    {"id": "DAIHATSU_ODO_1FA6", "path": "Trips", "fmt": { "len": 32, "max": 429496729.5, "div": 10, "unit": "kilometers" }, "name": "Odometer", "suggestedMetric": "odometer"}
+    {"id": "DAIHATSU_HIGHLANDER_ODO_1FA6", "path": "Trips", "fmt": { "len": 32, "max": 429496729.5, "div": 10, "unit": "kilometers" }, "name": "Odometer", "suggestedMetric": "odometer"}
+  ]},
+{ "hdr": "7D2", "rax": "7DA", "dbg": true, "cmd": {"22": "F19A"}, "freq": 5,
+  "signals": [
+    {"id": "DAIHATSU_HYBRID_BAT_V", "path": "Battery", "fmt": {"bix": 16, "len": 8, "max": 1020, "mul": 4, "unit": "volts" }, "name": "Hybrid battery voltage"}
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"21": "01"}, "freq": 1,
   "signals": [
@@ -1777,7 +1856,9 @@
     {"id": "DAIHATSU_ENGINE_SPEED",                    "path": "Movement", "fmt": {"bix": 64,  "len": 16, "max": 16383.75,                         "div": 4,                 "unit": "rpm"               }, "name": "Engine speed"},
     {"id": "DAIHATSU_ATMOSPHERE_PRESSURE",             "path": "Engine",   "fmt": {"bix": 64,  "len": 8,  "max": 255,                                                        "unit": "kilopascal"        }, "name": "Atmosphere pressure"},
     {"id": "DAIHATSU_ENGINE_SPEED_V2",                 "path": "Movement", "fmt": {"bix": 72,  "len": 16, "max": 16383.75,                         "div": 4,                 "unit": "rpm"               }, "name": "Engine speed"},
+    {"id": "DAIHATSU_COOLANT_TEMP_7E0_V2",             "path": "Engine",   "fmt": {"bix": 72,  "len": 8,  "max": 215,      "min": -40,                           "add": -40, "unit": "celsius"           }, "name": "Coolant temperature"},
     {"id": "DAIHATSU_VSS_7E0",                         "path": "Movement", "fmt": {"bix": 80,  "len": 8,  "max": 255,                                                        "unit": "kilometersPerHour" }, "name": "Vehicle speed",                     "suggestedMetric": "speed"},
+    {"id": "DAIHATSU_ENGINE_SPEED_7E0_V2",             "path": "Engine",   "fmt": {"bix": 80,  "len": 16, "max": 16383.75,                         "div": 4,                 "unit": "rpm"               }, "name": "Engine speed"},
     {"id": "DAIHATSU_VEHICLE_SPEED_V2",                "path": "Movement", "fmt": {"bix": 88,  "len": 8,  "max": 255,                                                        "unit": "kilometersPerHour" }, "name": "Vehicle speed",                     "suggestedMetric": "speed"},
     {"id": "DAIHATSU_ENGINE_RUN_TIME",                 "path": "Engine",   "fmt": {"bix": 88,  "len": 16, "max": 65535,                                                      "unit": "seconds"           }, "name": "Engine run time"},
     {"id": "DAIHATSU_ENGINE_RUN_TIME_V2",              "path": "Engine",   "fmt": {"bix": 96,  "len": 16, "max": 65535,                                                      "unit": "seconds"           }, "name": "Engine run time"},
@@ -1795,11 +1876,14 @@
     {"id": "DAIHATSU_WARMUP_CYCLE_CLEARED_DTC_V2",     "path": "Engine",   "fmt": {"bix": 168, "len": 8,  "max": 255,                                                        "unit": "scalar"            }, "name": "Warm-up cycles since DTCs cleared"},
     {"id": "DAIHATSU_HYBRID_TIME_AFTER_DTC_CLEARED",   "path": "Engine",   "fmt": {"bix": 168, "len": 16, "max": 65535,                                                      "unit": "minutes"           }, "name": "Time since DTCs cleared"},
     {"id": "DAIHATSU_TIME_AFTER_DTC_CLEARED",          "path": "Engine",   "fmt": {"bix": 176, "len": 16, "max": 65535,                                                      "unit": "minutes"           }, "name": "Time since DTCs cleared"},
+    {"id": "DAIHATSU_WARMUP_CYCLES_DTC_CLEARED_V2",    "path": "Engine",   "fmt": {"bix": 176, "len": 8,  "max": 255,                                                        "unit": "scalar"            }, "name": "Warm-up cycles since DTCs cleared"},
     {"id": "DAIHATSU_TIME_AFTER_DTC_CLEARED_V2",       "path": "Engine",   "fmt": {"bix": 184, "len": 16, "max": 65535,                                                      "unit": "minutes"           }, "name": "Time since DTCs cleared"},
     {"id": "DAIHATSU_HYBRID_BATTERY_VOLTAGE",          "path": "Battery",  "fmt": {"bix": 184, "len": 16, "max": 65.535,                           "div": 1000,              "unit": "volts"             }, "name": "Battery voltage"},
     {"id": "DAIHATSU_BATTERY_VOLTAGE_V2",              "path": "Battery",  "fmt": {"bix": 192, "len": 16, "max": 65.535,                           "div": 1000,              "unit": "volts"             }, "name": "Battery voltage"},
+    {"id": "DAIHATSU_TIME_SINCE_DTC_CLEARED_V2",       "path": "Engine",   "fmt": {"bix": 192, "len": 16, "max": 65535,                                                      "unit": "minutes"           }, "name": "Time since DTCs cleared"},
     {"id": "DAIHATSU_BATTERY_VOLTAGE_V2",              "path": "Battery",  "fmt": {"bix": 200, "len": 16, "max": 65.535,                           "div": 1000,              "unit": "volts"             }, "name": "Battery voltage"},
-    {"id": "DAIHATSU_BATTERY_VOLTAGE_7E0",             "path": "Battery",  "fmt": {"bix": 208, "len": 16, "max": 65.535,                                                     "unit": "volts"             }, "name": "Battery voltage"}
+    {"id": "DAIHATSU_BATTERY_VOLTAGE_7E0",             "path": "Battery",  "fmt": {"bix": 208, "len": 16, "max": 65.535,                                                     "unit": "volts"             }, "name": "Battery voltage"},
+    {"id": "DAIHATSU_BATTERY_VOLTAGE_7E0_V2",          "path": "Battery",  "fmt": {"bix": 208, "len": 16, "max": 65.535,                           "div": 1000,              "unit": "volts"             }, "name": "Battery voltage"}
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"21": "03"}, "freq": 1,
   "signals": [
@@ -1878,31 +1962,31 @@
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"21": "07"}, "freq": 1,
   "signals": [
-    {"id": "DAIHATSU_LTFT1_21", "path": "Engine", "fmt": { "len": 8, "max": 99.15, "min": -100, "mul": 0.7809803922, "add": -100, "unit": "percent" }, "name": "Long-term fuel trim, bank 1"}
+    {"id": "DAIHATSU_HR_LTFT1_21", "path": "Engine", "fmt": { "len": 8, "max": 99.15, "min": -100, "mul": 0.7809803922, "add": -100, "unit": "percent" }, "name": "Long-term fuel trim, bank 1"}
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"21": "0D"}, "freq": 1,
   "signals": [
-    {"id": "DAIHATSU_VSS_21", "path": "Engine", "fmt": { "len": 8, "max": 255, "unit": "kilometersPerHour" }, "name": "Vehicle speed"}
+    {"id": "DAIHATSU_HR_VSS_21", "path": "Engine", "fmt": { "len": 8, "max": 255, "unit": "kilometersPerHour" }, "name": "Vehicle speed"}
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"21": "0E"}, "freq": 1,
   "signals": [
-    {"id": "DAIHATSU_SPARKADV_21", "path": "Engine", "fmt": { "len": 8, "max": 63.5, "min": -64, "div": 2, "add": -64, "unit": "degrees" }, "name": "Ignition advance"}
+    {"id": "DAIHATSU_HR_SPARKADV_21", "path": "Engine", "fmt": { "len": 8, "max": 63.5, "min": -64, "div": 2, "add": -64, "unit": "degrees" }, "name": "Ignition advance"}
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"21": "0F"}, "freq": 1,
   "signals": [
-    {"id": "DAIHATSU_IAT_21", "path": "Engine", "fmt": { "len": 8, "max": 215, "min": -40, "add": -40, "unit": "celsius" }, "name": "Intake air temperature"}
+    {"id": "DAIHATSU_HR_IAT_21", "path": "Engine", "fmt": { "len": 8, "max": 215, "min": -40, "add": -40, "unit": "celsius" }, "name": "Intake air temperature"}
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"21": "10"}, "freq": 1,
   "signals": [
-    {"id": "DAIHATSU_MAF_21", "path": "Engine", "fmt": { "len": 16, "max": 655, "div": 100, "unit": "gramsPerSecond" }, "name": "Mass air flow"}
+    {"id": "DAIHATSU_HR_MAF_21", "path": "Engine", "fmt": { "len": 16, "max": 655, "div": 100, "unit": "gramsPerSecond" }, "name": "Mass air flow"}
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"21": "11"}, "freq": 1,
   "signals": [
-    {"id": "DAIHATSU_THROTTLE_21", "path": "Engine", "fmt": { "len": 8, "max": 100, "mul": 20, "div": 51, "unit": "percent" }, "name": "Throttle position"}
+    {"id": "DAIHATSU_HR_THROTTLE_21", "path": "Engine", "fmt": { "len": 8, "max": 100, "mul": 20, "div": 51, "unit": "percent" }, "name": "Throttle position"}
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"21": "14"}, "freq": 1,
   "signals": [
-    {"id": "DAIHATSU_O2S11_V", "path": "Engine", "fmt": { "len": 8, "max": 1.27, "mul": 0.0049960784, "unit": "volts" }, "name": "Oxygen sensor voltage, bank 1 sensor 1"}
+    {"id": "DAIHATSU_HR_O2S11_V", "path": "Engine", "fmt": { "len": 8, "max": 1.27, "mul": 0.0049960784, "unit": "volts" }, "name": "Oxygen sensor voltage, bank 1 sensor 1"}
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"21": "21"}, "freq": 1,
   "signals": [
@@ -1950,7 +2034,8 @@
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"21": "28"}, "freq": 5,
   "signals": [
-    {"id": "DAIHATSU_ODO", "path": "Trips", "fmt": { "len": 24, "max": 16777215, "unit": "kilometers" }, "name": "Odometer", "suggestedMetric": "odometer"}
+    {"id": "DAIHATSU_ODO",    "path": "Trips", "fmt": { "len": 24, "max": 16777215,                      "unit": "kilometers" }, "name": "Odometer", "suggestedMetric": "odometer"},
+    {"id": "DAIHATSU_HR_ODO", "path": "Trips", "fmt": { "len": 24, "max": 16777215, "nullmax": 16777215, "unit": "kilometers" }, "name": "Odometer", "suggestedMetric": "odometer"}
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"21": "2E"}, "freq": 1,
   "signals": [
@@ -2000,10 +2085,12 @@
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"21": "3C"}, "freq": 1,
   "signals": [
-    {"id": "DAIHATSU_INJ_VOL_CYL_1",        "path": "Engine", "fmt": {           "len": 16, "max": 0.002047,                         "div": 32000000,             "unit": "liters"       }, "name": "Injection volume per 10 injections, cylinder 1"},
-    {"id": "DAIHATSU_HYBRID_INJ_VOL_CYL_1", "path": "Engine", "fmt": {           "len": 16, "max": 0.002,                            "div": 32000000,             "unit": "liters"       }, "name": "Injection volume per 10 injections, cylinder 1"},
-    {"id": "DAIHATSU_INJ_DUR_CYL_1",        "path": "Engine", "fmt": {"bix": 16, "len": 16, "max": 65.535,                           "div": 1000,                 "unit": "milliseconds" }, "name": "Injection duration for cylinder 1"},
-    {"id": "DAIHATSU_TOT_FT_1",             "path": "Engine", "fmt": {"bix": 32, "len": 8,  "max": 49.6,     "min": -50, "mul": 100, "div": 256,      "add": -50, "unit": "percent"      }, "name": "Total fuel trim, bank 1"}
+    {"id": "DAIHATSU_HR_INJ_VOL_CYL_1", "path": "Engine", "fmt": {           "len": 16, "max": 0.002,                            "div": 32000000,             "unit": "liters"       }, "name": "Injection volume per 10 injections, cylinder 1"},
+    {"id": "DAIHATSU_INJ_VOL_CYL_1",    "path": "Engine", "fmt": {           "len": 16, "max": 0.002047,                         "div": 32000000,             "unit": "liters"       }, "name": "Injection volume per 10 injections, cylinder 1"},
+    {"id": "DAIHATSU_HR_INJ_DUR_CYL_1", "path": "Engine", "fmt": {"bix": 16, "len": 16, "max": 65.535,                           "div": 1000,                 "unit": "milliseconds" }, "name": "Injection duration for cylinder 1"},
+    {"id": "DAIHATSU_INJ_DUR_CYL_1",    "path": "Engine", "fmt": {"bix": 16, "len": 16, "max": 65535,                                                         "unit": "scalar"       }, "name": "Injection duration for cylinder 1"},
+    {"id": "DAIHATSU_HR_TOT_FT_1",      "path": "Engine", "fmt": {"bix": 32, "len": 8,  "max": 49.6,     "min": -50, "mul": 100, "div": 256,      "add": -50, "unit": "percent"      }, "name": "Total fuel trim, bank 1"},
+    {"id": "DAIHATSU_TOT_FT_1",         "path": "Engine", "fmt": {"bix": 32, "len": 8,  "max": 0.496,                                                         "unit": "scalar"       }, "name": "Total fuel trim 1"}
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"21": "3E"}, "freq": 5,
   "signals": [
@@ -2043,21 +2130,21 @@
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"21": "44"}, "freq": 1,
   "signals": [
-    {"id": "DAIHATSU_VARIABLE_VLV_TIM_AIM_1", "path": "Engine", "fmt": {           "len": 16, "max": 399, "mul": 1333,         "div": 218450, "unit": "percent" }, "name": "Variable valve timing aim angle 1"},
-    {"id": "DAIHATSU_VARIABLE_VLV_TIM_OIL_1", "path": "Engine", "fmt": {"bix": 16, "len": 16, "max": 399, "mul": 0.0061020829,                "unit": "percent" }, "name": "Variable valve timing oil control valve duty 1"},
-    {"id": "DAIHATSU_VARIABLE_VLV_TIM_1",     "path": "Engine", "fmt": {"bix": 32, "len": 16, "max": 639, "mul": 0.0097642481,                "unit": "degrees" }, "name": "Variable valve timing change angle 1"}
+    {"id": "DAIHATSU_HR_VARIABLE_VLV_TIM_AIM_1", "path": "Engine", "fmt": {           "len": 16, "max": 399, "mul": 1333,         "div": 218450, "unit": "percent" }, "name": "Variable valve timing aim angle 1"},
+    {"id": "DAIHATSU_HR_VARIABLE_VLV_TIM_OIL_1", "path": "Engine", "fmt": {"bix": 16, "len": 16, "max": 399, "mul": 0.0061020829,                "unit": "percent" }, "name": "Variable valve timing oil control valve duty 1"},
+    {"id": "DAIHATSU_HR_VARIABLE_VLV_TIM_1",     "path": "Engine", "fmt": {"bix": 32, "len": 16, "max": 639, "mul": 0.0097642481,                "unit": "degrees" }, "name": "Variable valve timing change angle 1"}
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"21": "45"}, "freq": 1,
   "signals": [
-    {"id": "DAIHATSU_MISFIRE_RPM_V2",            "path": "Engine",          "fmt": {"bix": 8,  "len": 8,  "max": 6375,               "mul": 25,                          "unit": "rpm"     }, "name": "Misfire RPM"},
-    {"id": "DAIHATSU_MISFIRE_LOAD_V2",           "path": "Engine.Misfires", "fmt": {"bix": 16, "len": 8,  "max": 3.98,               "mul": 4,  "div": 256,              "unit": "scalar"  }, "name": "Misfire load"},
-    {"id": "DAIHATSU_CYL1_MISFIRE_CNT",          "path": "Engine.Misfires", "fmt": {"bix": 24, "len": 8,  "max": 255,                                                    "unit": "scalar"  }, "name": "Cylinder #1 misfire count"},
-    {"id": "DAIHATSU_CYL2_MISFIRE_CNT",          "path": "Engine.Misfires", "fmt": {"bix": 32, "len": 8,  "max": 255,                                                    "unit": "scalar"  }, "name": "Cylinder #2 misfire count"},
-    {"id": "DAIHATSU_CYL3_MISFIRE_CNT",          "path": "Engine.Misfires", "fmt": {"bix": 40, "len": 8,  "max": 255,                                                    "unit": "scalar"  }, "name": "Cylinder #3 misfire count"},
-    {"id": "DAIHATSU_CYL4_MISFIRE_CNT",          "path": "Engine.Misfires", "fmt": {"bix": 48, "len": 8,  "max": 255,                                                    "unit": "scalar"  }, "name": "Cylinder #4 misfire count"},
-    {"id": "DAIHATSU_ALL_CYLINDERS_MISFIRE_CNT", "path": "Engine.Misfires", "fmt": {"bix": 56, "len": 8,  "max": 255,                                                    "unit": "scalar"  }, "name": "All cylinders misfire count"},
-    {"id": "DAIHATSU_IGNITION_TRIG_CNT",         "path": "Control",         "fmt": {"bix": 64, "len": 16, "max": 65535,                                                  "unit": "scalar"  }, "name": "Ignition trigger count"},
-    {"id": "DAIHATSU_MISFIRE_MARGIN_V2",         "path": "Engine.Misfires", "fmt": {"bix": 80, "len": 8,  "max": 127,   "min": -128,                        "add": -128, "unit": "percent" }, "name": "Misfire margin"}
+    {"id": "DAIHATSU_HR_MISFIRE_RPM_7E0",           "path": "Engine",          "fmt": {"bix": 8,  "len": 8,  "max": 6375,               "mul": 25,                          "unit": "rpm"     }, "name": "Misfire RPM"},
+    {"id": "DAIHATSU_HR_MISFIRE_LOAD_7E0",          "path": "Engine.Misfires", "fmt": {"bix": 16, "len": 8,  "max": 3.98,               "mul": 4,  "div": 256,              "unit": "scalar"  }, "name": "Misfire load"},
+    {"id": "DAIHATSU_HR_CYL1_MISFIRE_CNT",          "path": "Engine.Misfires", "fmt": {"bix": 24, "len": 8,  "max": 255,                                                    "unit": "scalar"  }, "name": "Cylinder #1 misfire count"},
+    {"id": "DAIHATSU_HR_CYL2_MISFIRE_CNT",          "path": "Engine.Misfires", "fmt": {"bix": 32, "len": 8,  "max": 255,                                                    "unit": "scalar"  }, "name": "Cylinder #2 misfire count"},
+    {"id": "DAIHATSU_HR_CYL3_MISFIRE_CNT",          "path": "Engine.Misfires", "fmt": {"bix": 40, "len": 8,  "max": 255,                                                    "unit": "scalar"  }, "name": "Cylinder #3 misfire count"},
+    {"id": "DAIHATSU_HR_CYL4_MISFIRE_CNT",          "path": "Engine.Misfires", "fmt": {"bix": 48, "len": 8,  "max": 255,                                                    "unit": "scalar"  }, "name": "Cylinder #4 misfire count"},
+    {"id": "DAIHATSU_HR_ALL_CYLINDERS_MISFIRE_CNT", "path": "Engine.Misfires", "fmt": {"bix": 56, "len": 8,  "max": 255,                                                    "unit": "scalar"  }, "name": "All cylinders misfire count"},
+    {"id": "DAIHATSU_HR_IGNITION_TRIG_CNT",         "path": "Control",         "fmt": {"bix": 64, "len": 16, "max": 65535,                                                  "unit": "scalar"  }, "name": "Ignition trigger count"},
+    {"id": "DAIHATSU_HR_MISFIRE_MARGIN_7E0",        "path": "Engine.Misfires", "fmt": {"bix": 80, "len": 8,  "max": 127,   "min": -128,                        "add": -128, "unit": "percent" }, "name": "Misfire margin"}
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"21": "47"}, "freq": 1,
   "signals": [
@@ -2065,20 +2152,20 @@
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"21": "49"}, "freq": 3600,
   "signals": [
-    {"id": "DAIHATSU_REQ_ENG_TQ",           "path": "Engine",   "fmt": {           "len": 16, "max": 16383,                                     "div": 4,                 "unit": "scalar"       }, "name": "Requested engine torque"},
-    {"id": "DAIHATSU_HIGH_V_TGT_RPM",       "path": "Movement", "fmt": {"bix": 16, "len": 8,  "max": 6375,                 "mul": 25,                                     "unit": "rpm"          }, "name": "High voltage, target engine speed"},
-    {"id": "DAIHATSU_ACT_ENG_TQ",           "path": "Engine",   "fmt": {"bix": 24, "len": 16, "max": 32767, "min": -32768,                                 "add": -32768, "unit": "newtonMeters" }, "name": "Actual engine torque"},
-    {"id": "DAIHATSU_ENG_RUN_TIME_UP_255",  "path": "Engine",   "fmt": {"bix": 40, "len": 8,  "max": 255,                                                                 "unit": "seconds"      }, "name": "Engine run time, up to 255 sec. only"},
-    {"id": "DAIHATSU_REQ_ENG_RUN_TIME",     "path": "Engine",   "fmt": {"bix": 48, "len": 8,  "max": 25.5,                                      "div": 10,                "unit": "seconds"      }, "name": "Request engine run time"},
-    {"id": "DAIHATSU_JUDGE_TIME_ENG_IGN",   "path": "Engine",   "fmt": {"bix": 56, "len": 8,  "max": 25.5,                                      "div": 10,                "unit": "seconds"      }, "name": "Judge time engine ignition"},
-    {"id": "DAIHATSU_JUDGE_TIME_ENG",       "path": "Engine",   "fmt": {"bix": 64, "len": 8,  "max": 25.5,                                      "div": 10,                "unit": "seconds"      }, "name": "Judge time engine output"},
-    {"id": "DAIHATSU_IDLE_SPD_CTRL_L_S",    "path": "Engine",   "fmt": {"bix": 72, "len": 16, "max": 79.99,                "mul": 0.0012206912,                           "unit": "scalar"       }, "name": "Idle speed control learning value, l/s"},
-    {"id": "DAIHATSU_ENG_INDEPENDENT_CTRL", "path": "Engine",   "fmt": {"bix": 88, "len": 1,  "max": 1,                                                                   "unit": "offon"        }, "name": "Engine independent control"},
-    {"id": "DAIHATSU_REQ_WARM_UP",          "path": "Engine",   "fmt": {"bix": 89, "len": 1,  "max": 1,                                                                   "unit": "offon"        }, "name": "Request warm-up"},
-    {"id": "DAIHATSU_RACING_OPERATION",     "path": "Engine",   "fmt": {"bix": 90, "len": 1,  "max": 1,                                                                   "unit": "offon"        }, "name": "Racing operation"},
-    {"id": "DAIHATSU_ENG_INDEPENDENT",      "path": "Engine",   "fmt": {"bix": 91, "len": 1,  "max": 1,                                                                   "unit": "offon"        }, "name": "Engine independent"},
-    {"id": "DAIHATSU_F_C_ENG_STOP_REQ",     "path": "Engine",   "fmt": {"bix": 92, "len": 1,  "max": 1,                                                                   "unit": "offon"        }, "name": "Fuel cut for engine stop request"},
-    {"id": "DAIHATSU_IDLE_SPD_CTRL",        "path": "Engine",   "fmt": {"bix": 93, "len": 1,  "max": 1,                                                                   "unit": "offon"        }, "name": "Idle speed control learning"}
+    {"id": "DAIHATSU_HR_REQ_ENG_TQ",           "path": "Engine",   "fmt": {           "len": 16, "max": 16383,                                     "div": 4,                 "unit": "scalar"       }, "name": "Requested engine torque"},
+    {"id": "DAIHATSU_HR_HIGH_V_TGT_RPM",       "path": "Movement", "fmt": {"bix": 16, "len": 8,  "max": 6375,                 "mul": 25,                                     "unit": "rpm"          }, "name": "High voltage, target engine speed"},
+    {"id": "DAIHATSU_HR_ACT_ENG_TQ",           "path": "Engine",   "fmt": {"bix": 24, "len": 16, "max": 32767, "min": -32768,                                 "add": -32768, "unit": "newtonMeters" }, "name": "Actual engine torque"},
+    {"id": "DAIHATSU_HR_ENG_RUN_TIME_UP_255",  "path": "Engine",   "fmt": {"bix": 40, "len": 8,  "max": 255,                                                                 "unit": "seconds"      }, "name": "Engine run time, up to 255 sec. only"},
+    {"id": "DAIHATSU_HR_REQ_ENG_RUN_TIME",     "path": "Engine",   "fmt": {"bix": 48, "len": 8,  "max": 25.5,                                      "div": 10,                "unit": "seconds"      }, "name": "Request engine run time"},
+    {"id": "DAIHATSU_HR_JUDGE_TIME_ENG_IGN",   "path": "Engine",   "fmt": {"bix": 56, "len": 8,  "max": 25.5,                                      "div": 10,                "unit": "seconds"      }, "name": "Judge time engine ignition"},
+    {"id": "DAIHATSU_HR_JUDGE_TIME_ENG",       "path": "Engine",   "fmt": {"bix": 64, "len": 8,  "max": 25.5,                                      "div": 10,                "unit": "seconds"      }, "name": "Judge time engine output"},
+    {"id": "DAIHATSU_HR_IDLE_SPD_CTRL_L_S",    "path": "Engine",   "fmt": {"bix": 72, "len": 16, "max": 79.99,                "mul": 0.0012206912,                           "unit": "scalar"       }, "name": "Idle speed control learning value, l/s"},
+    {"id": "DAIHATSU_HR_ENG_INDEPENDENT_CTRL", "path": "Engine",   "fmt": {"bix": 88, "len": 1,  "max": 1,                                                                   "unit": "offon"        }, "name": "Engine independent control"},
+    {"id": "DAIHATSU_HR_REQ_WARM_UP",          "path": "Engine",   "fmt": {"bix": 89, "len": 1,  "max": 1,                                                                   "unit": "offon"        }, "name": "Request warm-up"},
+    {"id": "DAIHATSU_HR_RACING_OPERATION",     "path": "Engine",   "fmt": {"bix": 90, "len": 1,  "max": 1,                                                                   "unit": "offon"        }, "name": "Racing operation"},
+    {"id": "DAIHATSU_HR_ENG_INDEPENDENT",      "path": "Engine",   "fmt": {"bix": 91, "len": 1,  "max": 1,                                                                   "unit": "offon"        }, "name": "Engine independent"},
+    {"id": "DAIHATSU_HR_F_C_ENG_STOP_REQ",     "path": "Engine",   "fmt": {"bix": 92, "len": 1,  "max": 1,                                                                   "unit": "offon"        }, "name": "Fuel cut for engine stop request"},
+    {"id": "DAIHATSU_HR_IDLE_SPD_CTRL",        "path": "Engine",   "fmt": {"bix": 93, "len": 1,  "max": 1,                                                                   "unit": "offon"        }, "name": "Idle speed control learning"}
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"21": "51"}, "freq": 1,
   "signals": [
@@ -2160,11 +2247,11 @@
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"21": "BD"}, "freq": 1,
   "signals": [
-    {"id": "DAIHATSU_TRANS_OUT_RPM", "path": "Engine", "fmt": { "len": 8, "max": 12750, "mul": 50, "unit": "rpm" }, "name": "Transmission output shaft speed"}
+    {"id": "DAIHATSU_HR_TRANS_OUT_RPM", "path": "Engine", "fmt": { "len": 8, "max": 12750, "mul": 50, "unit": "rpm" }, "name": "Transmission output shaft speed"}
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"21": "BE"}, "freq": 1,
   "signals": [
-    {"id": "DAIHATSU_CVT_OIL_P", "path": "Engine", "fmt": { "len": 8, "max": 10200, "mul": 40, "unit": "kilopascal" }, "name": "Continuously variable transmission oil pressure"}
+    {"id": "DAIHATSU_HR_CVT_OIL_P", "path": "Engine", "fmt": { "len": 8, "max": 10200, "mul": 40, "unit": "kilopascal" }, "name": "Continuously variable transmission oil pressure"}
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"21": "C1"}, "freq": 3600,
   "signals": [
@@ -2190,7 +2277,7 @@
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"21": "DD"}, "freq": 1,
   "signals": [
-    {"id": "DAIHATSU_CVT_LEARNED", "path": "Engine", "fmt": {"bix": 7, "len": 1, "max": 1, "unit": "yesno" }, "name": "Continuously variable transmission learning complete"}
+    {"id": "DAIHATSU_HR_CVT_LEARNED", "path": "Engine", "fmt": {"bix": 7, "len": 1, "max": 1, "unit": "yesno" }, "name": "Continuously variable transmission learning complete"}
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"21": "E1"}, "freq": 3600,
   "signals": [
@@ -2206,7 +2293,7 @@
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"21": "E4"}, "freq": 1,
   "signals": [
-    {"id": "DAIHATSU_INJ_PW", "path": "Engine", "fmt": { "len": 8, "max": 32.6, "mul": 163, "div": 1275, "unit": "milliseconds" }, "name": "Injector pulse width"}
+    {"id": "DAIHATSU_HR_INJ_PW", "path": "Engine", "fmt": { "len": 8, "max": 32.6, "mul": 163, "div": 1275, "unit": "milliseconds" }, "name": "Injector pulse width"}
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"21": "E6"}, "freq": 1,
   "signals": [
@@ -2216,11 +2303,11 @@
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"21": "E7"}, "freq": 1,
   "signals": [
-    {"id": "DAIHATSU_EGR_STEP", "path": "Engine", "fmt": { "len": 8, "max": 255, "unit": "scalar" }, "name": "Exhaust gas recirculation valve step"}
+    {"id": "DAIHATSU_HR_EGR_STEP", "path": "Engine", "fmt": { "len": 8, "max": 255, "unit": "scalar" }, "name": "Exhaust gas recirculation valve step"}
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"21": "ED"}, "freq": 1,
   "signals": [
-    {"id": "DAIHATSU_EGR_T", "path": "Engine", "fmt": { "len": 8, "max": 159, "mul": 53, "div": 85, "unit": "celsius" }, "name": "Exhaust gas recirculation temperature"}
+    {"id": "DAIHATSU_HR_EGR_T", "path": "Engine", "fmt": { "len": 8, "max": 159, "mul": 53, "div": 85, "unit": "celsius" }, "name": "Exhaust gas recirculation temperature"}
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"21": "F3"}, "freq": 1,
   "signals": [
