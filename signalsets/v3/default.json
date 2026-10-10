@@ -153,7 +153,7 @@
   ]},
 { "hdr": "6F1", "rax": "618", "eax": "18", "fcm1": true, "dbg": true, "cmd": {"22": "DA23"}, "freq": 15,
   "signals": [
-    {"id": "DAIHATSU_ODO_V2", "path": "Trips", "fmt": { "len": 32, "max": 1000000, "mul": 8, "unit": "kilometers" }, "name": "Odometer"}
+    {"id": "DAIHATSU_ODO_V3", "path": "Trips", "fmt": { "len": 32, "max": 1000000, "mul": 8, "unit": "kilometers" }, "name": "Odometer"}
   ]},
 { "hdr": "6F1", "rax": "618", "eax": "18", "fcm1": true, "dbg": true, "cmd": {"22": "DA25"}, "freq": 30,
   "signals": [
@@ -868,7 +868,8 @@
   ]},
 { "hdr": "747", "rax": "74F", "fcm1": true, "dbg": true, "cmd": {"22": "0103"}, "freq": 10,
   "signals": [
-    {"id": "DAIHATSU_ODO_V6", "path": "Trips", "fmt": {"bix": 8, "len": 24, "max": 16777215, "unit": "kilometers" }, "name": "Odometer", "suggestedMetric": "odometer"}
+    {"id": "DAIHATSU_ODO_V6", "path": "Trips", "fmt": {"bix": 8, "len": 24, "max": 16777215,                      "unit": "kilometers" }, "name": "Odometer", "suggestedMetric": "odometer"},
+    {"id": "DAIHATSU_ODO_V2", "path": "Trips", "fmt": {"bix": 8, "len": 24, "max": 16777215, "nullmax": 16777215, "unit": "kilometers" }, "name": "Odometer", "suggestedMetric": "odometer"}
   ]},
 { "hdr": "747", "rax": "74F", "dbg": true, "cmd": {"22": "106E"}, "freq": 1,
   "signals": [
